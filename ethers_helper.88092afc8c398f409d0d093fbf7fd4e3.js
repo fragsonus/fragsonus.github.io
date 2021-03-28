@@ -530,7 +530,7 @@ const rewardsContract_stake = async function(stakeTokenAddr, rewardPoolAddr, App
     showLoading()
     allow
       .then(async function() {
-        WEEBTEND_V2_TOKEN.stake(currentTEND, {gasLimit: 500000})
+        WEEBTEND_V2_TOKEN.stake(currentTEND, {gasLimit: 200000})
           .then(function(t) {
             App.provider.waitForTransaction(t.hash).then(function() {
               hideLoading()
@@ -560,7 +560,7 @@ const rewardsContract_unstake = async function(rewardPoolAddr, App) {
 
   if (currentStakedAmount > 0) {
     showLoading()
-    REWARD_POOL.withdraw(currentStakedAmount, {gasLimit: 250000})
+    REWARD_POOL.withdraw(currentStakedAmount, {gasLimit: 200000})
       .then(function(t) {
         return App.provider.waitForTransaction(t.hash)
       })
@@ -578,7 +578,7 @@ const rewardsContract_exit = async function(rewardPoolAddr, App) {
 
   if (currentStakedAmount > 0) {
     showLoading()
-    REWARD_POOL.exit({gasLimit: 250000})
+    REWARD_POOL.exit({gasLimit: 200000})
       .then(function(t) {
         return App.provider.waitForTransaction(t.hash)
       })
@@ -599,7 +599,7 @@ const rewardsContract_claim = async function(rewardPoolAddr, App) {
 
   if (earnedYFFI > 0) {
     showLoading()
-    REWARD_POOL.getReward({gasLimit: 250000})
+    REWARD_POOL.getReward({gasLimit: 200000})
       .then(function(t) {
         return App.provider.waitForTransaction(t.hash)
       })
@@ -620,7 +620,7 @@ const boardroom_claim = async function(rewardPoolAddr, App) {
 
   if (earnedYFFI > 0) {
     showLoading()
-    REWARD_POOL.claimReward({gasLimit: 250000})
+    REWARD_POOL.claimReward({gasLimit: 200000})
       .then(function(t) {
         return App.provider.waitForTransaction(t.hash)
       })
@@ -664,7 +664,7 @@ const chefContract_stake = async function(chefAbi, chefAddress, poolIndex, stake
     showLoading()
     allow
       .then(async function() {
-          CHEF_CONTRACT.deposit(poolIndex, currentTokens, {gasLimit: 500000})
+          CHEF_CONTRACT.deposit(poolIndex, currentTokens, {gasLimit: 200000})
           .then(function(t) {
             App.provider.waitForTransaction(t.hash).then(function() {
               hideLoading()
@@ -693,7 +693,7 @@ const chefContract_unstake = async function(chefAbi, chefAddress, poolIndex, App
 
   if (earnedTokenAmount > 0) {
     showLoading()
-    CHEF_CONTRACT.withdraw(poolIndex, currentStakedAmount, {gasLimit: 500000})
+    CHEF_CONTRACT.withdraw(poolIndex, currentStakedAmount, {gasLimit: 200000})
       .then(function(t) {
         return App.provider.waitForTransaction(t.hash)
       })
@@ -714,13 +714,13 @@ const chefContract_claim = async function(chefAbi, chefAddress, poolIndex, App,
   if (earnedTokenAmount > 0) {
     showLoading()
     if (claimFunction) {
-      claimFunction(poolIndex, {gasLimit: 500000})
+      claimFunction(poolIndex, {gasLimit: 200000})
         .then(function(t) {
           return App.provider.waitForTransaction(t.hash)
         })
     }
     else {
-      CHEF_CONTRACT.deposit(poolIndex, 0, {gasLimit: 500000})
+      CHEF_CONTRACT.deposit(poolIndex, 0, {gasLimit: 200000})
         .then(function(t) {
           return App.provider.waitForTransaction(t.hash)
         })
@@ -740,7 +740,7 @@ const chefContract_emergencyWithdraw = async function(chefAbi, chefAddress, pool
 
   if (currentStakedAmount > 0) {
     showLoading()
-    CHEF_CONTRACT.emergencyWithdraw(poolIndex, {gasLimit: 500000})
+    CHEF_CONTRACT.emergencyWithdraw(poolIndex, {gasLimit: 200000})
       .then(function(t) {
         return App.provider.waitForTransaction(t.hash)
       })
