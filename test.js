@@ -17,7 +17,7 @@ const yumcha_CHEF_ABI = [{"inputs":[{"internalType":"contract yumchaToken","name
 async function main() {  
     const App = await init_ethers();
   
-    _print(`1 Initialized ${App.YOUR_ADDRESS}\n`);
+    _print(`2 Initialized ${App.YOUR_ADDRESS}\n`);
     _print("Reading smart contracts...\n\n");
 
    const yumcha_CHEF_ADDR = "0xe3641C835d9e441f2F36D96c89E19BEDB5E991e7";
@@ -30,8 +30,8 @@ async function main() {
     const tokens = {};
     const prices = await getBscPrices();
 
-    await loadBscChefContract(App, tokens, prices, yumcha_CHEF, yumcha_CHEF_ADDR, yumcha_CHEF_ABI, rewardTokenTicker,
-        "yumcha", null, rewardsPerWeek, "pendingyumcha", [1]);
+    // await loadBscChefContract(App, tokens, prices, yumcha_CHEF, yumcha_CHEF_ADDR, yumcha_CHEF_ABI, rewardTokenTicker,
+    //     "yumcha", null, rewardsPerWeek, "pendingyumcha", [1]);
 
     hideLoading();  
   }
