@@ -30,8 +30,8 @@ async function main() {
     const tokens = {};
     const prices = await getBscPrices();
 
-    // await loadBscChefContract(App, tokens, prices, yumcha_CHEF, yumcha_CHEF_ADDR, yumcha_CHEF_ABI, rewardTokenTicker,
-    //     "yumcha", null, rewardsPerWeek, "pendingyumcha", [1]);
+    await loadBscChefContract(App, tokens, prices, yumcha_CHEF, yumcha_CHEF_ADDR, yumcha_CHEF_ABI, rewardTokenTicker,
+        "yumcha", null, rewardsPerWeek, "pendingyumcha", [1]);
 
     hideLoading();  
   }
