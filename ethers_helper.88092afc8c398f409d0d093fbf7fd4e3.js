@@ -488,7 +488,7 @@ const dao_deposit = async (App, DAO, DOLLAR) => {
   }
   if (balance > 0) {
     try {
-      await DAO.connect(signer).deposit(balance, {gasLimit: 500000});
+      await DAO.connect(signer).deposit(balance, {gasLimit: 200000});
       hideLoading();
     }
     catch (ex) {
