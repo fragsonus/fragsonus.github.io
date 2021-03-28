@@ -18,7 +18,7 @@ async function main() {
     const App = await init_ethers();
   
     _print(`Initialized ${App.YOUR_ADDRESS}\n`);
-    _print("Reading smart contracts...\n");
+    _print("Reading smart contracts...\n\n");
 
    const yumcha_CHEF_ADDR = "0xe3641C835d9e441f2F36D96c89E19BEDB5E991e7";
    const rewardTokenTicker = "yumcha";
