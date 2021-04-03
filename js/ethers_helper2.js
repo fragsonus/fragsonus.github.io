@@ -1591,6 +1591,8 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   }
   _print_link(`Stake ${unstaked.toFixed(fixedDecimals)} ${stakeTokenTicker}`, approveAndStake)
 
+  const card = document.createElement('div');
+  card.setAttribute('class', 'card');
   var x = document.createElement("BUTTON");
   var t = document.createTextNode(`Stake ${unstaked.toFixed(fixedDecimals)} ${stakeTokenTicker}`);
   x.appendChild(t);
