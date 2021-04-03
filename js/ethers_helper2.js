@@ -1597,6 +1597,7 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   var t = document.createTextNode(`Stake ${unstaked.toFixed(fixedDecimals)} ${stakeTokenTicker}`);
   x.appendChild(t);
   x.onclick = approveAndStake;
+  container.appendChild(card);
   card.appendChild(x);
 
   _print_link(`Unstake ${userStaked.toFixed(fixedDecimals)} ${stakeTokenTicker}`, unstake)
