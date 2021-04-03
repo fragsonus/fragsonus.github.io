@@ -1576,6 +1576,8 @@ function printAPR(rewardTokenTicker, rewardPrice, poolRewardsPerWeek,
   }
 }
 
+const app = document.getElementById('root');
+
 function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, pendingRewardsFunction,
     rewardTokenTicker, stakeTokenTicker, unstaked, userStaked, pendingRewardTokens, fixedDecimals,
     claimFunction, rewardTokenPrice) {
@@ -1598,19 +1600,19 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   var t = document.createTextNode(`Stake ${unstaked.toFixed(fixedDecimals)} ${stakeTokenTicker}`);
   x.appendChild(t);
   x.onclick = approveAndStake;
-  document.body.appendChild(x);
+  app.appendChild(x);
 
   var x = document.createElement("BUTTON");
   var t = document.createTextNode(`Unstake ${userStaked.toFixed(fixedDecimals)} ${stakeTokenTicker}`);
   x.appendChild(t);
   x.onclick = unstake;
-  document.body.appendChild(x);
+  app.appendChild(x);
 
   var x = document.createElement("BUTTON");
   var t = document.createTextNode(`Claim ${pendingRewardTokens.toFixed(fixedDecimals)} ${rewardTokenTicker} ($${formatMoney(pendingRewardTokens*rewardTokenPrice)})`);
   x.appendChild(t);
   x.onclick = claim;
-  document.body.appendChild(x);
+  app.appendChild(x);
  
   if  (chefAddr == "0x0De845955E2bF089012F682fE9bC81dD5f11B372") {
     const emergencyWithdraw = async function() {
