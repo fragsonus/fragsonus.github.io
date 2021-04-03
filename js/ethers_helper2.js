@@ -1594,6 +1594,8 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   _print_link(`Claim ${pendingRewardTokens.toFixed(fixedDecimals)} ${rewardTokenTicker} ($${formatMoney(pendingRewardTokens*rewardTokenPrice)})`, claim)
   _print(`Staking or unstaking also claims rewards.`)
   
+  // EXTRA BUTTONS ********************************************
+
   buttonlocation = document.getElementById(poolIndex);
 
   var x = document.createElement("BUTTON");
@@ -1613,6 +1615,8 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   x.appendChild(t);
   x.onclick = claim;
   buttonlocation.appendChild(x);
+
+  // **********************************************************
  
   if  (chefAddr == "0x0De845955E2bF089012F682fE9bC81dD5f11B372") {
     const emergencyWithdraw = async function() {
@@ -1638,6 +1642,25 @@ function printChefPool(App, chefAbi, chefAddr, prices, tokens, poolInfo, poolInd
   const staked_tvl = sp?.staked_tvl ?? poolPrices.staked_tvl;
   poolPrices.print_price();
   sp?.print_price();
+  
+  // EXTRA BUTTONS ********************************************
+
+  buttonlocation = document.getElementById(poolIndex);
+
+  var x = document.createElement("BUTTON");
+  var t = document.createTextNode(poolPrices.print_price());
+  x.appendChild(t);
+  x.onclick = approveAndStake;
+  buttonlocation.appendChild(x);
+
+  var x = document.createElement("BUTTON");
+  var t = document.createTextNode(sp?.print_price());
+  x.appendChild(t);
+  x.onclick = unstake;
+  buttonlocation.appendChild(x);
+
+  // **********************************************************
+
   const apr = printAPR(rewardTokenTicker, rewardPrice, poolRewardsPerWeek, poolPrices.stakeTokenTicker, 
     staked_tvl, userStaked, poolPrices.price, fixedDecimals);
   if (poolInfo.userLPStaked > 0) sp?.print_contained_price(userStaked);
