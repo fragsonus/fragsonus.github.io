@@ -1645,19 +1645,7 @@ function printChefPool(App, chefAbi, chefAddr, prices, tokens, poolInfo, poolInd
   
   // EXTRA BUTTONS ********************************************
 
-  buttonlocation = document.getElementById(poolIndex);
 
-  var x = document.createElement("BUTTON");
-  var t = document.createTextNode(poolPrices.print_price());
-  x.appendChild(t);
-  x.onclick = approveAndStake;
-  buttonlocation.appendChild(x);
-
-  var x = document.createElement("BUTTON");
-  var t = document.createTextNode(sp?.print_price());
-  x.appendChild(t);
-  x.onclick = unstake;
-  buttonlocation.appendChild(x);
 
   // **********************************************************
 
