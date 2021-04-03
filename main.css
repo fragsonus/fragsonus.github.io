@@ -101,6 +101,7 @@ a {
   font-size: 1rem;
   background: #E76C67;
   border: 1px solid #E76C67;
+  border-radius: 5px;
   padding: 10px 15px;
   color: white;
   text-decoration: none;
