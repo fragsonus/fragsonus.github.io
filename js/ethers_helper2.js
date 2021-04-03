@@ -1590,16 +1590,11 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
     return chefContract_claim(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction, claimFunction)
   }
   _print_link(`Stake ${unstaked.toFixed(fixedDecimals)} ${stakeTokenTicker}`, approveAndStake)
-  
-  app.appendChild(container);
-  const card = document.createElement('div');
-  card.setAttribute('class', 'card');
+
   var x = document.createElement("BUTTON");
   var t = document.createTextNode(`Stake ${unstaked.toFixed(fixedDecimals)} ${stakeTokenTicker}`);
   x.appendChild(t);
   x.onclick = approveAndStake;
-  container.appendChild(card);
-  card.appendChild(x);
 
   _print_link(`Unstake ${userStaked.toFixed(fixedDecimals)} ${stakeTokenTicker}`, unstake)
   _print_link(`Claim ${pendingRewardTokens.toFixed(fixedDecimals)} ${rewardTokenTicker} ($${formatMoney(pendingRewardTokens*rewardTokenPrice)})`, claim)
