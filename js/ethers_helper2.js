@@ -1590,7 +1590,8 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
     return chefContract_claim(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction, claimFunction)
   }
   _print_link(`Stake ${unstaked.toFixed(fixedDecimals)} ${stakeTokenTicker}`, approveAndStake)
-
+  
+  app.appendChild(container);
   const card = document.createElement('div');
   card.setAttribute('class', 'card');
   var x = document.createElement("BUTTON");
