@@ -1576,8 +1576,6 @@ function printAPR(rewardTokenTicker, rewardPrice, poolRewardsPerWeek,
   }
 }
 
-const app = document.getElementById('root');
-
 function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, pendingRewardsFunction,
     rewardTokenTicker, stakeTokenTicker, unstaked, userStaked, pendingRewardTokens, fixedDecimals,
     claimFunction, rewardTokenPrice) {
@@ -1595,24 +1593,26 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   _print_link(`Unstake ${userStaked.toFixed(fixedDecimals)} ${stakeTokenTicker}`, unstake)
   _print_link(`Claim ${pendingRewardTokens.toFixed(fixedDecimals)} ${rewardTokenTicker} ($${formatMoney(pendingRewardTokens*rewardTokenPrice)})`, claim)
   _print(`Staking or unstaking also claims rewards.`)
+  
+  buttonlocation = document.getElementById('farm'&poolIndex);
 
   var x = document.createElement("BUTTON");
   var t = document.createTextNode(`Stake ${unstaked.toFixed(fixedDecimals)} ${stakeTokenTicker}`);
   x.appendChild(t);
   x.onclick = approveAndStake;
-  app.appendChild(x);
+  buttonlocation.appendChild(x);
 
   var x = document.createElement("BUTTON");
   var t = document.createTextNode(`Unstake ${userStaked.toFixed(fixedDecimals)} ${stakeTokenTicker}`);
   x.appendChild(t);
   x.onclick = unstake;
-  app.appendChild(x);
+  buttonlocation.appendChild(x);
 
   var x = document.createElement("BUTTON");
   var t = document.createTextNode(`Claim ${pendingRewardTokens.toFixed(fixedDecimals)} ${rewardTokenTicker} ($${formatMoney(pendingRewardTokens*rewardTokenPrice)})`);
   x.appendChild(t);
   x.onclick = claim;
-  app.appendChild(x);
+  buttonlocation.appendChild(x);
  
   if  (chefAddr == "0x0De845955E2bF089012F682fE9bC81dD5f11B372") {
     const emergencyWithdraw = async function() {
