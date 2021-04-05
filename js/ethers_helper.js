@@ -1159,7 +1159,7 @@ function getParameterCaseInsensitive(object, key) {
   ];
 }
 
-function formatMoney(amount, decimalCount = 2, decimal = ".", thousands = ",") {
+function formatMoney(amount, decimalCount = 0, decimal = ".", thousands = ",") {
   try {
     decimalCount = Math.abs(decimalCount);
     decimalCount = isNaN(decimalCount) ? 2 : decimalCount;
@@ -1696,8 +1696,9 @@ async function loadChefContract(App, chef, chefAddress, chefAbi, rewardTokenTick
     _print_bold(`\nYou are staking a total of $${formatMoney(totalUserStaked)} at an average APR of ${(averageApr * 100).toFixed(2)}%`)
     _print(`Estimated earnings:`
         + ` Day $${formatMoney(totalUserStaked*averageApr/365)}`
-        + ` Week $${formatMoney(totalUserStaked*averageApr/52)}`
+        // + ` Week $${formatMoney(totalUserStaked*averageApr/52)}`
         + ` Year $${formatMoney(totalUserStaked*averageApr)}\n`);
+    _print(``);
   }
   return { prices, totalUserStaked, totalStaked, averageApr }
 }
