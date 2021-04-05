@@ -1491,7 +1491,8 @@ function getErc20Prices(prices, pool, chain="eth") {
       poolUrl=`https://cchain.explorer.avax.network/address/${pool.address}`;
       break;
   }
-  const name = `<a href='${poolUrl}' target='_blank'>${pool.symbol}</a>`;
+  // const name = `<a href='${poolUrl}' target='_blank'>${pool.symbol}</a>`;
+  const name = `<h2>${pool.symbol}</h2>`;
   return {
     staked_tvl : staked_tvl,
     price : price,
