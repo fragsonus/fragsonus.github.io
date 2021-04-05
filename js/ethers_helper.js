@@ -1859,7 +1859,8 @@ async function printSynthetixPool(App, info, chain="eth") {
         _print(`Estimated ${info.rewardTokenTicker} earnings:`
             + ` Day ${userDailyRewards.toFixed(0)} ($${formatMoney(userDailyRewards*info.rewardTokenPrice)})`
             // + ` Week ${userWeeklyRewards.toFixed(0)} ($${formatMoney(userWeeklyRewards*info.rewardTokenPrice)})`
-            // + ` Year ${userYearlyRewards.toFixed(0)} ($${formatMoney(userYearlyRewards*info.rewardTokenPrice)})`);            
+            // + ` Year ${userYearlyRewards.toFixed(0)} ($${formatMoney(userYearlyRewards*info.rewardTokenPrice)})`
+            );            
     }
     const approveTENDAndStake = async function() {
       return rewardsContract_stake(info.stakeTokenAddress, info.stakingAddress, App)
