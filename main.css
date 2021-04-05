@@ -53,10 +53,9 @@ a {
     font-size: 1.75rem;
     line-height: 1.2; }
   .card h2 {
-    margin: 0 0 5px;
-    font-size: 1.00rem;
-    font-weight: 700;
-    color: #E76C67; }
+    margin: 0;
+    font-size: 1.0rem;
+    line-height: 1.0; }
   .card p {
     margin: 0 0 30px;
     color: #666666; }
