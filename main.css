@@ -112,3 +112,50 @@ a {
   .button:hover, .button:focus {
     background: #e0413b;
     border: 1px solid #e0413b; }
+
+/*navigation*/
+.d_top_padding {
+  padding:2em;
+}
+.nav_background {
+  background-color: #282923;
+  position: fixed;
+  top: 0;
+  width:100%;
+  z-index: 1;
+}
+.d_nav { 
+}
+.grid_nav {
+  padding: 5px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+.grid_nav > div{
+  color: white;
+  text-align: center;
+  margin: auto;
+}
+.nav_logo{
+  margin: auto;
+  height: 30px;
+  vertical-align: middle;
+}
+#d_logo {
+  grid-row: 1 / span 2;
+}
+#d_logo a {
+  color: white;
+}
+.nav_titles {
+  font-size:0.7em;
+}
+.nav_titles a {
+  color: #FFFAFA;
+}
+.splash_logo{
+  margin: auto;
+  height: 120px;
+  vertical-align: middle;
+}
+
