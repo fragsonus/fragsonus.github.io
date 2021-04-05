@@ -1289,12 +1289,12 @@ function getUniPrices(tokens, prices, pool)
         //   _print(`${t0.symbol} Price: $${formatMoney(p0)}`)
         // }
         // _print(`${t1.symbol} Price: $${formatMoney(p1)}`)
-        _print(`---Price-----------------------`); 
+        _print(`- Price -`); 
         _print(`${t0.symbol}: $${formatMoney(p0)} || LP: $${formatMoney(price)}`) 
         // _print(`${t0.symbol}: $${formatMoney(p0)} || ${t1.symbol}: $${formatMoney(p1)} || LP: $${formatMoney(price)}`)
         // _print(`Total Staked LP: ${formatMoney0(pool.staked)}`);
         // _print(`Total Staked USD: ${formatMoney0(staked_tvl)}`);
-        _print(`---Total Staked---------------`); 
+        _print(`- Total Staked -`); 
         _print(`USD: $${formatMoney0(staked_tvl)} || LP: ${formatMoney0(pool.staked)}`);
       },
       print_contained_price(userStaked) {
@@ -1513,12 +1513,12 @@ function getErc20Prices(prices, pool, chain="eth") {
     stakeTokenTicker : pool.symbol,
     print_price() {
       _print(`${name}`);
-      _print(`---Price-----------------------`);
+      _print(`- Price -`);
       _print(`$${formatMoney(price)}`);
-      _print(`---Market Cap----------------`);
+      _print(`- Market Cap -`);
       _print(`$${formatMoney0(tvl)}`);
       // _print(`Total Staked: ${pool.staked.toFixed(0)} ${pool.symbol} ($${formatMoney0(staked_tvl)})`);
-      _print(`---Total Staked---------------`); 
+      _print(`- Total Staked -`); 
       _print(`USD: $${formatMoney0(staked_tvl)} || LP: ${formatMoney0(pool.staked)}`);
     },
     print_contained_price() {
@@ -1601,7 +1601,7 @@ function printAPR(rewardTokenTicker, rewardPrice, poolRewardsPerWeek,
   var weeklyAPR = usdPerWeek / staked_tvl * 100;
   var dailyAPR = weeklyAPR / 7;
   var yearlyAPR = weeklyAPR * 52;
-  _print(`---APR-----------------------`); 
+  _print(`- APR -`); 
   _print(`Day: ${dailyAPR.toFixed(1)}% || Year: ${yearlyAPR.toFixed(0)}%`);
   _print(``);
   var userStakedUsd = userStaked * poolTokenPrice;
