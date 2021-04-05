@@ -19,6 +19,8 @@ async function main() {
   
     _print(`Loading...\n`);
     _print(`\n`);
+    _print(`*************************************`);
+    _print(`\n`);
     // _print("Reading smart contracts...\n");
 
    const yumcha_CHEF_ADDR = "0xe3641C835d9e441f2F36D96c89E19BEDB5E991e7";
