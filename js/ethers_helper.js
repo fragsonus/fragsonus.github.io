@@ -1846,7 +1846,7 @@ async function printSynthetixPool(App, info, chain="eth") {
     const weeklyAPR = info.usdPerWeek / info.staked_tvl * 100;
     const dailyAPR = weeklyAPR / 7;
     const yearlyAPR = weeklyAPR * 52;
-    _print(`APR: Day ${dailyAPR.toFixed(0)}% Week ${weeklyAPR.toFixed(0)}% Year ${yearlyAPR.toFixed(0)}%`);
+    _print(`APR: Day ${dailyAPR.toFixed(2)}% Week ${weeklyAPR.toFixed(2)}% Year ${yearlyAPR.toFixed(2)}%`);
     const userStakedUsd = info.userStaked * info.stakeTokenPrice;
     const userStakedPct = userStakedUsd / info.staked_tvl * 100;
     _print(`You are staking ${info.userStaked.toFixed(6)} ${info.stakeTokenTicker} ` +
@@ -1857,10 +1857,9 @@ async function printSynthetixPool(App, info, chain="eth") {
         const userDailyRewards = userWeeklyRewards / 7;
         const userYearlyRewards = userWeeklyRewards * 52;
         _print(`Estimated ${info.rewardTokenTicker} earnings:`
-            + ` Day ${userDailyRewards.toFixed(0)} ($${formatMoney(userDailyRewards*info.rewardTokenPrice)})`
-            // + ` Week ${userWeeklyRewards.toFixed(0)} ($${formatMoney(userWeeklyRewards*info.rewardTokenPrice)})`
-            // + ` Year ${userYearlyRewards.toFixed(0)} ($${formatMoney(userYearlyRewards*info.rewardTokenPrice)})`
-            );            
+            + ` Day ${userDailyRewards.toFixed(2)} ($${formatMoney(userDailyRewards*info.rewardTokenPrice)})`
+            + ` Week ${userWeeklyRewards.toFixed(2)} ($${formatMoney(userWeeklyRewards*info.rewardTokenPrice)})`
+            + ` Year ${userYearlyRewards.toFixed(2)} ($${formatMoney(userYearlyRewards*info.rewardTokenPrice)})`);
     }
     const approveTENDAndStake = async function() {
       return rewardsContract_stake(info.stakeTokenAddress, info.stakingAddress, App)
