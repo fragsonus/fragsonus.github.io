@@ -1289,7 +1289,8 @@ function getUniPrices(tokens, prices, pool)
         // }
         // _print(`${t1.symbol} Price: $${formatMoney(p1)}`)
         _print(`<h3>Prices</h3>`); 
-        _print(`Prices || LP: $${formatMoney(price)} || ${t0.symbol}: $${formatMoney(p0)} || ${t1.symbol}: $${formatMoney(p1)}`) 
+        _print(`${t0.symbol}: $${formatMoney(p0)} || LP: $${formatMoney(price)}`) 
+        // _print(`${t0.symbol}: $${formatMoney(p0)} || ${t1.symbol}: $${formatMoney(p1)} || LP: $${formatMoney(price)}`)
         // _print(`Total Staked LP: ${formatMoney0(pool.staked)}`);
         // _print(`Total Staked USD: ${formatMoney0(staked_tvl)}`);
         _print(`<h3>Staked</h3>`); 
