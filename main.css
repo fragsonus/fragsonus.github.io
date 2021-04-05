@@ -56,6 +56,9 @@ a {
     margin: 0;
     font-size: 1.0rem;
     line-height: 1.0; }
+  .card h3 {
+    margin: 0;
+    font-size: 1.0rem; }
   .card p {
     margin: 0 0 30px;
     color: #666666; }
