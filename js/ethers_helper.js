@@ -1578,8 +1578,8 @@ function printAPR(rewardTokenTicker, rewardPrice, poolRewardsPerWeek,
   var userDailyRewards = userWeeklyRewards / 7;
   var userYearlyRewards = userWeeklyRewards * 52;
   if (userStaked > 0) {
-    _print(`Estimated ${rewardTokenTicker} earnings:`
-        + ` Day ${userDailyRewards.toFixed(0)} ($${formatMoney0(userDailyRewards*rewardPrice)})`
+    _print(`Estimated ${rewardTokenTicker} earnings per`
+        + ` day: ${userDailyRewards.toFixed(0)} ($${formatMoney0(userDailyRewards*rewardPrice)})`
         // + ` Week ${userWeeklyRewards.toFixed(0)} ($${formatMoney0(userWeeklyRewards*rewardPrice)})`
         // + ` Year ${userYearlyRewards.toFixed(0)} ($${formatMoney0(userYearlyRewards*rewardPrice)})`
         );
