@@ -159,3 +159,8 @@ a {
   vertical-align: middle;
 }
 
+/*Code*/
+.pre {
+  background: #eee;
+  padding: 1em;
+}
