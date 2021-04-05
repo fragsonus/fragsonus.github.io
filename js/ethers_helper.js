@@ -1280,7 +1280,8 @@ function getUniPrices(tokens, prices, pool)
         // _print(`<a href='${poolUrl}' target='_blank'>${stakeTokenTicker}</a>`);
         _print(`<h2>${stakeTokenTicker}</h2>`);
         _print(`${helperHrefs}`);
-        _print(`LP Price: $${formatMoney(price)} TVL: $${formatMoney0(tvl)}`);
+        _print(`TVL: $${formatMoney0(tvl)}`);
+        _print(`LP Price: $${formatMoney(price)}`);
         if(p0 < 0.01){
           _print(`${t0.symbol} Price: $${p0.toFixed(5)}`)
         }else{
@@ -1345,7 +1346,8 @@ function getValuePrices(tokens, prices, pool)
         // _print(`<a href='${poolUrl}' target='_blank'>${stakeTokenTicker}</a>`);
         _print(`<h2>${stakeTokenTicker}</h2>`);
         _print(`${helperHrefs}`);
-        _print(`LP Price: $${formatMoney(price)} TVL: $${formatMoney0(tvl)}`);
+        _print(`TVL: $${formatMoney0(tvl)}`);
+        _print(`LP Price: $${formatMoney(price)}`);
         _print(`${t0.symbol} Price: $${formatMoney(p0)}`)
         _print(`${t1.symbol} Price: $${formatMoney(p1)}`)
         _print(`Total Staked: ${pool.staked.toFixed(0)} ${pool.symbol} ($${formatMoney0(staked_tvl)})`);
