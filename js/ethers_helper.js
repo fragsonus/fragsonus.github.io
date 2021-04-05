@@ -1513,8 +1513,11 @@ function getErc20Prices(prices, pool, chain="eth") {
     stakeTokenTicker : pool.symbol,
     print_price() {
       _print(`${name}`);
-      _print(`Price: $${formatMoney(price)} Market Cap: $${formatMoney0(tvl)}`);
-      _print(`Total Staked: ${pool.staked.toFixed(0)} ${pool.symbol} ($${formatMoney0(staked_tvl)})`);
+      _print(`Price: $${formatMoney(price)}`);
+      _print(`Market Cap: $${formatMoney0(tvl)}`);
+      // _print(`Total Staked: ${pool.staked.toFixed(0)} ${pool.symbol} ($${formatMoney0(staked_tvl)})`);
+      _print(`---Total Staked---------------`); 
+      _print(`USD: $${formatMoney0(staked_tvl)} || LP: ${formatMoney0(pool.staked)}`);
     },
     print_contained_price() {
     }
