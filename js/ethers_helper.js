@@ -1348,9 +1348,10 @@ function getValuePrices(tokens, prices, pool)
         _print(`<h2>${stakeTokenTicker}</h2>`);
         _print(`${helperHrefs}`);
         // _print(`TVL: $${formatMoney0(tvl)}`);
-        _print(`LP Price: $${formatMoney(price)}`);
-        _print(`${t0.symbol} Price: $${formatMoney(p0)}`)
-        _print(`${t1.symbol} Price: $${formatMoney(p1)}`)
+        // _print(`LP Price: $${formatMoney(price)}`);
+        // _print(`${t0.symbol} Price: $${formatMoney(p0)}`)
+        // _print(`${t1.symbol} Price: $${formatMoney(p1)}`)
+        _print(`Price LP: $${formatMoney(price)} ${t0.symbol}: $${formatMoney(p0)} ${t1.symbol}: $${formatMoney(p1)}`);
         // _print(`Total Staked LP: ${pool.staked.toFixed(0)} ${pool.symbol}`);
         _print(`Total Staked LP: ${formatMoney0(pool.staked)}`);
         _print(`Total Staked USD: ${formatMoney0(staked_tvl)}`);
