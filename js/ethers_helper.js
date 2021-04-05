@@ -1591,7 +1591,7 @@ function printAPR(rewardTokenTicker, rewardPrice, poolRewardsPerWeek,
   var weeklyAPR = usdPerWeek / staked_tvl * 100;
   var dailyAPR = weeklyAPR / 7;
   var yearlyAPR = weeklyAPR * 52;
-  _print(`APR || Day: ${dailyAPR.toFixed(0)}% || Year: ${yearlyAPR.toFixed(0)}%`);
+  _print(`APR || Day: ${dailyAPR.toFixed(1)}% || Year: ${yearlyAPR.toFixed(0)}%`);
   _print(``);
   var userStakedUsd = userStaked * poolTokenPrice;
   var userStakedPct = userStakedUsd / staked_tvl * 100;
