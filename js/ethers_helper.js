@@ -1846,7 +1846,7 @@ async function printSynthetixPool(App, info, chain="eth") {
     const weeklyAPR = info.usdPerWeek / info.staked_tvl * 100;
     const dailyAPR = weeklyAPR / 7;
     const yearlyAPR = weeklyAPR * 52;
-    _print(`APR: Day ${dailyAPR.toFixed(2)}% Week ${weeklyAPR.toFixed(2)}% Year ${yearlyAPR.toFixed(2)}%`);
+    _print(`APR: Day ${dailyAPR.toFixed(0)}% Week ${weeklyAPR.toFixed(0)}% Year ${yearlyAPR.toFixed(0)}%`);
     const userStakedUsd = info.userStaked * info.stakeTokenPrice;
     const userStakedPct = userStakedUsd / info.staked_tvl * 100;
     _print(`You are staking ${info.userStaked.toFixed(6)} ${info.stakeTokenTicker} ` +
