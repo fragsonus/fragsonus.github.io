@@ -1557,7 +1557,7 @@ function printAPR(rewardTokenTicker, rewardPrice, poolRewardsPerWeek,
   _print(`APR: Day ${dailyAPR.toFixed(2)}% Week ${weeklyAPR.toFixed(2)}% Year ${yearlyAPR.toFixed(2)}%`);
   var userStakedUsd = userStaked * poolTokenPrice;
   var userStakedPct = userStakedUsd / staked_tvl * 100;
-  _print(`You are staking ${userStaked.toFixed(fixedDecimals)} ${stakeTokenTicker} ($${formatMoney(userStakedUsd)}), ${userStakedPct.toFixed(2)}% of the pool.`);
+  _print(`You 123are staking ${userStaked.toFixed(fixedDecimals)} ${stakeTokenTicker} ($${formatMoney(userStakedUsd)}), ${userStakedPct.toFixed(2)}% of the pool.`);
   var userWeeklyRewards = userStakedPct * poolRewardsPerWeek / 100;
   var userDailyRewards = userWeeklyRewards / 7;
   var userYearlyRewards = userWeeklyRewards * 52;
@@ -1849,7 +1849,7 @@ async function printSynthetixPool(App, info, chain="eth") {
     _print(`APR: Day ${dailyAPR.toFixed(2)}% Week ${weeklyAPR.toFixed(2)}% Year ${yearlyAPR.toFixed(2)}%`);
     const userStakedUsd = info.userStaked * info.stakeTokenPrice;
     const userStakedPct = userStakedUsd / info.staked_tvl * 100;
-    _print(`You are staking ${info.userStaked.toFixed(6)} ${info.stakeTokenTicker} ` +
+    _print(`You 456are staking ${info.userStaked.toFixed(6)} ${info.stakeTokenTicker} ` +
            `$${formatMoney(userStakedUsd)} (${userStakedPct.toFixed(2)}% of the pool).`);
     if (info.userStaked > 0) {
       info.poolPrices.print_contained_price(info.userStaked);
