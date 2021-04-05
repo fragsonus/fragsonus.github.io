@@ -1550,14 +1550,14 @@ function printAPR(rewardTokenTicker, rewardPrice, poolRewardsPerWeek,
                   fixedDecimals) {
   var usdPerWeek = poolRewardsPerWeek * rewardPrice;
   fixedDecimals = fixedDecimals ?? 2;
-  _print(`${rewardTokenTicker} Per Week: ${poolRewardsPerWeek.toFixed(fixedDecimals)} ($${formatMoney(usdPerWeek)})`);
+  _print(`${rewardTokenTicker} Per Week: ${poolRewardsPerWeek.toFixed(0)} ($${formatMoney(usdPerWeek).toFixed(0)})`);
   var weeklyAPR = usdPerWeek / staked_tvl * 100;
   var dailyAPR = weeklyAPR / 7;
   var yearlyAPR = weeklyAPR * 52;
   _print(`APR: Day ${dailyAPR.toFixed(0)}% Week ${weeklyAPR.toFixed(0)}% Year ${yearlyAPR.toFixed(0)}%`);
   var userStakedUsd = userStaked * poolTokenPrice;
   var userStakedPct = userStakedUsd / staked_tvl * 100;
-  _print(`You are staking ${userStaked.toFixed(fixedDecimals)} ${stakeTokenTicker} ($${formatMoney(userStakedUsd)}), ${userStakedPct.toFixed(2)}% of the pool.`);
+  _print(`You are staking ${userStaked.toFixed(fixedDecimals)} ${stakeTokenTicker} ($${formatMoney(userStakedUsd).toFixed(0)}), ${userStakedPct.toFixed(2)}% of the pool.`);
   var userWeeklyRewards = userStakedPct * poolRewardsPerWeek / 100;
   var userDailyRewards = userWeeklyRewards / 7;
   var userYearlyRewards = userWeeklyRewards * 52;
