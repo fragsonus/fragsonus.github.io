@@ -1281,15 +1281,17 @@ function getUniPrices(tokens, prices, pool)
         _print(`<h2>${stakeTokenTicker}</h2>`);
         _print(`${helperHrefs}`);
         // _print(`TVL: $${formatMoney0(tvl)}`);
-        _print(`LP Price: $${formatMoney(price)}`);
-        if(p0 < 0.01){
-          _print(`${t0.symbol} Price: $${p0.toFixed(5)}`)
-        }else{
-          _print(`${t0.symbol} Price: $${formatMoney(p0)}`)
-        }
-        _print(`${t1.symbol} Price: $${formatMoney(p1)}`)
-        _print(`Total Staked LP: ${formatMoney0(pool.staked)}`);
-        _print(`Total Staked USD: ${formatMoney0(staked_tvl)}`);
+        // _print(`LP Price: $${formatMoney(price)}`);
+        // if(p0 < 0.01){
+        //   _print(`${t0.symbol} Price: $${p0.toFixed(5)}`)
+        // }else{
+        //   _print(`${t0.symbol} Price: $${formatMoney(p0)}`)
+        // }
+        // _print(`${t1.symbol} Price: $${formatMoney(p1)}`)
+        _print(`Prices - LP: $${formatMoney(price)} ${t0.symbol}: $${formatMoney(p0)} ${t1.symbol}: $${formatMoney(p1)}`) 
+        // _print(`Total Staked LP: ${formatMoney0(pool.staked)}`);
+        // _print(`Total Staked USD: ${formatMoney0(staked_tvl)}`);
+        _print(`Staked - LP: ${formatMoney0(pool.staked)} USD: ${formatMoney0(staked_tvl)}`);
       },
       print_contained_price(userStaked) {
         var userPct = userStaked / pool.totalSupply;
