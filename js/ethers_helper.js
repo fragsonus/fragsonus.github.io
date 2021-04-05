@@ -1175,6 +1175,22 @@ function formatMoney(amount, decimalCount = 2, decimal = ".", thousands = ",") {
   }
 }
 
+function formatMoney0(amount, decimalCount = 0, decimal = ".", thousands = ",") {
+  try {
+    decimalCount = Math.abs(decimalCount);
+    decimalCount = isNaN(decimalCount) ? 0 : decimalCount;
+
+    const negativeSign = amount < 0 ? "-" : "";
+
+    let i = parseInt(amount = Math.abs(Number(amount) || 0).toFixed(decimalCount)).toString();
+    let j = (i.length > 3) ? i.length % 3 : 0;
+
+    return negativeSign + (j ? i.substr(0, j) + thousands : '') + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thousands) + (decimalCount ? decimal + Math.abs(amount - i).toFixed(decimalCount).slice(2) : "");
+  } catch (e) {
+    console.log(e)
+  }
+}
+
 function getUniPrices(tokens, prices, pool)
 {
   var t0 = getParameterCaseInsensitive(tokens,pool.token0);
@@ -1550,22 +1566,22 @@ function printAPR(rewardTokenTicker, rewardPrice, poolRewardsPerWeek,
                   fixedDecimals) {
   var usdPerWeek = poolRewardsPerWeek * rewardPrice;
   fixedDecimals = fixedDecimals ?? 2;
-  _print(`${rewardTokenTicker} Per Week: ${poolRewardsPerWeek.toFixed(0)} ($${formatMoney(usdPerWeek)})`);
+  _print(`${rewardTokenTicker} Per Week: ${poolRewardsPerWeek.toFixed(0)} ($${formatMoney0(usdPerWeek)})`);
   var weeklyAPR = usdPerWeek / staked_tvl * 100;
   var dailyAPR = weeklyAPR / 7;
   var yearlyAPR = weeklyAPR * 52;
   _print(`APR: Day ${dailyAPR.toFixed(0)}% Week ${weeklyAPR.toFixed(0)}% Year ${yearlyAPR.toFixed(0)}%`);
   var userStakedUsd = userStaked * poolTokenPrice;
   var userStakedPct = userStakedUsd / staked_tvl * 100;
-  _print(`You are staking ${userStaked.toFixed(fixedDecimals)} ${stakeTokenTicker} ($${formatMoney(userStakedUsd)}), ${userStakedPct.toFixed(2)}% of the pool.`);
+  _print(`You are staking ${userStaked.toFixed(fixedDecimals)} ${stakeTokenTicker} ($${formatMoney0(userStakedUsd)}), ${userStakedPct.toFixed(2)}% of the pool.`);
   var userWeeklyRewards = userStakedPct * poolRewardsPerWeek / 100;
   var userDailyRewards = userWeeklyRewards / 7;
   var userYearlyRewards = userWeeklyRewards * 52;
   if (userStaked > 0) {
     _print(`Estimated ${rewardTokenTicker} earnings:`
-        + ` Day ${userDailyRewards.toFixed(fixedDecimals)} ($${formatMoney(userDailyRewards*rewardPrice)})`
-        + ` Week ${userWeeklyRewards.toFixed(fixedDecimals)} ($${formatMoney(userWeeklyRewards*rewardPrice)})`
-        + ` Year ${userYearlyRewards.toFixed(fixedDecimals)} ($${formatMoney(userYearlyRewards*rewardPrice)})`);
+        + ` Day ${userDailyRewards.toFixed(fixedDecimals)} ($${formatMoney0(userDailyRewards*rewardPrice)})`
+        + ` Week ${userWeeklyRewards.toFixed(fixedDecimals)} ($${formatMoney0(userWeeklyRewards*rewardPrice)})`
+        + ` Year ${userYearlyRewards.toFixed(fixedDecimals)} ($${formatMoney0(userYearlyRewards*rewardPrice)})`);
   }
   return { 
     userStakedUsd, 
