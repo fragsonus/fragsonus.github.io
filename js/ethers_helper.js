@@ -1278,7 +1278,7 @@ function getUniPrices(tokens, prices, pool)
         const helperHrefs = helperUrls.length == 0 ? "" :
           ` <a href='${helperUrls[0]}' target='_blank'>[+]</a> <a href='${helperUrls[1]}' target='_blank'>[-]</a> <a href='${helperUrls[2]}' target='_blank'>[<=>]</a>`
         _print(`<a href='${poolUrl}' target='_blank'>${stakeTokenTicker}</a>${helperHrefs}`);
-        _print(`Price: $${formatMoney(price)} TVL: $${formatMoney0(tvl)}`);
+        _print(`LP Price: $${formatMoney(price)} TVL: $${formatMoney0(tvl)}`);
         if(p0 < 0.01){
           _print(`${t0.symbol} Price: $${p0.toFixed(5)}`)
         }else{
@@ -1341,7 +1341,7 @@ function getValuePrices(tokens, prices, pool)
         const helperHrefs = helperUrls.length == 0 ? "" :
           ` <a href='${helperUrls[0]}' target='_blank'>[+]</a> <a href='${helperUrls[1]}' target='_blank'>[-]</a> <a href='${helperUrls[2]}' target='_blank'>[<=>]</a>`
         _print(`<a href='${poolUrl}' target='_blank'>${stakeTokenTicker}</a>${helperHrefs}`);
-        _print(`Price: $${formatMoney(price)} TVL: $${formatMoney0(tvl)}`);
+        _print(`LP Price: $${formatMoney(price)} TVL: $${formatMoney0(tvl)}`);
         _print(`${t0.symbol} Price: $${formatMoney(p0)}`)
         _print(`${t1.symbol} Price: $${formatMoney(p1)}`)
         _print(`Total Staked: ${pool.staked.toFixed(0)} ${pool.symbol} ($${formatMoney0(staked_tvl)})`);
@@ -1391,7 +1391,7 @@ function getBalancerPrices(tokens, prices, pool)
       print_price() {
         const poolUrl = `http://pools.balancer.exchange/#/pool/${pool.address}`;
         _print(`<a href='${poolUrl}' target='_blank'>${stakeTokenTicker}</a> BPT`);
-        _print(`Price: $${formatMoney(price)} TVL: $${formatMoney(tvl)}`);
+        _print(`LP Price: $${formatMoney(price)} TVL: $${formatMoney(tvl)}`);
         poolPrices.forEach((p, i) => 
           _print(`${poolTokens[i].symbol} Price: $${formatMoney(p)}`)
         );
@@ -1428,7 +1428,7 @@ function getWrapPrices(tokens, prices, pool)
       stakeTokenTicker : pool.symbol,
       print_price() {
         _print(`${name}`);
-        _print(`Price: $${formatMoney(price)} TVL: $${formatMoney0(tvl)}`);
+        _print(`LP Price: $${formatMoney(price)} TVL: $${formatMoney0(tvl)}`);
         _print(`Total Staked: ${pool.staked.toFixed(0)} ${pool.symbol} ($${formatMoney0(staked_tvl)})`);
       },
       print_contained_price(_) {
@@ -1456,7 +1456,7 @@ function getWrapPrices(tokens, prices, pool)
       stakeTokenTicker : pool.symbol,
       print_price() {
         _print(`${pool.symbol}`);
-        _print(`Price: $${formatMoney(price)} TVL: $${formatMoney0(tvl)}`);
+        _print(`LP Price: $${formatMoney(price)} TVL: $${formatMoney0(tvl)}`);
         _print(`Total Staked: ${pool.staked.toFixed(0)} ${pool.symbol} ($${formatMoney0(staked_tvl)})`);
       },
       print_contained_price(_) {
