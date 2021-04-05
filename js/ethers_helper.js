@@ -1294,7 +1294,7 @@ function getUniPrices(tokens, prices, pool)
         // _print(`${t0.symbol}: $${formatMoney(p0)} || ${t1.symbol}: $${formatMoney(p1)} || LP: $${formatMoney(price)}`)
         // _print(`Total Staked LP: ${formatMoney0(pool.staked)}`);
         // _print(`Total Staked USD: ${formatMoney0(staked_tvl)}`);
-        _print(`- Total Staked -`); 
+        _print(`<u>Total Staked</u>`); 
         _print(`USD: $${formatMoney0(staked_tvl)} || LP: ${formatMoney0(pool.staked)}`);
       },
       print_contained_price(userStaked) {
@@ -1513,12 +1513,12 @@ function getErc20Prices(prices, pool, chain="eth") {
     stakeTokenTicker : pool.symbol,
     print_price() {
       _print(`${name}`);
-      _print(`- Price -`);
+      _print(`<u>Price</u>`);
       _print(`$${formatMoney(price)}`);
-      _print(`- Market Cap -`);
+      _print(`<u>Market Cap</u>`);
       _print(`$${formatMoney0(tvl)}`);
       // _print(`Total Staked: ${pool.staked.toFixed(0)} ${pool.symbol} ($${formatMoney0(staked_tvl)})`);
-      _print(`- Total Staked -`); 
+      _print(`<u>Total Staked</u>`); 
       _print(`USD: $${formatMoney0(staked_tvl)} || LP: ${formatMoney0(pool.staked)}`);
     },
     print_contained_price() {
