@@ -1216,7 +1216,7 @@ function getUniPrices(tokens, prices, pool)
   var price = tvl / pool.totalSupply;
   prices[pool.address] = { usd : price };
   var staked_tvl = pool.staked * price;
-  let stakeTokenTicker = `[${t0.symbol}]-[${t1.symbol}]`;
+  let stakeTokenTicker = `${t0.symbol}-${t1.symbol}`;
   if (pool.is1inch) stakeTokenTicker += " 1INCH LP";
   else if (pool.symbol.includes("LSLP")) stakeTokenTicker += " LSLP";
   else if (pool.symbol.includes("SLP")) stakeTokenTicker += " SLP";
@@ -1323,7 +1323,7 @@ function getValuePrices(tokens, prices, pool)
   var price = tvl / pool.totalSupply;
   prices[pool.address] = { usd : price };
   var staked_tvl = pool.staked * price;
-  let stakeTokenTicker = `[${t0.symbol} ${pool.w0}%]-[${t1.symbol} ${pool.w1}%] Value-LP`;
+  let stakeTokenTicker = `${t0.symbol} ${pool.w0}%-${t1.symbol} ${pool.w1}% Value-LP`;
   return {
       t0, p0, q0, w0 : pool.w0,
       t1, p1, q1, w1 : pool.w1,
