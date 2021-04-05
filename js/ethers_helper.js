@@ -1284,7 +1284,7 @@ function getUniPrices(tokens, prices, pool)
           _print(`${t0.symbol} Price: $${formatMoney(p0)}`)
         }
         _print(`${t1.symbol} Price: $${formatMoney(p1)}`)
-        _print(`Staked: ${pool.staked.toFixed(4)} ${pool.symbol} ($${formatMoney(staked_tvl)})`);
+        _print(`Staked: ${pool.staked.toFixed(0)} ${pool.symbol} ($${formatMoney0(staked_tvl)})`);
       },
       print_contained_price(userStaked) {
         var userPct = userStaked / pool.totalSupply;
@@ -1342,7 +1342,7 @@ function getValuePrices(tokens, prices, pool)
         _print(`<a href='${poolUrl}' target='_blank'>${stakeTokenTicker}</a>${helperHrefs} Price: $${formatMoney(price)} TVL: $${formatMoney(tvl)}`);
         _print(`${t0.symbol} Price: $${formatMoney(p0)}`)
         _print(`${t1.symbol} Price: $${formatMoney(p1)}`)
-        _print(`Staked: ${pool.staked.toFixed(4)} ${pool.symbol} ($${formatMoney(staked_tvl)})`);
+        _print(`Staked: ${pool.staked.toFixed(0)} ${pool.symbol} ($${formatMoney0(staked_tvl)})`);
       },
       print_contained_price(userStaked) {
         var userPct = userStaked / pool.totalSupply;
@@ -1392,7 +1392,7 @@ function getBalancerPrices(tokens, prices, pool)
         poolPrices.forEach((p, i) => 
           _print(`${poolTokens[i].symbol} Price: $${formatMoney(p)}`)
         );
-        _print(`Staked: ${pool.staked.toFixed(4)} ${stakeTokenTicker} ($${formatMoney(staked_tvl)})`);
+        _print(`Staked: ${pool.staked.toFixed(0)} ${stakeTokenTicker} ($${formatMoney0(staked_tvl)})`);
       },
       print_contained_price(userStaked) {
         var userPct = userStaked / pool.totalSupply;
@@ -1424,8 +1424,8 @@ function getWrapPrices(tokens, prices, pool)
       price : price,
       stakeTokenTicker : pool.symbol,
       print_price() {
-        _print(`${name} Price: $${formatMoney(price)} TVL: $${formatMoney(tvl)}`);
-        _print(`Staked: ${pool.staked.toFixed(4)} ${pool.symbol} ($${formatMoney(staked_tvl)})`);
+        _print(`${name} Price: $${formatMoney(price)} TVL: $${formatMoney0(tvl)}`);
+        _print(`Staked: ${pool.staked.toFixed(0)} ${pool.symbol} ($${formatMoney0(staked_tvl)})`);
       },
       print_contained_price(_) {
       }
@@ -1451,8 +1451,8 @@ function getWrapPrices(tokens, prices, pool)
       price : price,
       stakeTokenTicker : pool.symbol,
       print_price() {
-        _print(`${pool.symbol} Price: $${formatMoney(price)} TVL: $${formatMoney(tvl)}`);
-        _print(`Staked: ${pool.staked.toFixed(4)} ${pool.symbol} ($${formatMoney(staked_tvl)})`);
+        _print(`${pool.symbol} Price: $${formatMoney(price)} TVL: $${formatMoney0(tvl)}`);
+        _print(`Staked: ${pool.staked.toFixed(0)} ${pool.symbol} ($${formatMoney0(staked_tvl)})`);
       },
       print_contained_price(_) {
       }
@@ -1488,8 +1488,8 @@ function getErc20Prices(prices, pool, chain="eth") {
     price : price,
     stakeTokenTicker : pool.symbol,
     print_price() {
-      _print(`${name} Price: $${formatMoney(price)} Market Cap: $${formatMoney(tvl)}`);
-      _print(`Staked: ${pool.staked.toFixed(4)} ${pool.symbol} ($${formatMoney(staked_tvl)})`);
+      _print(`${name} Price: $${formatMoney(price)} Market Cap: $${formatMoney0(tvl)}`);
+      _print(`Staked: ${pool.staked.toFixed(0)} ${pool.symbol} ($${formatMoney0(staked_tvl)})`);
     },
     print_contained_price() {
     }
@@ -1507,8 +1507,8 @@ function getCurvePrices(prices, pool) {
     price : price,
     stakeTokenTicker : pool.symbol,
     print_price() {
-      _print(`${name} Price: $${formatMoney(price)} Market Cap: $${formatMoney(tvl)}`);
-      _print(`Staked: ${pool.staked.toFixed(4)} ${pool.symbol} ($${formatMoney(staked_tvl)})`);
+      _print(`${name} Price: $${formatMoney(price)} Market Cap: $${formatMoney0(tvl)}`);
+      _print(`Staked: ${pool.staked.toFixed(0)} ${pool.symbol} ($${formatMoney0(staked_tvl)})`);
     },
     print_contained_price() {
     }
@@ -1566,7 +1566,7 @@ function printAPR(rewardTokenTicker, rewardPrice, poolRewardsPerWeek,
                   fixedDecimals) {
   var usdPerWeek = poolRewardsPerWeek * rewardPrice;
   fixedDecimals = fixedDecimals ?? 2;
-  _print(`${rewardTokenTicker} Per Week: ${poolRewardsPerWeek.toFixed(0)} ($${formatMoney0(usdPerWeek)})`);
+  // _print(`${rewardTokenTicker} Per Week: ${poolRewardsPerWeek.toFixed(0)} ($${formatMoney0(usdPerWeek)})`);
   var weeklyAPR = usdPerWeek / staked_tvl * 100;
   var dailyAPR = weeklyAPR / 7;
   var yearlyAPR = weeklyAPR * 52;
