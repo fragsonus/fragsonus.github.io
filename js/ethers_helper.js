@@ -1636,7 +1636,7 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   _print_link(`Stake ${unstaked.toFixed(fixedDecimals)} ${stakeTokenTicker}`, approveAndStake)
   _print_link(`Unstake ${userStaked.toFixed(fixedDecimals)} ${stakeTokenTicker}`, unstake)
   _print_link(`Claim ${pendingRewardTokens.toFixed(fixedDecimals)} ${rewardTokenTicker} ($${formatMoney(pendingRewardTokens*rewardTokenPrice)})`, claim)
-  _print(`Staking or unstaking also claims rewards.`)
+  // _print(`Staking or unstaking also claims rewards.`)
   _print(``)
   _print(`*************************************`)
   if  (chefAddr == "0x0De845955E2bF089012F682fE9bC81dD5f11B372") {
