@@ -1277,7 +1277,8 @@ function getUniPrices(tokens, prices, pool)
           `https://app.uniswap.org/#/swap?inputCurrency=${t0address}&outputCurrency=${t1address}` ]
         const helperHrefs = helperUrls.length == 0 ? "" :
           ` <a href='${helperUrls[0]}' target='_blank'>[Add LP]</a> <a href='${helperUrls[1]}' target='_blank'>[Rmv LP]</a> <a href='${helperUrls[2]}' target='_blank'>[Swap]</a>`
-        _print(`<a href='${poolUrl}' target='_blank'>${stakeTokenTicker}</a>${helperHrefs}`);
+        _print(`<a href='${poolUrl}' target='_blank'>${stakeTokenTicker}</a>`);
+        _print(`${helperHrefs}`);
         _print(`LP Price: $${formatMoney(price)} TVL: $${formatMoney0(tvl)}`);
         if(p0 < 0.01){
           _print(`${t0.symbol} Price: $${p0.toFixed(5)}`)
@@ -1340,7 +1341,8 @@ function getValuePrices(tokens, prices, pool)
         ]
         const helperHrefs = helperUrls.length == 0 ? "" :
           ` <a href='${helperUrls[0]}' target='_blank'>[Add LP]</a> <a href='${helperUrls[1]}' target='_blank'>[Rmv LP]</a> <a href='${helperUrls[2]}' target='_blank'>[Swap]</a>`
-        _print(`<a href='${poolUrl}' target='_blank'>${stakeTokenTicker}</a>${helperHrefs}`);
+        _print(`<a href='${poolUrl}' target='_blank'>${stakeTokenTicker}</a>`);
+        _print(`${helperHrefs}`);
         _print(`LP Price: $${formatMoney(price)} TVL: $${formatMoney0(tvl)}`);
         _print(`${t0.symbol} Price: $${formatMoney(p0)}`)
         _print(`${t1.symbol} Price: $${formatMoney(p1)}`)
