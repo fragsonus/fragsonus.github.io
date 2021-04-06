@@ -1301,7 +1301,7 @@ function getUniPrices(tokens, prices, pool)
         var userPct = userStaked / pool.totalSupply;
         var q0user = userPct * q0;
         var q1user = userPct * q1;
-        _print(`Your LP tokens comprise of ${q0user.toFixed(4)} ${t0.symbol} + ${q1user.toFixed(4)} ${t1.symbol}`);
+        _print(`Your LP tokens comprise of ${q0user.toFixed(0)} ${t0.symbol} + ${q1user.toFixed(0)} ${t1.symbol}`);
       }
   }
 }
@@ -1368,7 +1368,7 @@ function getValuePrices(tokens, prices, pool)
         var userPct = userStaked / pool.totalSupply;
         var q0user = userPct * q0;
         var q1user = userPct * q1;
-        _print(`Your LP tokens comprise of ${q0user.toFixed(4)} ${t0.symbol} + ${q1user.toFixed(4)} ${t1.symbol}`);
+        _print(`Your LP tokens comprise of ${q0user.toFixed(0)} ${t0.symbol} + ${q1user.toFixed(0)} ${t1.symbol}`);
       }
   }
 }
@@ -1417,7 +1417,7 @@ function getBalancerPrices(tokens, prices, pool)
       },
       print_contained_price(userStaked) {
         var userPct = userStaked / pool.totalSupply;
-        var userQs = quantities.map((q, i) => `${(q * userPct).toFixed(4)} ${poolTokens[i].symbol}`);
+        var userQs = quantities.map((q, i) => `${(q * userPct).toFixed(0)} ${poolTokens[i].symbol}`);
         _print(`Your LP tokens comprise of ${userQs.join(' + ')}`);
       }
   }
