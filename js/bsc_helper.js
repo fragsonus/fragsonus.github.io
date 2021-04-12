@@ -469,6 +469,8 @@ async function loadBscChefContract(App, tokens, prices, chef, chefAddress, chefA
   for (i = 0; i < poolCount; i++) {
   	if (i = 2) {
   		j = 1;
+  	} else {
+  		j = i;
   	}
     if (poolPrices[j]) {
       const apr = printChefPool(App, chefAbi, chefAddress, prices, tokens, poolInfos[j], j, poolPrices[j],
