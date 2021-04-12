@@ -455,30 +455,30 @@ async function loadBscChefContract(App, tokens, prices, chef, chefAddress, chefA
 
   // _print("Finished reading smart contracts.\n");    
 
-  // let aprs = []
-  // for (i = 0; i < poolCount; i++) {
-  //   if (poolPrices[i]) {
-  //     const apr = printChefPool(App, chefAbi, chefAddress, prices, tokens, poolInfos[i], i, poolPrices[i],
-  //       totalAllocPoints, rewardsPerWeek, rewardTokenTicker, rewardTokenAddress,
-  //       pendingRewardsFunction, null, null, "bsc")
-  //     aprs.push(apr);
-  //   }
-  // }
-
   let aprs = []
   for (i = 0; i < poolCount; i++) {
-  	if (i = 2) {
-  		j = 1;
-  	} else {
-  		j = i;
-  	}
-    if (poolPrices[j]) {
-      const apr = printChefPool(App, chefAbi, chefAddress, prices, tokens, poolInfos[j], j, poolPrices[j],
+    if (poolPrices[i]) {
+      const apr = printChefPool(App, chefAbi, chefAddress, prices, tokens, poolInfos[i], i, poolPrices[i],
         totalAllocPoints, rewardsPerWeek, rewardTokenTicker, rewardTokenAddress,
         pendingRewardsFunction, null, null, "bsc")
       aprs.push(apr);
     }
   }
+
+  // let aprs = []
+  // for (i = 0; i < poolCount; i++) {
+  // 	if (i = 2) {
+  // 		j = 1;
+  // 	} else {
+  // 		j = i;
+  // 	}
+  //   if (poolPrices[j]) {
+  //     const apr = printChefPool(App, chefAbi, chefAddress, prices, tokens, poolInfos[j], j, poolPrices[j],
+  //       totalAllocPoints, rewardsPerWeek, rewardTokenTicker, rewardTokenAddress,
+  //       pendingRewardsFunction, null, null, "bsc")
+  //     aprs.push(apr);
+  //   }
+  // }
 
   let totalUserStaked=0, totalStaked=0, averageApr=0;
   for (const a of aprs) {
