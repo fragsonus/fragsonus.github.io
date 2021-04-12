@@ -455,47 +455,15 @@ async function loadBscChefContract(App, tokens, prices, chef, chefAddress, chefA
 
   // _print("Finished reading smart contracts.\n");    
 
-  // let aprs = []
-  // for (i = 0; i < poolCount; i++) {
-  //   if (poolPrices[i]) {
-  //     const apr = printChefPool(App, chefAbi, chefAddress, prices, tokens, poolInfos[i], i, poolPrices[i],
-  //       totalAllocPoints, rewardsPerWeek, rewardTokenTicker, rewardTokenAddress,
-  //       pendingRewardsFunction, null, null, "bsc")
-  //     aprs.push(apr);
-  //   }
-  // }
-
   let aprs = []
-
-  const apr = printChefPool(App, chefAbi, chefAddress, prices, tokens, poolInfos[0], 0, poolPrices[0],
+  for (i = 0; i < poolCount; i++) {
+    if (poolPrices[i]) {
+      const apr = printChefPool(App, chefAbi, chefAddress, prices, tokens, poolInfos[i], i, poolPrices[i],
         totalAllocPoints, rewardsPerWeek, rewardTokenTicker, rewardTokenAddress,
         pendingRewardsFunction, null, null, "bsc")
-  aprs.push(apr);
-
-  const apr = printChefPool(App, chefAbi, chefAddress, prices, tokens, poolInfos[2], 2, poolPrices[2],
-        totalAllocPoints, rewardsPerWeek, rewardTokenTicker, rewardTokenAddress,
-        pendingRewardsFunction, null, null, "bsc")
-  aprs.push(apr);
-
-  const apr = printChefPool(App, chefAbi, chefAddress, prices, tokens, poolInfos[3], 3, poolPrices[3],
-        totalAllocPoints, rewardsPerWeek, rewardTokenTicker, rewardTokenAddress,
-        pendingRewardsFunction, null, null, "bsc")
-  aprs.push(apr);
-
-  const apr = printChefPool(App, chefAbi, chefAddress, prices, tokens, poolInfos[5], 5, poolPrices[5],
-        totalAllocPoints, rewardsPerWeek, rewardTokenTicker, rewardTokenAddress,
-        pendingRewardsFunction, null, null, "bsc")
-  aprs.push(apr);
-
-  const apr = printChefPool(App, chefAbi, chefAddress, prices, tokens, poolInfos[1], 1, poolPrices[1],
-        totalAllocPoints, rewardsPerWeek, rewardTokenTicker, rewardTokenAddress,
-        pendingRewardsFunction, null, null, "bsc")
-  aprs.push(apr);
-
-  const apr = printChefPool(App, chefAbi, chefAddress, prices, tokens, poolInfos[4], 4, poolPrices[4],
-        totalAllocPoints, rewardsPerWeek, rewardTokenTicker, rewardTokenAddress,
-        pendingRewardsFunction, null, null, "bsc")
-  aprs.push(apr);
+      aprs.push(apr);
+    }
+  }
 
   let totalUserStaked=0, totalStaked=0, averageApr=0;
   for (const a of aprs) {
