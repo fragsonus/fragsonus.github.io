@@ -1743,15 +1743,15 @@ async function loadChefContract(App, chef, chefAddress, chefAbi, rewardTokenTick
     }
   }
   averageApr = averageApr / totalUserStaked;
-  _print_bold(`Total Staked: $${formatMoney(totalStaked)}`);
+  _print_bold(`Total Staked: $${formatMoney0(totalStaked)}`);
   totalLocked = totalStaked + 474000 + 55000 + 47000 + 20000;
-  _print_bold(`Total Value Locked: $${formatMoney(totalLocked)} (including UNCX)`);
+  _print_bold(`Total Value Locked: $${formatMoney0(totalLocked)} (including UNCX)`);
     if (totalUserStaked > 0) {
     _print_bold(`\nYou are staking a total of $${formatMoney(totalUserStaked)} at an average APR of ${(averageApr * 100).toFixed(2)}%`)
     _print(`Estimated earnings:`
-        + ` Day $${formatMoney(totalUserStaked*averageApr/365)}`
-        + ` Week $${formatMoney(totalUserStaked*averageApr/52)}`
-        + ` Year $${formatMoney(totalUserStaked*averageApr)}\n`);
+        + ` Day $${formatMoney0(totalUserStaked*averageApr/365)}`
+        // + ` Week $${formatMoney0(totalUserStaked*averageApr/52)}`
+        + ` Year $${formatMoney0(totalUserStaked*averageApr)}\n`);
   }
   return { prices, totalUserStaked, totalStaked, averageApr }
 }
