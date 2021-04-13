@@ -1744,7 +1744,9 @@ async function loadChefContract(App, chef, chefAddress, chefAbi, rewardTokenTick
   }
   averageApr = averageApr / totalUserStaked;
   _print_bold(`Total Staked: $${formatMoney(totalStaked)}`);
-  if (totalUserStaked > 0) {
+  totalLocked = totalStaked + 474000 + 55000 + 47000 + 20000
+  _print_bold(`Total Value Locked: $${formatMoney(totalLocked)} (including UNCX)`);
+    if (totalUserStaked > 0) {
     _print_bold(`\nYou are staking a total of $${formatMoney(totalUserStaked)} at an average APR of ${(averageApr * 100).toFixed(2)}%`)
     _print(`Estimated earnings:`
         + ` Day $${formatMoney(totalUserStaked*averageApr/365)}`
