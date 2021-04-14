@@ -1320,8 +1320,24 @@ function getUniPrices(tokens, prices, pool)
         var t = document.createTextNode(`Buy`);
         x.appendChild(t);
         x.onclick = window.open(`https://exchange.pancakeswap.finance/#/swap?inputCurrency=${t0address}&outputCurrency=${t1address}`);;
-        logger.appendChild(x);          
-        _print(``);
+        logger.appendChild(x);
+
+        var x = document.createElement("BUTTON");
+        var t = document.createTextNode(`Price: $${formatMoney(p0)}`);
+        x.appendChild(t);
+        logger.appendChild(x);
+
+        var x = document.createElement("BUTTON");
+        var t = document.createTextNode(`LP: $${formatMoney(price)}`);
+        x.appendChild(t);
+        logger.appendChild(x);
+
+        var x = document.createElement("BUTTON");
+        var t = document.createTextNode(`TVL: $${formatMoney0(staked_tvl)}`);
+        x.appendChild(t);
+        logger.appendChild(x);
+
+        // _print(``);
         // _print(`TVL: $${formatMoney0(tvl)}`);
         // _print(`LP Price: $${formatMoney(price)}`);
         // if(p0 < 0.01){
@@ -1331,7 +1347,7 @@ function getUniPrices(tokens, prices, pool)
         // }
         // _print(`${t1.symbol} Price: $${formatMoney(p1)}`)
         // _print(`<u>Price</u>`); 
-        _print(`Price: $${formatMoney(p0)} LP: $${formatMoney(price)} TVL: $${formatMoney0(staked_tvl)}`) 
+        // _print(`Price: $${formatMoney(p0)} LP: $${formatMoney(price)} TVL: $${formatMoney0(staked_tvl)}`) 
         // _print(`${t0.symbol}: $${formatMoney(p0)} || ${t1.symbol}: $${formatMoney(p1)} || LP: $${formatMoney(price)}`)
         // _print(`Total Staked LP: ${formatMoney0(pool.staked)}`);
         // _print(`Total Staked USD: ${formatMoney0(staked_tvl)}`);
@@ -1645,12 +1661,18 @@ function printAPR(rewardTokenTicker, rewardPrice, poolRewardsPerWeek,
   var yearlyAPR = weeklyAPR * 52;
   // _print(`<u>APR</u>`); 
   // _print(`Day: ${dailyAPR.toFixed(1)}% || Year: ${yearlyAPR.toFixed(0)}%`);
-  _print(`${yearlyAPR.toFixed(0)}%`);
+  // _print(`${yearlyAPR.toFixed(0)}%`);
+
+  var x = document.createElement("BUTTON");
+  var t = document.createTextNode(`APR: ${yearlyAPR.toFixed(0)}%`);
+  x.appendChild(t);
+  logger.appendChild(x);
+
   _print(``);
   var userStakedUsd = userStaked * poolTokenPrice;
   var userStakedPct = userStakedUsd / staked_tvl * 100;
   // _print(`You are staking ${userStaked.toFixed(fixedDecimals)} ${stakeTokenTicker} ($${formatMoney0(userStakedUsd)}), ${userStakedPct.toFixed(2)}% of the pool.`);
-  _print(`You are staking $${formatMoney0(userStakedUsd)} || ${userStakedPct.toFixed(2)}% of the pool.`);
+  _print(`You are staking $${formatMoney0(userStakedUsd)} or ${userStakedPct.toFixed(2)}% of the pool.`);
   // _print(`You are staking ${userStakedPct.toFixed(2)}% of the pool.`);
   var userWeeklyRewards = userStakedPct * poolRewardsPerWeek / 100;
   var userDailyRewards = userWeeklyRewards / 7;
