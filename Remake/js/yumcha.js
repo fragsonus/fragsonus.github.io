@@ -17,7 +17,7 @@ const yumcha_CHEF_ABI = [{"inputs":[{"internalType":"contract yumchaToken","name
 async function main() {  
     const App = await init_ethers();
   
-    _print(`Loading...\n`);
+    // _print(`Loading...\n`);
     _print(`\n`);
     _print(`*************************************`);
     _print(`\n`);
