@@ -1331,13 +1331,13 @@ function getUniPrices(tokens, prices, pool)
         // }
         // _print(`${t1.symbol} Price: $${formatMoney(p1)}`)
         // _print(`<u>Price</u>`); 
-        _print(`Price: $${formatMoney(p0)} || LP: $${formatMoney(price)}`) 
+        _print(`Price: $${formatMoney(p0)} LP: $${formatMoney(price)} TVL: $${formatMoney0(staked_tvl)}`) 
         // _print(`${t0.symbol}: $${formatMoney(p0)} || ${t1.symbol}: $${formatMoney(p1)} || LP: $${formatMoney(price)}`)
         // _print(`Total Staked LP: ${formatMoney0(pool.staked)}`);
         // _print(`Total Staked USD: ${formatMoney0(staked_tvl)}`);
         // _print(`<u>Total Staked</u>`); 
         // _print(`USD: $${formatMoney0(staked_tvl)} || LP: ${formatMoney0(pool.staked)}`);
-        _print(`$${formatMoney0(staked_tvl)}`);
+        // _print(`$${formatMoney0(staked_tvl)}`);
       },
       print_contained_price(userStaked) {
         var userPct = userStaked / pool.totalSupply;
@@ -1704,7 +1704,7 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   logger.appendChild(x);
 
   var x = document.createElement("BUTTON");
-  var t = document.createTextNode(`Unstake ${userStaked.toFixed(0)}}`);
+  var t = document.createTextNode(`Unstake ${userStaked.toFixed(0)}`);
   x.appendChild(t);
   x.onclick = unstake;
   logger.appendChild(x);
