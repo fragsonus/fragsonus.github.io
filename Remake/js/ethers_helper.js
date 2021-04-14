@@ -703,6 +703,25 @@ const chefContract_unstake = async function(chefAbi, chefAddress, poolIndex, App
   }
 }
 
+const chefContract_unstakhalf = async function(chefAbi, chefAddress, poolIndex, App, pendingRewardsFunction) {
+  const signer = App.provider.getSigner()
+  const CHEF_CONTRACT = new ethers.Contract(chefAddress, chefAbi, signer)
+
+  const currentStakedAmount = (await CHEF_CONTRACT.userInfo(poolIndex, App.YOUR_ADDRESS)).amount
+  const earnedTokenAmount = await CHEF_CONTRACT.callStatic[pendingRewardsFunction](poolIndex, App.YOUR_ADDRESS) / 1e18
+
+  if (earnedTokenAmount > 0) {
+    showLoading()
+    CHEF_CONTRACT.withdraw(poolIndex, currentStakedAmount/2, {gasLimit: 200000})
+      .then(function(t) {
+        return App.provider.waitForTransaction(t.hash)
+      })
+      .catch(function() {
+        hideLoading()
+      })
+  }
+}
+
 const chefContract_claim = async function(chefAbi, chefAddress, poolIndex, App, 
     pendingRewardsFunction, claimFunction) {
   const signer = App.provider.getSigner()
@@ -1637,12 +1656,16 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   }      
   const unstake = async function() {
     return chefContract_unstake(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction)
-  }      
+  }
+  const unstakehalf = async function() {
+    return chefContract_unstakehalf(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction)
+  }       
   const claim = async function() {
     return chefContract_claim(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction, claimFunction)
   }
   _print_link(`Stake ${unstaked.toFixed(fixedDecimals)} ${stakeTokenTicker}`, approveAndStake)
   _print_link(`Unstake ${userStaked.toFixed(fixedDecimals)} ${stakeTokenTicker}`, unstake)
+  _print_link(`Unstake ${userStaked.toFixed(fixedDecimals)/2} ${stakeTokenTicker}`, unstakehalf)
   _print_link(`Claim ${pendingRewardTokens.toFixed(fixedDecimals)} ${rewardTokenTicker} ($${formatMoney(pendingRewardTokens*rewardTokenPrice)})`, claim)
   // _print(`Staking or unstaking also claims rewards.`)
   // _print(``)
