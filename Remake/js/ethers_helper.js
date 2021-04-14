@@ -121,9 +121,9 @@ const consoleInit = function() {
 }
 
 const _print = function(message) {
-  if (!logger) {
+  // if (!logger) {
     logger = document.getElementById('log0')
-  }
+  // }
 
   for (let i = 0; i < arguments.length; i++) {
     if (typeof arguments[i] == 'object') {
