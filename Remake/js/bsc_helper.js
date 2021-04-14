@@ -459,13 +459,15 @@ async function loadBscChefContract(App, tokens, prices, chef, chefAddress, chefA
   for (i = 0; i < poolCount; i++) {
     if (poolPrices[i]) {
       x = 'log' + i ;
-      logger = document.getElementById(x)
+      logger = document.getElementById(x);
       const apr = printChefPool(App, chefAbi, chefAddress, prices, tokens, poolInfos[i], i, poolPrices[i],
         totalAllocPoints, rewardsPerWeek, rewardTokenTicker, rewardTokenAddress,
         pendingRewardsFunction, null, null, "bsc")
       aprs.push(apr);
     }
   }
+
+  logger = document.getElementById('log');
 
   // let aprs = []
   // for (i = 0; i < poolCount; i++) {
