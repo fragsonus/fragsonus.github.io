@@ -2039,7 +2039,7 @@ async function loadBasisFork(data) {
       }
     } 
 
-    _print_bold(`Total staked: $${formatMoney(totalStaked)}`)
+    _print_bold(`Total staked: $${formatMoney0(totalStaked)}`)
 
     hideLoading();
 }
