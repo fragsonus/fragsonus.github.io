@@ -135,6 +135,21 @@ const _print = function(message) {
   }
 }
 
+const _print_ = function(message,i) {
+  if (!logger) {
+    logger = document.getElementById('log'+i)
+  }
+
+  for (let i = 0; i < arguments.length; i++) {
+    if (typeof arguments[i] == 'object') {
+      logger.innerHTML +=
+        (JSON && JSON.stringify ? JSON.stringify(arguments[i], undefined, 2) : arguments[i]) + '<br />'
+    } else {
+      logger.innerHTML += arguments[i] + '<br />'
+    }
+  }
+}
+
 const _print_bold = function(message) {
   if (!logger) {
     logger = document.getElementById('log')
