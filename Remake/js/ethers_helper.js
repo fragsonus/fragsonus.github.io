@@ -1321,7 +1321,7 @@ function getUniPrices(tokens, prices, pool)
         x.appendChild(t);
         x.onclick = window.open(`https://exchange.pancakeswap.finance/#/swap?inputCurrency=${t0address}&outputCurrency=${t1address}`);;
         logger.appendChild(x);          
-
+        _print(``);
         // _print(`TVL: $${formatMoney0(tvl)}`);
         // _print(`LP Price: $${formatMoney(price)}`);
         // if(p0 < 0.01){
