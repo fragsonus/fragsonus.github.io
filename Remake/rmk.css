@@ -73,7 +73,9 @@ a {
     background-position: center center;
     background-repeat: no-repeat; }
   .card .card-content {
-    padding: 30px 30px 40px; }
+    padding: 30px 30px 40px;
+    text-align: center;
+    }
   .card .card-content-start {
     padding: 250px 30px 250px; 
     text-align: center;
