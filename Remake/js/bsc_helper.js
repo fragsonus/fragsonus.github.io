@@ -497,7 +497,7 @@ async function loadBscChefContract(App, tokens, prices, chef, chefAddress, chefA
   _print(``);
   if (totalUserStaked > 0) {
     _print_bold(`\nYou are staking a total of $${formatMoney0(totalUserStaked)} at an average APR of ${(averageApr * 100).toFixed(0)}%`)
-    __print(7,`Estimated earnings:`
+    __print(`Estimated earnings:`
         + ` Day $${formatMoney0(totalUserStaked*averageApr/365)}`
         // + ` Week $${formatMoney0(totalUserStaked*averageApr/52)}`
         + ` Year $${formatMoney0(totalUserStaked*averageApr)}\n`);
