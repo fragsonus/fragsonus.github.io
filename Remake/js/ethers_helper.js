@@ -122,7 +122,7 @@ const consoleInit = function() {
 
 const _print = function(message) {
   if (!logger) {
-    logger = document.getElementById('log')
+    logger = document.getElementById('log0')
   }
 
   for (let i = 0; i < arguments.length; i++) {
