@@ -128,11 +128,11 @@ const _print = function(message) {
   for (let i = 0; i < arguments.length; i++) {
     if (typeof arguments[i] == 'object') {
       logger.innerHTML +=
-        // (JSON && JSON.stringify ? JSON.stringify(arguments[i], undefined, 2) : arguments[i]) + '<br />'
-        (JSON && JSON.stringify ? JSON.stringify(arguments[i], undefined, 2) : arguments[i])
+        (JSON && JSON.stringify ? JSON.stringify(arguments[i], undefined, 2) : arguments[i]) + '<br />'
+        // (JSON && JSON.stringify ? JSON.stringify(arguments[i], undefined, 2) : arguments[i])
     } else {
-      // logger.innerHTML += arguments[i] + '<br />'
-      logger.innerHTML += arguments[i]
+      logger.innerHTML += arguments[i] + '<br />'
+      // logger.innerHTML += arguments[i]
     }
   }
 }
