@@ -1698,19 +1698,19 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   // EXTRA BUTTONS ********************************************
 
   var x = document.createElement("BUTTON");
-  var t = document.createTextNode(`Stake ${unstaked.toFixed(fixedDecimals)} ${stakeTokenTicker}`);
+  var t = document.createTextNode(`Stake ${unstaked.toFixed(0)}`);
   x.appendChild(t);
   x.onclick = approveAndStake;
   logger.appendChild(x);
 
   var x = document.createElement("BUTTON");
-  var t = document.createTextNode(`Unstake ${userStaked.toFixed(fixedDecimals)} ${stakeTokenTicker}`);
+  var t = document.createTextNode(`Unstake ${userStaked.toFixed(0)}}`);
   x.appendChild(t);
   x.onclick = unstake;
   logger.appendChild(x);
 
   var x = document.createElement("BUTTON");
-  var t = document.createTextNode(`Claim ${pendingRewardTokens.toFixed(fixedDecimals)} ${rewardTokenTicker} ($${formatMoney(pendingRewardTokens*rewardTokenPrice)})`);
+  var t = document.createTextNode(`Claim ${pendingRewardTokens.toFixed(0)} ($${formatMoney0(pendingRewardTokens*rewardTokenPrice)})`);
   x.appendChild(t);
   x.onclick = claim;
   logger.appendChild(x);
