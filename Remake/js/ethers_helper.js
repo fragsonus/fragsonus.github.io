@@ -1675,6 +1675,29 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   // _print(`Staking or unstaking also claims rewards.`)
   // _print(``)
   // _print(`*************************************`)
+
+  // EXTRA BUTTONS ********************************************
+
+  var x = document.createElement("BUTTON");
+  var t = document.createTextNode(`Stake ${unstaked.toFixed(fixedDecimals)} ${stakeTokenTicker}`);
+  x.appendChild(t);
+  x.onclick = approveAndStake;
+  logger.appendChild(x);
+
+  var x = document.createElement("BUTTON");
+  var t = document.createTextNode(`Unstake ${userStaked.toFixed(fixedDecimals)} ${stakeTokenTicker}`);
+  x.appendChild(t);
+  x.onclick = unstake;
+  logger.appendChild(x);
+
+  var x = document.createElement("BUTTON");
+  var t = document.createTextNode(`Claim ${pendingRewardTokens.toFixed(fixedDecimals)} ${rewardTokenTicker} ($${formatMoney(pendingRewardTokens*rewardTokenPrice)})`);
+  x.appendChild(t);
+  x.onclick = claim;
+  logger.appendChild(x);
+
+  // EXTRA BUTTONS ********************************************
+
   if  (chefAddr == "0x0De845955E2bF089012F682fE9bC81dD5f11B372") {
     const emergencyWithdraw = async function() {
       return chefContract_emergencyWithdraw(chefAbi, chefAddr, poolIndex, App)
