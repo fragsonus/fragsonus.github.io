@@ -505,6 +505,7 @@ async function loadBscChefContract(App, tokens, prices, chef, chefAddress, chefA
         + ` Day $${formatMoney0(totalUserStaked*averageApr/365)}`
         // + ` Week $${formatMoney0(totalUserStaked*averageApr/52)}`
         + ` Year $${formatMoney0(totalUserStaked*averageApr)}\n`);
+    _print(``);
   }
   return { prices, totalUserStaked, totalStaked, averageApr }
 
