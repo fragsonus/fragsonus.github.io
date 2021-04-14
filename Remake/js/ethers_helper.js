@@ -1301,8 +1301,27 @@ function getUniPrices(tokens, prices, pool)
           ` <a href='${helperUrls[0]}' target='_blank'>[Add LP]</a> <a href='${helperUrls[1]}' target='_blank'>[Rmv LP]</a> <a href='${helperUrls[2]}' target='_blank'>[Buy]</a>`
         // _print(`<a href='${poolUrl}' target='_blank'>${stakeTokenTicker}</a>`);
         _print(`<h2>${stakeTokenTicker}</h2>`);
-        _print(`${helperHrefs}`);
-        _print(``);
+        // _print(`${helperHrefs}`);
+        // _print(``);
+
+        var x = document.createElement("BUTTON");
+        var t = document.createTextNode(`Add LP`);
+        x.appendChild(t);
+        x.onclick = window.open(`https://exchange.pancakeswap.finance/#/add/${t0address}/${t1address}`);
+        logger.appendChild(x);
+
+        var x = document.createElement("BUTTON");
+        var t = document.createTextNode(`Rmv LP`);
+        x.appendChild(t);
+        x.onclick = window.open(`https://exchange.pancakeswap.finance/#/remove/${t0address}/${t1address}`);;
+        logger.appendChild(x);
+
+        var x = document.createElement("BUTTON");
+        var t = document.createTextNode(`Buy`);
+        x.appendChild(t);
+        x.onclick = window.open(`https://exchange.pancakeswap.finance/#/swap?inputCurrency=${t0address}&outputCurrency=${t1address}`);;
+        logger.appendChild(x);          
+
         // _print(`TVL: $${formatMoney0(tvl)}`);
         // _print(`LP Price: $${formatMoney(price)}`);
         // if(p0 < 0.01){
@@ -1668,10 +1687,10 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   const claim = async function() {
     return chefContract_claim(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction, claimFunction)
   }
-  _print_link(`Stake ${unstaked.toFixed(fixedDecimals)} ${stakeTokenTicker}`, approveAndStake)
-  _print_link(`Unstake ${userStaked.toFixed(fixedDecimals)} ${stakeTokenTicker}`, unstake)
-  _print_link(`Unstake ${userStaked.toFixed(fixedDecimals)/2} ${stakeTokenTicker}`, unstakehalf)
-  _print_link(`Claim ${pendingRewardTokens.toFixed(fixedDecimals)} ${rewardTokenTicker} ($${formatMoney(pendingRewardTokens*rewardTokenPrice)})`, claim)
+  // _print_link(`Stake ${unstaked.toFixed(fixedDecimals)} ${stakeTokenTicker}`, approveAndStake)
+  // _print_link(`Unstake ${userStaked.toFixed(fixedDecimals)} ${stakeTokenTicker}`, unstake)
+  // _print_link(`Unstake ${userStaked.toFixed(fixedDecimals)/2} ${stakeTokenTicker}`, unstakehalf)
+  // _print_link(`Claim ${pendingRewardTokens.toFixed(fixedDecimals)} ${rewardTokenTicker} ($${formatMoney(pendingRewardTokens*rewardTokenPrice)})`, claim)
   // _print(`Staking or unstaking also claims rewards.`)
   // _print(``)
   // _print(`*************************************`)
