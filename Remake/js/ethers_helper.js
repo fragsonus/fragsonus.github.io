@@ -1239,7 +1239,8 @@ function getUniPrices(tokens, prices, pool)
   if (pool.is1inch) stakeTokenTicker += " 1INCH LP";
   else if (pool.symbol.includes("LSLP")) stakeTokenTicker += " LSLP";
   else if (pool.symbol.includes("SLP")) stakeTokenTicker += " SLP";
-  else if (pool.symbol.includes("Cake")) stakeTokenTicker += " Cake LP";
+  // else if (pool.symbol.includes("Cake")) stakeTokenTicker += " Cake LP";
+  else if (pool.symbol.includes("Cake")) stakeTokenTicker += "";
   else if (pool.name.includes("Value LP")) stakeTokenTicker += " Value LP";
   else if (pool.symbol.includes("PGL")) stakeTokenTicker += " PGL"
   else stakeTokenTicker += " Uni LP";
@@ -1325,72 +1326,72 @@ function getUniPrices(tokens, prices, pool)
   }
 }
 
-function getValuePrices(tokens, prices, pool)
-{
-  var t0 = getParameterCaseInsensitive(tokens,pool.token0);
-  var p0 = getParameterCaseInsensitive(prices,pool.token0)?.usd;
-  var t1 = getParameterCaseInsensitive(tokens,pool.token1);
-  var p1 = getParameterCaseInsensitive(prices,pool.token1)?.usd;
-  if (p0 == null && p1 == null) {
-      return undefined;
-  }
-  var q0 = pool.q0 / 10 ** t0.decimals;
-  var q1 = pool.q1 / 10 ** t1.decimals;
-  if (p0 == null)
-  {
-      p0 = q1 * p1 / pool.w1 / q0 * pool.w0;
-      prices[pool.token0] = { usd : p0 };
-  }
-  if (p1 == null)
-  {
-      p1 = q0 * p0 / pool.w0 / q1 * pool.w1;
-      prices[pool.token1] = { usd : p1 };
-  }
-  var tvl = q0 * p0 + q1 * p1;
-  var price = tvl / pool.totalSupply;
-  prices[pool.address] = { usd : price };
-  var staked_tvl = pool.staked * price;
-  let stakeTokenTicker = `${t0.symbol} ${pool.w0}%-${t1.symbol} ${pool.w1}% Value-LP`;
-  return {
-      t0, p0, q0, w0 : pool.w0,
-      t1, p1, q1, w1 : pool.w1,
-      price: price,
-      tvl : tvl,
-      staked_tvl : staked_tvl,
-      stakeTokenTicker : stakeTokenTicker,
-      print_price() {
-        const poolUrl = `https://info.vswap.fi/pool/${pool.address}` 
-        const t0address = t0.address;
-        const t1address =  t1.address;
-        const helperUrls = [
-          `https://bsc.valuedefi.io/#/add/${pool.address}`, 
-          `https://bsc.valuedefi.io/#/remove/${pool.address}`, 
-          `https://bsc.valuedefi.io/#/vswap?inputCurrency=${t0address}&outputCurrency=${t1address}` 
-        ]
-        const helperHrefs = helperUrls.length == 0 ? "" :
-          ` <a href='${helperUrls[0]}' target='_blank'>[Add LP]</a> <a href='${helperUrls[1]}' target='_blank'>[Rmv LP]</a> <a href='${helperUrls[2]}' target='_blank'>[Buy]</a>`
-        // _print(`<a href='${poolUrl}' target='_blank'>${stakeTokenTicker}</a>`);
-        _print(`<h2>${stakeTokenTicker}</h2>`);
-        _print(`${helperHrefs}`);
-        _print(``);
-        // _print(`TVL: $${formatMoney0(tvl)}`);
-        // _print(`LP Price: $${formatMoney(price)}`);
-        // _print(`${t0.symbol} Price: $${formatMoney(p0)}`)
-        // _print(`${t1.symbol} Price: $${formatMoney(p1)}`)
-        _print(`Prices - LP: $${formatMoney(price)} ${t0.symbol}: $${formatMoney(p0)} ${t1.symbol}: $${formatMoney(p1)}`);
-        // _print(`Total Staked LP: ${pool.staked.toFixed(0)} ${pool.symbol}`);
-        // _print(`Total Staked LP: ${formatMoney0(pool.staked)}`);
-        // _print(`Total Staked USD: ${formatMoney0(staked_tvl)}`);
-        _print(`Staked - LP: ${formatMoney0(pool.staked)} USD: ${formatMoney0(staked_tvl)}`);
-      },
-      print_contained_price(userStaked) {
-        var userPct = userStaked / pool.totalSupply;
-        var q0user = userPct * q0;
-        var q1user = userPct * q1;
-        _print(`Your LP tokens comprise of ${q0user.toFixed(0)} ${t0.symbol} + ${q1user.toFixed(0)} ${t1.symbol}`);
-      }
-  }
-}
+// function getValuePrices(tokens, prices, pool)
+// {
+//   var t0 = getParameterCaseInsensitive(tokens,pool.token0);
+//   var p0 = getParameterCaseInsensitive(prices,pool.token0)?.usd;
+//   var t1 = getParameterCaseInsensitive(tokens,pool.token1);
+//   var p1 = getParameterCaseInsensitive(prices,pool.token1)?.usd;
+//   if (p0 == null && p1 == null) {
+//       return undefined;
+//   }
+//   var q0 = pool.q0 / 10 ** t0.decimals;
+//   var q1 = pool.q1 / 10 ** t1.decimals;
+//   if (p0 == null)
+//   {
+//       p0 = q1 * p1 / pool.w1 / q0 * pool.w0;
+//       prices[pool.token0] = { usd : p0 };
+//   }
+//   if (p1 == null)
+//   {
+//       p1 = q0 * p0 / pool.w0 / q1 * pool.w1;
+//       prices[pool.token1] = { usd : p1 };
+//   }
+//   var tvl = q0 * p0 + q1 * p1;
+//   var price = tvl / pool.totalSupply;
+//   prices[pool.address] = { usd : price };
+//   var staked_tvl = pool.staked * price;
+//   let stakeTokenTicker = `${t0.symbol} ${pool.w0}%-${t1.symbol} ${pool.w1}% Value-LP`;
+//   return {
+//       t0, p0, q0, w0 : pool.w0,
+//       t1, p1, q1, w1 : pool.w1,
+//       price: price,
+//       tvl : tvl,
+//       staked_tvl : staked_tvl,
+//       stakeTokenTicker : stakeTokenTicker,
+//       print_price() {
+//         const poolUrl = `https://info.vswap.fi/pool/${pool.address}` 
+//         const t0address = t0.address;
+//         const t1address =  t1.address;
+//         const helperUrls = [
+//           `https://bsc.valuedefi.io/#/add/${pool.address}`, 
+//           `https://bsc.valuedefi.io/#/remove/${pool.address}`, 
+//           `https://bsc.valuedefi.io/#/vswap?inputCurrency=${t0address}&outputCurrency=${t1address}` 
+//         ]
+//         const helperHrefs = helperUrls.length == 0 ? "" :
+//           ` <a href='${helperUrls[0]}' target='_blank'>[Add LP]</a> <a href='${helperUrls[1]}' target='_blank'>[Rmv LP]</a> <a href='${helperUrls[2]}' target='_blank'>[Buy]</a>`
+//         // _print(`<a href='${poolUrl}' target='_blank'>${stakeTokenTicker}</a>`);
+//         _print(`<h2>${stakeTokenTicker}</h2>`);
+//         _print(`${helperHrefs}`);
+//         _print(``);
+//         // _print(`TVL: $${formatMoney0(tvl)}`);
+//         // _print(`LP Price: $${formatMoney(price)}`);
+//         // _print(`${t0.symbol} Price: $${formatMoney(p0)}`)
+//         // _print(`${t1.symbol} Price: $${formatMoney(p1)}`)
+//         _print(`Prices - LP: $${formatMoney(price)} ${t0.symbol}: $${formatMoney(p0)} ${t1.symbol}: $${formatMoney(p1)}`);
+//         // _print(`Total Staked LP: ${pool.staked.toFixed(0)} ${pool.symbol}`);
+//         // _print(`Total Staked LP: ${formatMoney0(pool.staked)}`);
+//         // _print(`Total Staked USD: ${formatMoney0(staked_tvl)}`);
+//         _print(`Staked - LP: ${formatMoney0(pool.staked)} USD: ${formatMoney0(staked_tvl)}`);
+//       },
+//       print_contained_price(userStaked) {
+//         var userPct = userStaked / pool.totalSupply;
+//         var q0user = userPct * q0;
+//         var q1user = userPct * q1;
+//         _print(`Your LP tokens comprise of ${q0user.toFixed(0)} ${t0.symbol} + ${q1user.toFixed(0)} ${t1.symbol}`);
+//       }
+//   }
+// }
 
 function getBalancerPrices(tokens, prices, pool)
 {
