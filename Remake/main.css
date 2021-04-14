@@ -10,7 +10,7 @@ html {
   line-height: 1.6; }
 
 body {
-  margin: 0rem 0; }
+  margin: 1rem 0; }
 
 a {
   color: #E76C67;
@@ -126,7 +126,7 @@ a {
 
 /*navigation*/
 .d_top_padding {
-  padding:2em;
+  padding:1em;
 }
 .nav_background {
   background-color: #282923;
