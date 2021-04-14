@@ -175,7 +175,7 @@ a {
 /*Code*/
 .pre {
   background: #F8F8F8;
-  padding: 0.5em;
+  padding: 2em 0.5em 0.5em;
   font-size: 0.95rem;
   margin: 2em;
 }
