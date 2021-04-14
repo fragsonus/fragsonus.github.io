@@ -136,9 +136,9 @@ const _print = function(message) {
 }
 
 const _print5 = function(div, message) {
-  if (!logger) {
+  // if (!logger) {
     logger = document.getElementById('log5')
-  }
+  // }
 
   for (let i = 0; i < arguments.length; i++) {
     if (typeof arguments[i] == 'object') {
