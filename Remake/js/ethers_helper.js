@@ -128,9 +128,11 @@ const _print = function(message) {
   for (let i = 0; i < arguments.length; i++) {
     if (typeof arguments[i] == 'object') {
       logger.innerHTML +=
-        (JSON && JSON.stringify ? JSON.stringify(arguments[i], undefined, 2) : arguments[i]) + '<br />'
+        // (JSON && JSON.stringify ? JSON.stringify(arguments[i], undefined, 2) : arguments[i]) + '<br />'
+        (JSON && JSON.stringify ? JSON.stringify(arguments[i], undefined, 2) : arguments[i])
     } else {
-      logger.innerHTML += arguments[i] + '<br />'
+      // logger.innerHTML += arguments[i] + '<br />'
+      logger.innerHTML += arguments[i]
     }
   }
 }
@@ -1305,12 +1307,12 @@ function getUniPrices(tokens, prices, pool)
         // _print(`LP Price: $${formatMoney(price)}`);
         // if(p0 < 0.01){
         //   _print(`${t0.symbol} Price: $${p0.toFixed(5)}`)
-        // }else{
+        // }else{ 
         //   _print(`${t0.symbol} Price: $${formatMoney(p0)}`)
         // }
         // _print(`${t1.symbol} Price: $${formatMoney(p1)}`)
-        _print(`<u>Price</u>`); 
-        _print(`${t0.symbol}: $${formatMoney(p0)} || LP: $${formatMoney(price)}`) 
+        // _print(`<u>Price</u>`); 
+        _print(`Price: $${formatMoney(p0)} || LP: $${formatMoney(price)}`) 
         // _print(`${t0.symbol}: $${formatMoney(p0)} || ${t1.symbol}: $${formatMoney(p1)} || LP: $${formatMoney(price)}`)
         // _print(`Total Staked LP: ${formatMoney0(pool.staked)}`);
         // _print(`Total Staked USD: ${formatMoney0(staked_tvl)}`);
