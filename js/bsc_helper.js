@@ -494,7 +494,7 @@ async function loadBscChefContract(App, tokens, prices, chef, chefAddress, chefA
   _print_bold(`Yumcha Farms: $${formatMoney0(totalStaked)}`);
    totalLocked = totalStaked + 474000 + 55000 + 47000 + 20000;
   _print_bold(`Yumcha TVL: $${formatMoney0(totalLocked)} (including UNCX)\n`);
-
+  _print(``);
   if (totalUserStaked > 0) {
     _print_bold(`\nYou are staking a total of $${formatMoney0(totalUserStaked)} at an average APR of ${(averageApr * 100).toFixed(0)}%`)
     _print(`Estimated earnings:`
