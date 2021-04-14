@@ -121,24 +121,9 @@ const consoleInit = function() {
 }
 
 const _print = function(message) {
-  // if (!logger) {
-    logger = document.getElementById('log0')
-  // }
-
-  for (let i = 0; i < arguments.length; i++) {
-    if (typeof arguments[i] == 'object') {
-      logger.innerHTML +=
-        (JSON && JSON.stringify ? JSON.stringify(arguments[i], undefined, 2) : arguments[i]) + '<br />'
-    } else {
-      logger.innerHTML += arguments[i] + '<br />'
-    }
+  if (!logger) {
+    logger = document.getElementById('log')
   }
-}
-
-const _print5 = function(div, message) {
-  // if (!logger) {
-    logger = document.getElementById('log5')
-  // }
 
   for (let i = 0; i < arguments.length; i++) {
     if (typeof arguments[i] == 'object') {
