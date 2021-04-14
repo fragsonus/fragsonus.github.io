@@ -1322,6 +1322,8 @@ function getUniPrices(tokens, prices, pool)
         x.onclick = window.open(`https://exchange.pancakeswap.finance/#/swap?inputCurrency=${t0address}&outputCurrency=${t1address}`);;
         logger.appendChild(x);
 
+        _print(``);
+
         var x = document.createElement("BUTTON");
         var t = document.createTextNode(`Price: $${formatMoney(p0)}`);
         x.appendChild(t);
