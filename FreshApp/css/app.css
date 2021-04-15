@@ -64,6 +64,10 @@ button {
           justify-content: space-evenly;
 }
 
+#div {
+  max-width: 960px;
+}
+
 .card {
   position: relative;
   -webkit-transition: all .4s linear;
