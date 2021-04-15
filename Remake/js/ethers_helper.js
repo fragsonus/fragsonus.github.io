@@ -1304,46 +1304,46 @@ function getUniPrices(tokens, prices, pool)
         // _print(`${helperHrefs}`);
         // _print(``);
 
-        var x = document.createElement("BUTTON");
-        var t = document.createTextNode(`${stakeTokenTicker}`);
-        x.appendChild(t);
-        x.onclick = "window.open(`https://google.com`)";
-        logger.appendChild(x);
+        // var x = document.createElement("BUTTON");
+        // var t = document.createTextNode(`${stakeTokenTicker}`);
+        // x.appendChild(t);
+        // x.onclick = "window.open(`https://google.com`)";
+        // logger.appendChild(x);
 
-        var x = document.createElement("BUTTON");
-        var t = document.createTextNode(`Add LP`);
-        x.appendChild(t);
-        x.onclick = "window.open(`https://exchange.pancakeswap.finance/#/add/${t0address}/${t1address}`)";
-        logger.appendChild(x);
+        // var x = document.createElement("BUTTON");
+        // var t = document.createTextNode(`Add LP`);
+        // x.appendChild(t);
+        // x.onclick = "window.open(`https://exchange.pancakeswap.finance/#/add/${t0address}/${t1address}`)";
+        // logger.appendChild(x);
 
-        var x = document.createElement("BUTTON");
-        var t = document.createTextNode(`Rmv LP`);
-        x.appendChild(t);
-        x.onclick = "window.open(`https://exchange.pancakeswap.finance/#/remove/${t0address}/${t1address}`)";;
-        logger.appendChild(x);
+        // var x = document.createElement("BUTTON");
+        // var t = document.createTextNode(`Rmv LP`);
+        // x.appendChild(t);
+        // x.onclick = "window.open(`https://exchange.pancakeswap.finance/#/remove/${t0address}/${t1address}`)";;
+        // logger.appendChild(x);
 
-        var x = document.createElement("BUTTON");
-        var t = document.createTextNode(`Buy`);
-        x.appendChild(t);
-        x.onclick = "window.open(`https://exchange.pancakeswap.finance/#/swap?inputCurrency=${t0address}&outputCurrency=${t1address}`)";;
-        logger.appendChild(x);
+        // var x = document.createElement("BUTTON");
+        // var t = document.createTextNode(`Buy`);
+        // x.appendChild(t);
+        // x.onclick = "window.open(`https://exchange.pancakeswap.finance/#/swap?inputCurrency=${t0address}&outputCurrency=${t1address}`)";;
+        // logger.appendChild(x);
 
-        _print(``);
+        // _print(``);
 
-        var x = document.createElement("BUTTON");
-        var t = document.createTextNode(`Price: $${formatMoney(p0)}`);
-        x.appendChild(t);
-        logger.appendChild(x);
+        // var x = document.createElement("BUTTON");
+        // var t = document.createTextNode(`Price: $${formatMoney(p0)}`);
+        // x.appendChild(t);
+        // logger.appendChild(x);
 
-        var x = document.createElement("BUTTON");
-        var t = document.createTextNode(`LP: $${formatMoney(price)}`);
-        x.appendChild(t);
-        logger.appendChild(x);
+        // var x = document.createElement("BUTTON");
+        // var t = document.createTextNode(`LP: $${formatMoney(price)}`);
+        // x.appendChild(t);
+        // logger.appendChild(x);
 
-        var x = document.createElement("BUTTON");
-        var t = document.createTextNode(`TVL: $${formatMoney0(staked_tvl)}`);
-        x.appendChild(t);
-        logger.appendChild(x);
+        // var x = document.createElement("BUTTON");
+        // var t = document.createTextNode(`TVL: $${formatMoney0(staked_tvl)}`);
+        // x.appendChild(t);
+        // logger.appendChild(x);
 
         // _print(``);
         // _print(`TVL: $${formatMoney0(tvl)}`);
