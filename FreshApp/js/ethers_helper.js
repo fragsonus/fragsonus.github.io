@@ -1863,25 +1863,25 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
     return chefContract_stake100(chefAbi, chefAddr, poolIndex, poolAddress, App)
   }
   const approveAndStake75 = async function() {
-    return chefContract_stake75(chefAbi, chefAddr, poolIndex, poolAddress, App)
+    return chefContract_stake100(chefAbi, chefAddr, poolIndex, poolAddress, App)
   }
   const approveAndStake50 = async function() {
-    return chefContract_stake50(chefAbi, chefAddr, poolIndex, poolAddress, App)
+    return chefContract_stake100(chefAbi, chefAddr, poolIndex, poolAddress, App)
   }
   const approveAndStake25 = async function() {
-    return chefContract_stake25(chefAbi, chefAddr, poolIndex, poolAddress, App)
+    return chefContract_stake100(chefAbi, chefAddr, poolIndex, poolAddress, App)
   }     
   const unstake100 = async function() {
     return chefContract_unstake100(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction)
   }
   const unstake75 = async function() {
-    return chefContract_unstake75(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction)
+    return chefContract_unstake100(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction)
   }
   const unstake50 = async function() {
-    return chefContract_unstake50(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction)
+    return chefContract_unstake100(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction)
   }
   const unstake25 = async function() {
-    return chefContract_unstake25(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction)
+    return chefContract_unstake100(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction)
   }     
   const claim = async function() {
     return chefContract_claim(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction, claimFunction)
