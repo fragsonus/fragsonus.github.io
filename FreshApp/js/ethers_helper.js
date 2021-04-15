@@ -1629,17 +1629,37 @@ function printAPR(rewardTokenTicker, rewardPrice, poolRewardsPerWeek,
 
   buttonlocation = document.getElementById(globalIndex);
 
+  var y = document.createElement("Div");
+  y.setAttribute('class', 'textbox')
+  buttonlocation.appendChild(y);
+
   var x = document.createElement("P");
-  x.innerHTML = `APR: ${yearlyAPR.toFixed(0)}%`;
-  buttonlocation.appendChild(x);
+  x.setAttribute('class', 'alignleft');
+  x.innerHTML = `APR:`;
+  y.appendChild(x);
+
+  var x = document.createElement("P");
+  x.setAttribute('class', 'alignright');
+  x.innerHTML = `${yearlyAPR.toFixed(0)}%`;
+  y.appendChild(x);
 
   var userStakedUsd = userStaked * poolTokenPrice;
   var userStakedPct = userStakedUsd / staked_tvl * 100;
   _print(`You are staking ${userStaked.toFixed(fixedDecimals)} ${stakeTokenTicker} ($${formatMoney(userStakedUsd)}), ${userStakedPct.toFixed(2)}% of the pool.`);
   
+  var y = document.createElement("Div");
+  y.setAttribute('class', 'textbox')
+  buttonlocation.appendChild(y);
+
   var x = document.createElement("P");
-  x.innerHTML = `Staked: $${formatMoney(userStakedUsd)}`;
-  buttonlocation.appendChild(x);
+  x.setAttribute('class', 'alignleft');
+  x.innerHTML = `User Stake:`;
+  y.appendChild(x);
+
+  var x = document.createElement("P");
+  x.setAttribute('class', 'alignright');
+  x.innerHTML = `$${formatMoney(userStakedUsd)}`;
+  y.appendChild(x);
 
   var userWeeklyRewards = userStakedPct * poolRewardsPerWeek / 100;
   var userDailyRewards = userWeeklyRewards / 7;
