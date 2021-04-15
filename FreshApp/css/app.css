@@ -5,6 +5,13 @@
           box-sizing: border-box;
 }
 
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #444444;
+  font-family: 'Nunito', sans-serif;
+  line-height: 1.6; }
+
 body {
   margin: 20px 0;
   background: #6589F9;
