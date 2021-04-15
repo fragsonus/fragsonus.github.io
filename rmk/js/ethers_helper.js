@@ -1528,6 +1528,13 @@ function printAPR(rewardTokenTicker, rewardPrice, poolRewardsPerWeek,
   var dailyAPR = weeklyAPR / 7;
   var yearlyAPR = weeklyAPR * 52;
   _print(`APR: Day ${dailyAPR.toFixed(2)}% Week ${weeklyAPR.toFixed(2)}% Year ${yearlyAPR.toFixed(2)}%`);
+
+  buttonlocation = document.getElementById(globalIndex);
+
+  var x = document.createElement("P");
+  x.innerHTML = `APR ${yearlyAPR.toFixed(2)}%`;
+  buttonlocation.appendChild(x);
+
   var userStakedUsd = userStaked * poolTokenPrice;
   var userStakedPct = userStakedUsd / staked_tvl * 100;
   _print(`You are staking ${userStaked.toFixed(fixedDecimals)} ${stakeTokenTicker} ($${formatMoney(userStakedUsd)}), ${userStakedPct.toFixed(2)}% of the pool.`);
