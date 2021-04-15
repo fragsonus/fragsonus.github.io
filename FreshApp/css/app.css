@@ -13,14 +13,14 @@ html {
   line-height: 1.6; }
 
 a {
-color: #ff5f86;
+color: #E6280F;
 text-decoration: none;
 -webkit-transition: all .3s ease;
 transition: all .3s ease; }
 
 body {
   margin: 20px 0;
-  background: #6589F9;
+  background: #00A0DC;
 }
 
 .grid {
@@ -64,13 +64,13 @@ body {
 }
 
 .front {
-  background: #ffd85f;
+  background: #FFD200;
 }
 
 .back {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
-  background-color: #ffebac;
+  background-color: #46AF37;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
