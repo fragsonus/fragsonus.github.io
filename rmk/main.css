@@ -110,12 +110,3 @@ a {
   .button:hover, .button:focus {
     background: #e0413b;
     border: 1px solid #e0413b; }
-
-button {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    outline: none;
-    border: 0;
-    background: transparent;
-}
