@@ -45,7 +45,6 @@ a {
   -webkit-transition: all .3s ease;
   transition: all .3s ease;
   position: relative; 
-  width: 50%;
   }
   .card:hover {
     -webkit-box-shadow: 2px 6px 30px rgba(0, 0, 0, 0.2);
