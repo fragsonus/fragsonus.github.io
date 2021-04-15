@@ -75,7 +75,8 @@ p {
 }
 
 .front {
-  background: #FED983;
+  background: #FEEEA6;
+  border: 10px solid #FED983;
 }
 
 .back {
