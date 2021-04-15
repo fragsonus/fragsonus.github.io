@@ -124,7 +124,7 @@ text-align:right;
 
 .alignleft4 {
 width:25%;
-text-align:left;
+text-align:center;
 }
 .alignmidleft4 {
 width:25%;
@@ -132,11 +132,11 @@ text-align:center;
 }
 .alignmidright4 {
 width:25%;
-text-align:right;
+text-align:center;
 }
 .alignright4 {
 width:25%;
-text-align:right;
+text-align:center;
 }
 
 .center {

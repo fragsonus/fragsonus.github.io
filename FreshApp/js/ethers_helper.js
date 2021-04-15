@@ -1827,7 +1827,7 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
 
   var x = document.createElement("P");
   x.setAttribute('class', 'alignright');
-  x.innerHTML = `${pendingRewardTokens.toFixed(0)} ($${formatMoney(pendingRewardTokens*rewardTokenPrice)}`;
+  x.innerHTML = `${pendingRewardTokens.toFixed(2)}`;
   y.appendChild(x);
 
   var y = document.createElement("Div");
