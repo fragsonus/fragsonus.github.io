@@ -1279,28 +1279,6 @@ function getUniPrices(tokens, prices, pool)
         x.innerHTML = `${stakeTokenTicker}`;
         buttonlocation.appendChild(x);
 
-        var x = document.createElement("P");
-        x.innerHTML = `<a href='${helperUrls[0]}' target='_blank'>[+]</a>`;
-        buttonlocation.appendChild(x);
-
-        var x = document.createElement("P");
-        var t = document.createTextNode(`AddLP`);
-        x.appendChild(t);
-        x.onclick = window.open(`${helperUrls[0]}`);
-        buttonlocation.appendChild(x);
-
-        var x = document.createElement("BUTTON");
-        var t = document.createTextNode(`RmvLP`);
-        x.appendChild(t);
-        x.onclick = window.open(`${helperUrls[1]}`);
-        buttonlocation.appendChild(x);
-
-        var x = document.createElement("BUTTON");
-        var t = document.createTextNode(`Buy`);
-        x.appendChild(t);
-        x.onclick = window.open(`${helperUrls[2]}`);
-        buttonlocation.appendChild(x);
-
         var x = document.createElement("BUTTON");
         var t = document.createTextNode(`Price: $${formatMoney(p0)}`);
         x.appendChild(t);
@@ -1316,9 +1294,11 @@ function getUniPrices(tokens, prices, pool)
         x.appendChild(t);
         buttonlocation.appendChild(x);
 
+        var x = document.createElement("P");
+        x.innerHTML = `${helperHrefs}`;
+        buttonlocation.appendChild(x);
+
         // **********************************************************
-
-
 
       },
       print_contained_price(userStaked) {
@@ -1633,17 +1613,10 @@ function printChefPool(App, chefAbi, chefAddr, prices, tokens, poolInfo, poolInd
   const userStaked = poolInfo.userLPStaked ?? poolInfo.userStaked;
   const rewardPrice = getParameterCaseInsensitive(prices, rewardTokenAddress)?.usd;
   const staked_tvl = sp?.staked_tvl ?? poolPrices.staked_tvl;
+  const apr = printAPR(rewardTokenTicker, rewardPrice, poolRewardsPerWeek, poolPrices.stakeTokenTicker, 
+  staked_tvl, userStaked, poolPrices.price, fixedDecimals);
   poolPrices.print_price();
   sp?.print_price();
-  
-  // EXTRA BUTTONS ********************************************
-
-
-
-  // **********************************************************
-
-  const apr = printAPR(rewardTokenTicker, rewardPrice, poolRewardsPerWeek, poolPrices.stakeTokenTicker, 
-    staked_tvl, userStaked, poolPrices.price, fixedDecimals);
   if (poolInfo.userLPStaked > 0) sp?.print_contained_price(userStaked);
   if (poolInfo.userStaked > 0) poolPrices.print_contained_price(userStaked);
   printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolInfo.address, pendingRewardsFunction,
