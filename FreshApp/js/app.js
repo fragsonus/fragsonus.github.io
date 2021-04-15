@@ -46,7 +46,7 @@ gameGrid.forEach(function (item) {
 
   var front = document.createElement('div');
   front.classList.add('front');
-  front.id = item.name + 'front';
+  front.id = item.name;
 
   var back = document.createElement('div');
   back.classList.add('back');
