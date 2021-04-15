@@ -50,7 +50,6 @@ gameGrid.forEach(function (item) {
 
   var back = document.createElement('div');
   back.classList.add('back');
-  back.style.backgroundImage = 'url(' + img + ')';
   back.id = item.name + 'back';
 
   grid.appendChild(card);
