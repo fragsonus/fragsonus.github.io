@@ -68,7 +68,8 @@ a {
   .card .card-content {
     padding: 30px 30px 110px; }
   .card .farmcard {
-    padding: 30px 30px 30px
+    padding: 30px 30px 30px;
+    text-align: center;
   }
   .card .card-details {
     position: absolute;
