@@ -684,6 +684,53 @@ const chefContract_stake = async function(chefAbi, chefAddress, poolIndex, stake
   }
 }
 
+const chefContract_stakeHalf = async function(chefAbi, chefAddress, poolIndex, stakeTokenAddr, App) {
+  const signer = App.provider.getSigner()
+
+  const STAKING_TOKEN = new ethers.Contract(stakeTokenAddr, ERC20_ABI, signer)
+  const CHEF_CONTRACT = new ethers.Contract(chefAddress, chefAbi, signer)
+
+  const currentTokens = await STAKING_TOKEN.balanceOf(App.YOUR_ADDRESS)
+  const allowedTokens = await STAKING_TOKEN.allowance(App.YOUR_ADDRESS, chefAddress)
+
+  let allow = Promise.resolve()
+
+  if (allowedTokens / 1e18 < currentTokens / 1e18) {
+    showLoading()
+    allow = STAKING_TOKEN.approve(chefAddress, ethers.constants.MaxUint256)
+      .then(function(t) {
+        return App.provider.waitForTransaction(t.hash)
+      })
+      .catch(function() {
+        hideLoading()
+        alert('Try resetting your approval to 0 first')
+      })
+  }
+
+  if (currentTokens / 1e18 > 0) {
+    showLoading()
+    allow
+      .then(async function() {
+          CHEF_CONTRACT.deposit(poolIndex, currentTokens/2, {gasLimit: 200000})
+          .then(function(t) {
+            App.provider.waitForTransaction(t.hash).then(function() {
+              hideLoading()
+            })
+          })
+          .catch(function() {
+            hideLoading()
+            _print('Something went wrong.')
+          })
+      })
+      .catch(function() {
+        hideLoading()
+        _print('Something went wrong.')
+      })
+  } else {
+    alert('You have no tokens to stake!!')
+  }
+}
+
 const chefContract_unstake = async function(chefAbi, chefAddress, poolIndex, App, pendingRewardsFunction) {
   const signer = App.provider.getSigner()
   const CHEF_CONTRACT = new ethers.Contract(chefAddress, chefAbi, signer)
@@ -694,6 +741,25 @@ const chefContract_unstake = async function(chefAbi, chefAddress, poolIndex, App
   if (earnedTokenAmount > 0) {
     showLoading()
     CHEF_CONTRACT.withdraw(poolIndex, currentStakedAmount, {gasLimit: 200000})
+      .then(function(t) {
+        return App.provider.waitForTransaction(t.hash)
+      })
+      .catch(function() {
+        hideLoading()
+      })
+  }
+}
+
+const chefContract_unstakeHalf = async function(chefAbi, chefAddress, poolIndex, App, pendingRewardsFunction) {
+  const signer = App.provider.getSigner()
+  const CHEF_CONTRACT = new ethers.Contract(chefAddress, chefAbi, signer)
+
+  const currentStakedAmount = (await CHEF_CONTRACT.userInfo(poolIndex, App.YOUR_ADDRESS)).amount
+  const earnedTokenAmount = await CHEF_CONTRACT.callStatic[pendingRewardsFunction](poolIndex, App.YOUR_ADDRESS) / 1e18
+
+  if (earnedTokenAmount > 0) {
+    showLoading()
+    CHEF_CONTRACT.withdraw(poolIndex, currentStakedAmount/2, {gasLimit: 200000})
       .then(function(t) {
         return App.provider.waitForTransaction(t.hash)
       })
@@ -1572,10 +1638,16 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   fixedDecimals = fixedDecimals ?? 2;
   const approveAndStake = async function() {
     return chefContract_stake(chefAbi, chefAddr, poolIndex, poolAddress, App)
-  }      
+  }
+  const approveAndStakeHalf = async function() {
+    return chefContract_stakeHalf(chefAbi, chefAddr, poolIndex, poolAddress, App)
+  }            
   const unstake = async function() {
     return chefContract_unstake(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction)
-  }      
+  }
+  const unstakeHalf = async function() {
+    return chefContract_unstakeHalf(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction)
+  }         
   const claim = async function() {
     return chefContract_claim(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction, claimFunction)
   }
@@ -1595,9 +1667,27 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   buttonlocation.appendChild(x);
 
   var x = document.createElement("BUTTON");
+  var t = document.createTextNode(`Stake ${unstaked.toFixed(fixedDecimals)}/2`);
+  x.appendChild(t);
+  x.onclick = approveAndStakeHalf;
+  buttonlocation.appendChild(x);
+
+  var x = document.createElement("BR");
+  buttonlocation.appendChild(x);
+
+  var x = document.createElement("BUTTON");
   var t = document.createTextNode(`Unstake ${userStaked.toFixed(fixedDecimals)}`);
   x.appendChild(t);
   x.onclick = unstake;
+  buttonlocation.appendChild(x);
+
+  var x = document.createElement("BUTTON");
+  var t = document.createTextNode(`Unstake ${userStaked.toFixed(fixedDecimals)}/2`);
+  x.appendChild(t);
+  x.onclick = unstake;
+  buttonlocation.appendChild(x);
+
+  var x = document.createElement("BR");
   buttonlocation.appendChild(x);
 
   var x = document.createElement("BUTTON");
