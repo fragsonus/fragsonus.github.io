@@ -1662,11 +1662,29 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
     rewardTokenTicker, stakeTokenTicker, unstaked, userStaked, pendingRewardTokens, fixedDecimals,
     claimFunction, rewardTokenPrice) {
   fixedDecimals = fixedDecimals ?? 2;
-  const approveAndStake = async function(prop) {
-    return chefContract_stake(chefAbi, chefAddr, poolIndex, poolAddress, App, prop)
+  const approveAndStake100 = async function() {
+    return chefContract_stake(chefAbi, chefAddr, poolIndex, poolAddress, App,1)
+  }
+  const approveAndStake75 = async function() {
+    return chefContract_stake(chefAbi, chefAddr, poolIndex, poolAddress, App,0.75)
+  }
+  const approveAndStake50 = async function() {
+    return chefContract_stake(chefAbi, chefAddr, poolIndex, poolAddress, App,0.5)
+  }
+  const approveAndStake25 = async function() {
+    return chefContract_stake(chefAbi, chefAddr, poolIndex, poolAddress, App,0.25)
   }     
-  const unstake = async function(prop) {
-    return chefContract_unstake(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction, prop)
+  const unstake100 = async function() {
+    return chefContract_unstake(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction,1)
+  }
+  const unstake75 = async function() {
+    return chefContract_unstake(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction,0.75)
+  }
+  const unstake50 = async function() {
+    return chefContract_unstake(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction,0.5)
+  }
+  const unstake25 = async function() {
+    return chefContract_unstake(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction,0.25)
   }     
   const claim = async function() {
     return chefContract_claim(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction, claimFunction)
@@ -1701,28 +1719,28 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   var x = document.createElement("BUTTON");
   var t = document.createTextNode(`100%`);
   x.appendChild(t);
-  x.onclick = approveAndStake(1);
+  x.onclick = approveAndStake100;
   x.setAttribute('class', 'alignleft4');
   y.appendChild(x);
 
   var x = document.createElement("BUTTON");
   var t = document.createTextNode(`75%`);
   x.appendChild(t);
-  x.onclick = approveAndStake(0.75);
+  x.onclick = approveAndStake75;
   x.setAttribute('class', 'alignmidleft4');
   y.appendChild(x);
 
   var x = document.createElement("BUTTON");
   var t = document.createTextNode(`50%`);
   x.appendChild(t);
-  x.onclick = approveAndStake(0.5);
+  x.onclick = approveAndStake50;
   x.setAttribute('class', 'alignmidright4');
   y.appendChild(x);
 
   var x = document.createElement("BUTTON");
   var t = document.createTextNode(`25%`);
   x.appendChild(t);
-  x.onclick = approveAndStake(0.25);
+  x.onclick = approveAndStake25;
   x.setAttribute('class', 'alignright4');
   y.appendChild(x);
 
@@ -1746,28 +1764,28 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   var x = document.createElement("BUTTON");
   var t = document.createTextNode(`100%`);
   x.appendChild(t);
-  x.onclick = unstake(1);
+  x.onclick = unstake100;
   x.setAttribute('class', 'alignleft4');
   y.appendChild(x);
 
   var x = document.createElement("BUTTON");
   var t = document.createTextNode(`75%`);
   x.appendChild(t);
-  x.onclick = unstake(0.75);
+  x.onclick = unstake75;
   x.setAttribute('class', 'alignmidleft4');
   y.appendChild(x);
 
   var x = document.createElement("BUTTON");
   var t = document.createTextNode(`50%`);
   x.appendChild(t);
-  x.onclick = unstake(0.5);
+  x.onclick = unstake50;
   x.setAttribute('class', 'alignmidright4');
   y.appendChild(x);
 
   var x = document.createElement("BUTTON");
   var t = document.createTextNode(`25%`);
   x.appendChild(t);
-  x.onclick = unstake(0.25);
+  x.onclick = unstake25;
   x.setAttribute('class', 'alignright4');
   y.appendChild(x);
 
