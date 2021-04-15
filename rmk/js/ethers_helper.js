@@ -1537,7 +1537,6 @@ function printAPR(rewardTokenTicker, rewardPrice, poolRewardsPerWeek,
   buttonlocation.appendChild(x);
 
   var x = document.createElement("BR");
-  x.appendChild(t);
   buttonlocation.appendChild(x);
 
   var userStakedUsd = userStaked * poolTokenPrice;
