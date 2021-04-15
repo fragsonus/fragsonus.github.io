@@ -1892,9 +1892,9 @@ function printAPR(rewardTokenTicker, rewardPrice, poolRewardsPerWeek,
   var x = document.createElement("BR");
   buttonlocation.appendChild(x);
 
-  var x = document.createElement("P");
-  x.setAttribute('class', 'alignright');
-  x.innerHTML = `Flip over to stake`;
+  var x = document.createElement("IMG");
+  x.setAttribute("src", "img/flip.png");
+  x.setAttribute('spinnable','yes');
   buttonlocation.appendChild(x);
 
   var userWeeklyRewards = userStakedPct * poolRewardsPerWeek / 100;
