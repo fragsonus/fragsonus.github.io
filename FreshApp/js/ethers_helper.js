@@ -1719,7 +1719,7 @@ function getErc20Prices(prices, pool, chain="eth") {
       buttonlocation.appendChild(x);
 
       var x = document.createElement("H1");
-      x.innerHTML = `${name}`;
+      x.innerHTML = `${pool.symbol}`;
       buttonlocationBack.appendChild(x);
 
       var x = document.createElement("BR");
@@ -1753,7 +1753,7 @@ function getErc20Prices(prices, pool, chain="eth") {
 
       var x = document.createElement("P");
       x.setAttribute('class', 'alignright');
-      x.innerHTML = `$${formatMoney(tvl)}`;
+      x.innerHTML = `$${formatMoney0(tvl)}`;
       y.appendChild(x);
 
       var y = document.createElement("Div");
@@ -1767,7 +1767,7 @@ function getErc20Prices(prices, pool, chain="eth") {
 
       var x = document.createElement("P");
       x.setAttribute('class', 'alignright');
-      x.innerHTML = `$${formatMoney(staked_tvl)}`;
+      x.innerHTML = `$${formatMoney0(staked_tvl)}`;
       y.appendChild(x);
 
     },
