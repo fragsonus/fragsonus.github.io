@@ -12,6 +12,12 @@ html {
   font-family: 'Nunito', sans-serif;
   line-height: 1.6; }
 
+a {
+  color: #E76C67;
+  text-decoration: none;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease; }
+
 body {
   margin: 20px 0;
   background: #6589F9;
