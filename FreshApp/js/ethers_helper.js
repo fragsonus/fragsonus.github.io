@@ -1813,6 +1813,9 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   x.setAttribute('class', 'alignright4');
   y.appendChild(x);
 
+  var x = document.createElement("BR");
+  buttonlocation.appendChild(x);
+
   var y = document.createElement("Div");
   y.setAttribute('class', 'textbox')
   buttonlocation.appendChild(y);
@@ -1831,7 +1834,7 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   var t = document.createTextNode(`Claim`);
   x.appendChild(t);
   x.onclick = claim;
-  x.setAttribute('text-align','center');
+  x.setAttribute('class','center');
   buttonlocation.appendChild(x);
 
   // **********************************************************
