@@ -36,8 +36,8 @@ body {
 .card,
 .back,
 .front {
-  height: 300px;
-  width: 200px;
+  height: 400px;
+  width: 300px;
   border-radius: 5px;
   align-items: center;
   padding: 10px;
