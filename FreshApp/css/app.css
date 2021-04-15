@@ -112,14 +112,17 @@ margin: 0px;
 .alignleft3 {
 width:33.33333%;
 text-align:left;
+margin: 0px;
 }
 .aligncenter3 {
 width:33.33333%;
 text-align:center;
+margin: 0px;
 }
 .alignright3 {
 width:33.33333%;
 text-align:right;
+margin: 0px;
 }
 
 .alignleft4 {
