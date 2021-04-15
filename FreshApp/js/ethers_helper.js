@@ -1969,19 +1969,6 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   y.appendChild(x);
 
   var y = document.createElement("Div");
-  y.setAttribute('class', 'center')
-  buttonlocation.appendChild(y);
-
-  var x = document.createElement("BUTTON");
-  var t = document.createTextNode(`Stake`);
-  x.appendChild(t);
-  x.onclick = approveAndStake;
-  y.appendChild(x);
-
-  var x = document.createElement("BR");
-  buttonlocation.appendChild(x);
-
-  var y = document.createElement("Div");
   y.setAttribute('class', 'textbox')
   buttonlocation.appendChild(y);
 
@@ -1994,19 +1981,6 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   x.setAttribute('class', 'alignright');
   x.innerHTML = `${userStaked.toFixed(2)}`;
   y.appendChild(x);
-
-  var y = document.createElement("Div");
-  y.setAttribute('class', 'center')
-  buttonlocation.appendChild(y);
-
-  var x = document.createElement("BUTTON");
-  var t = document.createTextNode(`Unstake`);
-  x.appendChild(t);
-  x.onclick = unstake;
-  y.appendChild(x);
-
-  var x = document.createElement("BR");
-  buttonlocation.appendChild(x);
 
   var y = document.createElement("Div");
   y.setAttribute('class', 'textbox')
@@ -2022,12 +1996,30 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   x.innerHTML = `${pendingRewardTokens.toFixed(2)}`;
   y.appendChild(x);
 
+  var x = document.createElement("BR");
+  buttonlocation.appendChild(x);
+
   var y = document.createElement("Div");
-  y.setAttribute('class', 'center')
+  y.setAttribute('class', 'textbox')
   buttonlocation.appendChild(y);
 
   var x = document.createElement("BUTTON");
+  var t = document.createTextNode(`Stake`);
+  x.setAttribute('class', 'alignleft3');
+  x.appendChild(t);
+  x.onclick = approveAndStake;
+  y.appendChild(x);
+
+  var x = document.createElement("BUTTON");
+  var t = document.createTextNode(`Unstake`);
+  x.setAttribute('class', 'aligncenter3');
+  x.appendChild(t);
+  x.onclick = unstake;
+  y.appendChild(x);
+
+  var x = document.createElement("BUTTON");
   var t = document.createTextNode(`Claim`);
+  x.setAttribute('class', 'alignright3');
   x.appendChild(t);
   x.onclick = claim;
   y.appendChild(x);
