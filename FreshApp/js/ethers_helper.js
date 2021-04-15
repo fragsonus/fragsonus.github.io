@@ -637,7 +637,7 @@ const print_warning = function() {
 
  
 
-const chefContract_stake100 = async function(chefAbi, chefAddress, poolIndex, stakeTokenAddr, App) {
+const chefContract_stake = async function(chefAbi, chefAddress, poolIndex, stakeTokenAddr, App) {
   const signer = App.provider.getSigner()
 
   const STAKING_TOKEN = new ethers.Contract(stakeTokenAddr, ERC20_ABI, signer)
@@ -825,7 +825,7 @@ const chefContract_stake25 = async function(chefAbi, chefAddress, poolIndex, sta
   }
 }
 
-const chefContract_unstake100 = async function(chefAbi, chefAddress, poolIndex, App, pendingRewardsFunction) {
+const chefContract_unstake = async function(chefAbi, chefAddress, poolIndex, App, pendingRewardsFunction) {
   const signer = App.provider.getSigner()
   const CHEF_CONTRACT = new ethers.Contract(chefAddress, chefAbi, signer)
 
@@ -1859,7 +1859,7 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
     rewardTokenTicker, stakeTokenTicker, unstaked, userStaked, pendingRewardTokens, fixedDecimals,
     claimFunction, rewardTokenPrice) {
   fixedDecimals = fixedDecimals ?? 2;
-  const approveAndStake100 = async function() {
+  const approveAndStake = async function() {
     return chefContract_stake100(chefAbi, chefAddr, poolIndex, poolAddress, App)
   }
   const approveAndStake75 = async function() {
@@ -1871,7 +1871,7 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   const approveAndStake25 = async function() {
     return chefContract_stake100(chefAbi, chefAddr, poolIndex, poolAddress, App)
   }     
-  const unstake100 = async function() {
+  const unstake = async function() {
     return chefContract_unstake100(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction)
   }
   const unstake75 = async function() {
@@ -1916,7 +1916,7 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   var x = document.createElement("BUTTON");
   var t = document.createTextNode(`100%`);
   x.appendChild(t);
-  x.onclick = approveAndStake100;
+  x.onclick = approveAndStake;
   x.setAttribute('class', 'alignleft4');
   y.appendChild(x);
 
@@ -1961,7 +1961,7 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   var x = document.createElement("BUTTON");
   var t = document.createTextNode(`100%`);
   x.appendChild(t);
-  x.onclick = unstake100;
+  x.onclick = unstake;
   x.setAttribute('class', 'alignleft4');
   y.appendChild(x);
 
