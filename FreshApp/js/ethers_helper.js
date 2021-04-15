@@ -1368,13 +1368,33 @@ function getUniPrices(tokens, prices, pool)
         x.innerHTML = `$${formatMoney(p0)}`;
         y.appendChild(x);
 
-        var x = document.createElement("P");
-        x.innerHTML = `LP: $${formatMoney(price)}`;
-        buttonlocation.appendChild(x);
+        var y = document.createElement("Div");
+        y.setAttribute('class', 'textbox')
+        buttonlocation.appendChild(y);
 
         var x = document.createElement("P");
-        x.innerHTML = `TVL: $${formatMoney(staked_tvl)}`;
-        buttonlocation.appendChild(x);
+        x.setAttribute('class', 'alignleft');
+        x.innerHTML = `LP Value:`;
+        y.appendChild(x);
+
+        var x = document.createElement("P");
+        x.setAttribute('class', 'alignright');
+        x.innerHTML = `$${formatMoney(price)}`;
+        y.appendChild(x);
+
+        var y = document.createElement("Div");
+        y.setAttribute('class', 'textbox')
+        buttonlocation.appendChild(y);
+
+        var x = document.createElement("P");
+        x.setAttribute('class', 'alignleft');
+        x.innerHTML = `TVL:`;
+        y.appendChild(x);
+
+        var x = document.createElement("P");
+        x.setAttribute('class', 'alignright');
+        x.innerHTML = `$${formatMoney(staked_tvl)}`;
+        y.appendChild(x);
 
        // **********************************************************
 
