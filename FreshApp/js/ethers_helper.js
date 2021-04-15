@@ -1600,7 +1600,7 @@ function printAPR(rewardTokenTicker, rewardPrice, poolRewardsPerWeek,
   buttonlocation = document.getElementById(globalIndex);
 
   var x = document.createElement("P");
-  x.innerHTML = `APR: $${yearlyAPR.toFixed(0)}%`;
+  x.innerHTML = `APR: ${yearlyAPR.toFixed(0)}%`;
   buttonlocation.appendChild(x);
 
   var userStakedUsd = userStaked * poolTokenPrice;
@@ -1608,7 +1608,7 @@ function printAPR(rewardTokenTicker, rewardPrice, poolRewardsPerWeek,
   _print(`You are staking ${userStaked.toFixed(fixedDecimals)} ${stakeTokenTicker} ($${formatMoney(userStakedUsd)}), ${userStakedPct.toFixed(2)}% of the pool.`);
   
   var x = document.createElement("P");
-  x.innerHTML = `Staked: $${yearlyAPR.toFixed(0)}%`;
+  x.innerHTML = `Staked: $${formatMoney(userStakedUsd)}`;
   buttonlocation.appendChild(x);
 
   var userWeeklyRewards = userStakedPct * poolRewardsPerWeek / 100;
@@ -1658,7 +1658,7 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   buttonlocation = document.getElementById(poolIndex + 'back');
 
   var x = document.createElement("P");
-  x.innerHTML = `Available to stake ${unstaked.toFixed(fixedDecimals)}`;
+  x.innerHTML = `Ready to stake ${unstaked.toFixed(0)}`;
   buttonlocation.appendChild(x);
 
   var x = document.createElement("BUTTON");
@@ -1689,7 +1689,7 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   buttonlocation.appendChild(x);
 
   var x = document.createElement("P");
-  x.innerHTML = `Available to unstake ${userStaked.toFixed(fixedDecimals)}`;
+  x.innerHTML = `Ready to unstake ${userStaked.toFixed(0)}`;
   buttonlocation.appendChild(x);
 
   var x = document.createElement("BUTTON");
@@ -1717,7 +1717,7 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   buttonlocation.appendChild(x);
 
   var x = document.createElement("P");
-  x.innerHTML = `Ready to harvest ${pendingRewardTokens.toFixed(fixedDecimals)} ($${formatMoney(pendingRewardTokens*rewardTokenPrice)})`;
+  x.innerHTML = `Ready to harvest ${pendingRewardTokens.toFixed(0)} ($${formatMoney(pendingRewardTokens*rewardTokenPrice)})`;
   buttonlocation.appendChild(x);
 
   var x = document.createElement("BUTTON");
