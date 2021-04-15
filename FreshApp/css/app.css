@@ -16,11 +16,20 @@ a {
 color: #772B1C;
 text-decoration: none;
 -webkit-transition: all .3s ease;
-transition: all .3s ease; }
+transition: all .3s ease; 
+font-size: 1.0rem;}
+
+h1 {
+  font-size: 1.75rem;
+}
 
 body {
   margin: 20px 0;
   background: #EFEEEF;
+}
+
+p {
+  font-size: ;
 }
 
 .grid {
@@ -51,7 +60,7 @@ body {
 .front {
   height: 400px;
   width: 300px;
-  border-radius: 5px;
+  border-radius: 15px;
   align-items: center;
   padding: 20px;
 }
