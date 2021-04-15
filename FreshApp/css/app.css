@@ -13,7 +13,7 @@ html {
   line-height: 1.6; }
 
 a {
-color: #FBE8A6;
+color: #F4976C;
 text-decoration: none;
 -webkit-transition: all .3s ease;
 transition: all .3s ease; 
@@ -227,6 +227,7 @@ text-align:center;
   left: 0;
   height: 100%;
   width: 100%;
+  color: #FBE8A6;
 }
 .middle {
   display: table-cell;

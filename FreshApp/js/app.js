@@ -24,6 +24,9 @@ var cardsArray = [{
 }, {
   'name': '7',
   'img': 'img/mushroom.png'
+},{
+  'name': '8',
+  'img': 'img/mushroom.png'
 }];
 
 var gameGrid = cardsArray;
