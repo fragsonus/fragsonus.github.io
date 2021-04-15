@@ -1298,6 +1298,21 @@ function getUniPrices(tokens, prices, pool)
         x.onclick = window.open(`${helperUrls[2]}`);
         buttonlocation.appendChild(x);
 
+        var x = document.createElement("BUTTON");
+        var t = document.createTextNode(`Price: $${formatMoney(p0)}`);
+        x.appendChild(t);
+        buttonlocation.appendChild(x);
+
+        var x = document.createElement("BUTTON");
+        var t = document.createTextNode(`LP: $${formatMoney(price)}`);
+        x.appendChild(t);
+        buttonlocation.appendChild(x);
+
+        var x = document.createElement("BUTTON");
+        var t = document.createTextNode(`TVL: $${formatMoney(staked_tvl)}`);
+        x.appendChild(t);
+        buttonlocation.appendChild(x);
+
         // **********************************************************
 
 
