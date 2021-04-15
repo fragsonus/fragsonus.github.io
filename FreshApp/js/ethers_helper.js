@@ -1893,7 +1893,7 @@ function printAPR(rewardTokenTicker, rewardPrice, poolRewardsPerWeek,
   buttonlocation.appendChild(x);
 
   var x = document.createElement("i");
-  x.innerHTML = `Flip to stake.`;
+  x.innerHTML = `Flip to stake`;
   buttonlocation.appendChild(x);
 
   var userWeeklyRewards = userStakedPct * poolRewardsPerWeek / 100;
@@ -1969,35 +1969,13 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   y.appendChild(x);
 
   var y = document.createElement("Div");
-  y.setAttribute('class', 'textbox')
+  y.setAttribute('class', 'center')
   buttonlocation.appendChild(y);
 
   var x = document.createElement("BUTTON");
-  var t = document.createTextNode(`100%`);
+  var t = document.createTextNode(`Stake`);
   x.appendChild(t);
   x.onclick = approveAndStake;
-  x.setAttribute('class', 'alignleft4');
-  y.appendChild(x);
-
-  var x = document.createElement("BUTTON");
-  var t = document.createTextNode(`75%`);
-  x.appendChild(t);
-  x.onclick = approveAndStake75;
-  x.setAttribute('class', 'alignmidleft4');
-  y.appendChild(x);
-
-  var x = document.createElement("BUTTON");
-  var t = document.createTextNode(`50%`);
-  x.appendChild(t);
-  x.onclick = approveAndStake50;
-  x.setAttribute('class', 'alignmidright4');
-  y.appendChild(x);
-
-  var x = document.createElement("BUTTON");
-  var t = document.createTextNode(`25%`);
-  x.appendChild(t);
-  x.onclick = approveAndStake25;
-  x.setAttribute('class', 'alignright4');
   y.appendChild(x);
 
   var x = document.createElement("BR");
@@ -2017,32 +1995,14 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   x.innerHTML = `${userStaked.toFixed(2)}`;
   y.appendChild(x);
 
+  var y = document.createElement("Div");
+  y.setAttribute('class', 'center')
+  buttonlocation.appendChild(y);
+
   var x = document.createElement("BUTTON");
-  var t = document.createTextNode(`100%`);
+  var t = document.createTextNode(`Unstake`);
   x.appendChild(t);
   x.onclick = unstake;
-  x.setAttribute('class', 'alignleft4');
-  y.appendChild(x);
-
-  var x = document.createElement("BUTTON");
-  var t = document.createTextNode(`75%`);
-  x.appendChild(t);
-  x.onclick = unstake75;
-  x.setAttribute('class', 'alignmidleft4');
-  y.appendChild(x);
-
-  var x = document.createElement("BUTTON");
-  var t = document.createTextNode(`50%`);
-  x.appendChild(t);
-  x.onclick = unstake50;
-  x.setAttribute('class', 'alignmidright4');
-  y.appendChild(x);
-
-  var x = document.createElement("BUTTON");
-  var t = document.createTextNode(`25%`);
-  x.appendChild(t);
-  x.onclick = unstake25;
-  x.setAttribute('class', 'alignright4');
   y.appendChild(x);
 
   var x = document.createElement("BR");
