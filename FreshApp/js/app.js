@@ -47,10 +47,12 @@ gameGrid.forEach(function (item) {
   var front = document.createElement('div');
   front.classList.add('front');
   front.id = item.name;
+  front.setAttribute('spinnable','yes');
 
   var back = document.createElement('div');
   back.classList.add('back');
   back.id = item.name + 'back';
+  back.setAttribute('spinnable','yes');
 
   grid.appendChild(card);
   card.appendChild(front);
@@ -61,7 +63,7 @@ grid.addEventListener('click', function (event) {
 
   var clicked = event.target;
 
-  if (clicked.classList !== 'front' && clicked.classList !== 'back') {
+  if (clicked.getAttribute('spinnable') !== 'yes') {
     return;
   }
 
