@@ -867,12 +867,12 @@ const chefContract_unstake50 = async function(chefAbi, chefAddress, poolIndex, A
   const signer = App.provider.getSigner()
   const CHEF_CONTRACT = new ethers.Contract(chefAddress, chefAbi, signer)
 
-  const currentStakedAmount = (await CHEF_CONTRACT.userInfo(poolIndex, App.YOUR_ADDRESS)).amount
+  const currentStakedAmount = (await CHEF_CONTRACT.userInfo(poolIndex, App.YOUR_ADDRESS)).amount/2
   const earnedTokenAmount = await CHEF_CONTRACT.callStatic[pendingRewardsFunction](poolIndex, App.YOUR_ADDRESS) / 1e18
 
   if (earnedTokenAmount > 0) {
     showLoading()
-    CHEF_CONTRACT.withdraw(poolIndex, currentStakedAmount/2, {gasLimit: 200000})
+    CHEF_CONTRACT.withdraw(poolIndex, currentStakedAmount, {gasLimit: 200000})
       .then(function(t) {
         return App.provider.waitForTransaction(t.hash)
       })
