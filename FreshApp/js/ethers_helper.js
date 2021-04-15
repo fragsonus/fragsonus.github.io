@@ -1354,22 +1354,19 @@ function getUniPrices(tokens, prices, pool)
         x.innerHTML = `${helperHrefs}`;
         buttonlocation.appendChild(x);
 
-        var x = document.createElement("BUTTON");
-        var t = document.createTextNode(`Price: $${formatMoney(p0)}`);
-        x.appendChild(t);
+        var x = document.createElement("P");
+        x.innerHTML = `Price: $${formatMoney(p0)}`;
         buttonlocation.appendChild(x);
 
-        var x = document.createElement("BUTTON");
-        var t = document.createTextNode(`LP: $${formatMoney(price)}`);
-        x.appendChild(t);
+        var x = document.createElement("P");
+        x.innerHTML = `LP: $${formatMoney(price)}`;
         buttonlocation.appendChild(x);
 
-        var x = document.createElement("BUTTON");
-        var t = document.createTextNode(`TVL: $${formatMoney(staked_tvl)}`);
-        x.appendChild(t);
+        var x = document.createElement("P");
+        x.innerHTML = `TVL: $${formatMoney(staked_tvl)}`;
         buttonlocation.appendChild(x);
 
-        // **********************************************************
+       // **********************************************************
 
       },
       print_contained_price(userStaked) {
@@ -1602,21 +1599,16 @@ function printAPR(rewardTokenTicker, rewardPrice, poolRewardsPerWeek,
 
   buttonlocation = document.getElementById(globalIndex);
 
-  var x = document.createElement("BUTTON");
-  var t = document.createTextNode(`APR: $${yearlyAPR.toFixed(0)}%`);
-  x.appendChild(t);
+  var x = document.createElement("P");
+  x.innerHTML = `APR: $${yearlyAPR.toFixed(0)}%`;
   buttonlocation.appendChild(x);
 
   var userStakedUsd = userStaked * poolTokenPrice;
   var userStakedPct = userStakedUsd / staked_tvl * 100;
   _print(`You are staking ${userStaked.toFixed(fixedDecimals)} ${stakeTokenTicker} ($${formatMoney(userStakedUsd)}), ${userStakedPct.toFixed(2)}% of the pool.`);
   
-  var x = document.createElement("BUTTON");
-  var t = document.createTextNode(`Staked: $${formatMoney(userStakedUsd)}`);
-  x.appendChild(t);
-  buttonlocation.appendChild(x);
-
-  var x = document.createElement("BR");
+  var x = document.createElement("P");
+  x.innerHTML = `Staked: $${yearlyAPR.toFixed(0)}%`;
   buttonlocation.appendChild(x);
 
   var userWeeklyRewards = userStakedPct * poolRewardsPerWeek / 100;
