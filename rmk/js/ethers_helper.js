@@ -1279,7 +1279,11 @@ function getUniPrices(tokens, prices, pool)
         x.innerHTML = `${stakeTokenTicker}`;
         buttonlocation.appendChild(x);
 
-        var x = document.createElement("BUTTON");
+        var x = document.createElement("P");
+        x.innerHTML = `<a href='${helperUrls[0]}' target='_blank'>[+]</a>`;
+        buttonlocation.appendChild(x);
+
+        var x = document.createElement("P");
         var t = document.createTextNode(`AddLP`);
         x.appendChild(t);
         x.onclick = window.open(`${helperUrls[0]}`);
