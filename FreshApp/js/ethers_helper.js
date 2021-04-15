@@ -1657,8 +1657,12 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
 
   buttonlocation = document.getElementById(poolIndex + 'back');
 
+  var x = document.createElement("P");
+  x.innerHTML = `Available to stake ${unstaked.toFixed(fixedDecimals)}`;
+  buttonlocation.appendChild(x);
+
   var x = document.createElement("BUTTON");
-  var t = document.createTextNode(`Stake ${unstaked.toFixed(fixedDecimals)}`);
+  var t = document.createTextNode(`100%`);
   x.appendChild(t);
   x.onclick = approveAndStake;
   buttonlocation.appendChild(x);
@@ -1684,8 +1688,12 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   var x = document.createElement("BR");
   buttonlocation.appendChild(x);
 
+  var x = document.createElement("P");
+  x.innerHTML = `Available to unstake ${userStaked.toFixed(fixedDecimals)}`;
+  buttonlocation.appendChild(x);
+
   var x = document.createElement("BUTTON");
-  var t = document.createTextNode(`Unstake ${userStaked.toFixed(fixedDecimals)}`);
+  var t = document.createTextNode(`100%`);
   x.appendChild(t);
   x.onclick = unstake;
   buttonlocation.appendChild(x);
@@ -1708,11 +1716,12 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   x.onclick = unstake;
   buttonlocation.appendChild(x);
 
-  var x = document.createElement("BR");
+  var x = document.createElement("P");
+  x.innerHTML = `Ready to harvest ${pendingRewardTokens.toFixed(fixedDecimals)} ($${formatMoney(pendingRewardTokens*rewardTokenPrice)})`;
   buttonlocation.appendChild(x);
 
   var x = document.createElement("BUTTON");
-  var t = document.createTextNode(`Claim ${pendingRewardTokens.toFixed(fixedDecimals)} ($${formatMoney(pendingRewardTokens*rewardTokenPrice)})`);
+  var t = document.createTextNode(`Claim`);
   x.appendChild(t);
   x.onclick = claim;
   buttonlocation.appendChild(x);
