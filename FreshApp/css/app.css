@@ -28,7 +28,7 @@ h1 {
 
 body {
   margin: 20px 0;
-  background: #EFEEEF;
+  background: #EDEAE5;
 }
 
 p {
@@ -76,15 +76,15 @@ p {
 }
 
 .front {
-  background: #FEEEA6;
-  border: 10px solid #FED983;
+  background: #FEF9C7;
+  border: 5px solid #026670;
 }
 
 .back {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
-  background-color: #FEEEA6;
-  border: 10px solid #FEEEA6;
+  background-color: #FEF9C7;
+  border: 5px solid #FCE181;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
@@ -153,7 +153,7 @@ text-align:center;
   padding:2em;
 }
 .nav_background {
-  background-color: #D78A6C;
+  background-color: #9FEDD7;
   position: fixed;
   top: 0;
   width:100%;
