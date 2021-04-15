@@ -102,7 +102,7 @@ a {
   .card {
     margin: .5rem; } }
 
-button {
+.button {
   display: block;
   font-size: 1rem;
   background: #E76C67;
