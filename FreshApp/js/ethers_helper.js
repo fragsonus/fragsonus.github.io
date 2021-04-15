@@ -1340,10 +1340,15 @@ function getUniPrices(tokens, prices, pool)
         // **********************************************************
 
         buttonlocation = document.getElementById(globalIndex);
+        buttonlocationBack = document.getElementById(globalIndex + 'back');
 
         var x = document.createElement("P");
         x.innerHTML = `${stakeTokenTicker}`;
-        buttonlocation.appendChild(x);0
+        buttonlocation.appendChild(x);
+
+        var x = document.createElement("P");
+        x.innerHTML = `${stakeTokenTicker}`;
+        buttonlocationBack.appendChild(x);0
 
         var x = document.createElement("P");
         x.innerHTML = `${helperHrefs}`;
