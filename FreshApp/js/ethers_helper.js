@@ -758,7 +758,7 @@ const chefContract_stake50 = async function(chefAbi, chefAddress, poolIndex, sta
     showLoading()
     allow
       .then(async function() {
-          CHEF_CONTRACT.deposit(poolIndex, currentTokens*50/100, {gasLimit: 200000})
+          CHEF_CONTRACT.deposit(poolIndex, currentTokens/2, {gasLimit: 200000})
           .then(function(t) {
             App.provider.waitForTransaction(t.hash).then(function() {
               hideLoading()
@@ -872,7 +872,7 @@ const chefContract_unstake50 = async function(chefAbi, chefAddress, poolIndex, A
 
   if (earnedTokenAmount > 0) {
     showLoading()
-    CHEF_CONTRACT.withdraw(poolIndex, currentStakedAmount*50/100, {gasLimit: 200000})
+    CHEF_CONTRACT.withdraw(poolIndex, currentStakedAmount/2, {gasLimit: 200000})
       .then(function(t) {
         return App.provider.waitForTransaction(t.hash)
       })
