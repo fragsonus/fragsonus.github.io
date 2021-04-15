@@ -12,15 +12,15 @@ html {
   font-family: 'Nunito', sans-serif;
   line-height: 1.6; }
 
-a {
-  color: #E76C67;
+  a {
+  color: #ff5f86;
   text-decoration: none;
   -webkit-transition: all .3s ease;
   transition: all .3s ease; }
 
 body {
   margin: 20px 0;
-  background: #e0e7fe;
+  background: #6589F9;
 }
 
 .grid {
@@ -64,13 +64,13 @@ body {
 }
 
 .front {
-  background: #ffebac;
+  background: #ffd85f;
 }
 
 .back {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
-  background-color: #fff7df;
+  background-color: #ffebac;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
