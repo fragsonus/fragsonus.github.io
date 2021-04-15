@@ -1260,7 +1260,7 @@ function getUniPrices(tokens, prices, pool)
           `https://app.uniswap.org/#/remove/${t0address}/${t1address}`,
           `https://app.uniswap.org/#/swap?inputCurrency=${t0address}&outputCurrency=${t1address}` ]
         const helperHrefs = helperUrls.length == 0 ? "" :
-          ` <a href='${helperUrls[0]}' target='_blank'>[Add]</a> <a href='${helperUrls[1]}' target='_blank'>[Rmv]</a> <a href='${helperUrls[2]}' target='_blank'>[Buy]</a>`
+          ` <a href='${helperUrls[0]}' target='_blank'>Add </a> <a href='${helperUrls[1]}' target='_blank'>Rmv </a> <a href='${helperUrls[2]}' target='_blank'>Buy</a>`
         _print(`<a href='${poolUrl}' target='_blank'>${stakeTokenTicker}</a>${helperHrefs} Price: $${formatMoney(price)} TVL: $${formatMoney(tvl)}`);
           
         if(p0 < 0.01){
