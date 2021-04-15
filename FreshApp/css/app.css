@@ -35,6 +35,21 @@ p {
   font-size: ;
 }
 
+button {
+  display: block;
+  font-size: 1rem;
+  background: #9FEDD7;
+  border: 1px solid #9FEDD7;
+  border-radius: 5px;
+  padding: 10px 15px;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  text-align: center; }
+  .button:hover, .button:focus {
+    background: #026670;
+    border: 1px solid #026670; }
+
 .grid {
   max-width: 960px;
   margin: 0 auto;
