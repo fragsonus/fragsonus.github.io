@@ -13,11 +13,13 @@ html {
   line-height: 1.6; }
 
 a {
-color: #772B1C;
+color: #CD2025;
 text-decoration: none;
 -webkit-transition: all .3s ease;
 transition: all .3s ease; 
-font-size: 1.0rem;}
+font-size: 1.0rem;
+font-weight: bold;
+}
 
 h1 {
   font-size: 1.75rem;
