@@ -1277,6 +1277,10 @@ function getUniPrices(tokens, prices, pool)
 
         var x = document.createElement("P");
         x.innerHTML = `${stakeTokenTicker}`;
+        buttonlocation.appendChild(x);0
+
+        var x = document.createElement("P");
+        x.innerHTML = `${helperHrefs}`;
         buttonlocation.appendChild(x);
 
         var x = document.createElement("BUTTON");
@@ -1292,10 +1296,6 @@ function getUniPrices(tokens, prices, pool)
         var x = document.createElement("BUTTON");
         var t = document.createTextNode(`TVL: $${formatMoney(staked_tvl)}`);
         x.appendChild(t);
-        buttonlocation.appendChild(x);
-
-        var x = document.createElement("P");
-        x.innerHTML = `${helperHrefs}`;
         buttonlocation.appendChild(x);
 
         // **********************************************************
@@ -1531,8 +1531,9 @@ function printAPR(rewardTokenTicker, rewardPrice, poolRewardsPerWeek,
 
   buttonlocation = document.getElementById(globalIndex);
 
-  var x = document.createElement("P");
-  x.innerHTML = `APR ${yearlyAPR.toFixed(2)}%`;
+  var x = document.createElement("BUTTON");
+  var t = document.createTextNode(`APR: $${yearlyAPR.toFixed(0)}%`);
+  x.appendChild(t);
   buttonlocation.appendChild(x);
 
   var userStakedUsd = userStaked * poolTokenPrice;
@@ -1620,10 +1621,10 @@ function printChefPool(App, chefAbi, chefAddr, prices, tokens, poolInfo, poolInd
   const userStaked = poolInfo.userLPStaked ?? poolInfo.userStaked;
   const rewardPrice = getParameterCaseInsensitive(prices, rewardTokenAddress)?.usd;
   const staked_tvl = sp?.staked_tvl ?? poolPrices.staked_tvl;
-  const apr = printAPR(rewardTokenTicker, rewardPrice, poolRewardsPerWeek, poolPrices.stakeTokenTicker, 
-  staked_tvl, userStaked, poolPrices.price, fixedDecimals);
   poolPrices.print_price();
   sp?.print_price();
+  const apr = printAPR(rewardTokenTicker, rewardPrice, poolRewardsPerWeek, poolPrices.stakeTokenTicker, 
+  staked_tvl, userStaked, poolPrices.price, fixedDecimals);
   if (poolInfo.userLPStaked > 0) sp?.print_contained_price(userStaked);
   if (poolInfo.userStaked > 0) poolPrices.print_contained_price(userStaked);
   printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolInfo.address, pendingRewardsFunction,
