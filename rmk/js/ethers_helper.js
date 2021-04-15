@@ -1667,7 +1667,19 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   buttonlocation.appendChild(x);
 
   var x = document.createElement("BUTTON");
-  var t = document.createTextNode(`Stake ${unstaked.toFixed(fixedDecimals)}/2`);
+  var t = document.createTextNode(`75%`);
+  x.appendChild(t);
+  x.onclick = approveAndStakeHalf;
+  buttonlocation.appendChild(x);
+
+  var x = document.createElement("BUTTON");
+  var t = document.createTextNode(`50%`);
+  x.appendChild(t);
+  x.onclick = approveAndStakeHalf;
+  buttonlocation.appendChild(x);
+
+  var x = document.createElement("BUTTON");
+  var t = document.createTextNode(`25%`);
   x.appendChild(t);
   x.onclick = approveAndStakeHalf;
   buttonlocation.appendChild(x);
@@ -1682,7 +1694,19 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   buttonlocation.appendChild(x);
 
   var x = document.createElement("BUTTON");
-  var t = document.createTextNode(`Unstake ${userStaked.toFixed(fixedDecimals)}/2`);
+  var t = document.createTextNode(`75%`);
+  x.appendChild(t);
+  x.onclick = unstake;
+  buttonlocation.appendChild(x);
+
+  var x = document.createElement("BUTTON");
+  var t = document.createTextNode(`50%`);
+  x.appendChild(t);
+  x.onclick = unstake;
+  buttonlocation.appendChild(x);
+
+  var x = document.createElement("BUTTON");
+  var t = document.createTextNode(`25%`);
   x.appendChild(t);
   x.onclick = unstake;
   buttonlocation.appendChild(x);
