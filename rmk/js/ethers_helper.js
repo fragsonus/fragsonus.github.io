@@ -1263,7 +1263,6 @@ function getUniPrices(tokens, prices, pool)
           ` <a href='${helperUrls[0]}' target='_blank'>[+]</a> <a href='${helperUrls[1]}' target='_blank'>[-]</a> <a href='${helperUrls[2]}' target='_blank'>[<=>]</a>`
         _print(`<a href='${poolUrl}' target='_blank'>${stakeTokenTicker}</a>${helperHrefs} Price: $${formatMoney(price)} TVL: $${formatMoney(tvl)}`);
           
-
         if(p0 < 0.01){
           _print(`${t0.symbol} Price: $${p0.toFixed(5)}`)
         }else{
