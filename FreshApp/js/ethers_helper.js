@@ -1383,7 +1383,10 @@ function getUniPrices(tokens, prices, pool)
         var x = document.createElement("P");
         x.setAttribute('class', 'alignright3');
         x.innerHTML = `<a href='${helperUrls[1]}' target='_blank'>Rmv </a>`;
-        y.appendChild(x);     
+        y.appendChild(x);
+
+        var x = document.createElement("BR");
+        buttonlocation.appendChild(x);
 
         var y = document.createElement("Div");
         y.setAttribute('class', 'textbox')
