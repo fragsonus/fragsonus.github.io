@@ -38,14 +38,16 @@ p {
 button {
   display: block;
   font-size: 1rem;
-  background: #9FEDD7;
-  border: 1px solid #9FEDD7;
+  background: #026670;
+  border: 1px solid #026670;
   border-radius: 5px;
-  padding: 10px 15px;
+  padding: 5px 15px;
   color: white;
   text-decoration: none;
   font-weight: 700;
-  text-align: center; }
+  text-align: center;
+  margin: 5px;
+   }
   .button:hover, .button:focus {
     background: #026670;
     border: 1px solid #026670; }
