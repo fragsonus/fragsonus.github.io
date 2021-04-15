@@ -94,12 +94,28 @@ p {
           transform: rotateY(180deg);
 }
 
+/*justify*/
+.textbox {display:flex; flex-flow:row wrap;}
+
+.alignleft {
+width:33.33333%;
+text-align:left;
+}
+.aligncenter {
+width:33.33333%;
+text-align:center;
+}
+.alignright {
+width:33.33333%;
+text-align:right;
+}
+
 /*navigation*/
 .d_top_padding {
   padding:2em;
 }
 .nav_background {
-  background-color: #772B1C;
+  background-color: #D78A6C;
   position: fixed;
   top: 0;
   width:100%;
@@ -118,9 +134,16 @@ p {
   margin: auto;
 }
 .nav_logo{
-  margin: auto;
-  height: 30px;
+  margin: 10px auto 20px;
+  height: 20px;
   vertical-align: middle;
+  display: block;
+}
+.nav_logo_medium{
+  margin: 10px auto 20px;
+  height: 25px;
+  vertical-align: middle;
+  display: block;
 }
 #d_logo {
   grid-row: 1 / span 2;
