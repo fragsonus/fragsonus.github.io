@@ -1722,73 +1722,116 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
 
   buttonlocation = document.getElementById(poolIndex + 'back');
 
+  var y = document.createElement("Div");
+  y.setAttribute('class', 'textbox')
+  buttonlocation.appendChild(y);
+
   var x = document.createElement("P");
-  x.innerHTML = `Ready to stake ${unstaked.toFixed(0)}`;
-  buttonlocation.appendChild(x);
+  x.setAttribute('class', 'alignleft');
+  x.innerHTML = `LPs to stake:`;
+  y.appendChild(x);
+
+  var x = document.createElement("P");
+  x.setAttribute('class', 'alignright');
+  x.innerHTML = `${unstaked.toFixed(2)}`;
+  y.appendChild(x);
+
+  var y = document.createElement("Div");
+  y.setAttribute('class', 'textbox')
+  buttonlocation.appendChild(y);
 
   var x = document.createElement("BUTTON");
   var t = document.createTextNode(`100%`);
   x.appendChild(t);
   x.onclick = approveAndStake;
-  buttonlocation.appendChild(x);
+  x.setAttribute('class', 'alignleft4');
+  y.appendChild(x);
 
   var x = document.createElement("BUTTON");
   var t = document.createTextNode(`75%`);
   x.appendChild(t);
-  x.onclick = approveAndStakeHalf;
-  buttonlocation.appendChild(x);
+  x.onclick = approveAndStake;
+  x.setAttribute('class', 'alignmidleft4');
+  y.appendChild(x);
 
   var x = document.createElement("BUTTON");
   var t = document.createTextNode(`50%`);
   x.appendChild(t);
-  x.onclick = approveAndStakeHalf;
-  buttonlocation.appendChild(x);
+  x.onclick = approveAndStake;
+  x.setAttribute('class', 'alignmidrightt4');
+  y.appendChild(x);
 
   var x = document.createElement("BUTTON");
   var t = document.createTextNode(`25%`);
   x.appendChild(t);
-  x.onclick = approveAndStakeHalf;
-  buttonlocation.appendChild(x);
+  x.onclick = approveAndStake;
+  x.setAttribute('class', 'alignright4');
+  y.appendChild(x);
 
   var x = document.createElement("BR");
   buttonlocation.appendChild(x);
 
+  var y = document.createElement("Div");
+  y.setAttribute('class', 'textbox')
+  buttonlocation.appendChild(y);
+
   var x = document.createElement("P");
-  x.innerHTML = `Ready to unstake ${userStaked.toFixed(0)}`;
-  buttonlocation.appendChild(x);
+  x.setAttribute('class', 'alignleft');
+  x.innerHTML = `LPs to unstake:`;
+  y.appendChild(x);
+
+  var x = document.createElement("P");
+  x.setAttribute('class', 'alignright');
+  x.innerHTML = `${userStaked.toFixed(2)}`;
+  y.appendChild(x);
 
   var x = document.createElement("BUTTON");
   var t = document.createTextNode(`100%`);
   x.appendChild(t);
   x.onclick = unstake;
-  buttonlocation.appendChild(x);
+  x.setAttribute('class', 'alignleft4');
+  y.appendChild(x);
 
   var x = document.createElement("BUTTON");
   var t = document.createTextNode(`75%`);
   x.appendChild(t);
   x.onclick = unstake;
-  buttonlocation.appendChild(x);
+  x.setAttribute('class', 'alignmidleft4');
+  y.appendChild(x);
 
   var x = document.createElement("BUTTON");
   var t = document.createTextNode(`50%`);
   x.appendChild(t);
   x.onclick = unstake;
-  buttonlocation.appendChild(x);
+  x.setAttribute('class', 'alignmidrightt4');
+  y.appendChild(x);
 
   var x = document.createElement("BUTTON");
   var t = document.createTextNode(`25%`);
   x.appendChild(t);
   x.onclick = unstake;
-  buttonlocation.appendChild(x);
+  x.setAttribute('class', 'alignright4');
+  y.appendChild(x);
+
+  var y = document.createElement("Div");
+  y.setAttribute('class', 'textbox')
+  buttonlocation.appendChild(y);
 
   var x = document.createElement("P");
-  x.innerHTML = `Ready to harvest ${pendingRewardTokens.toFixed(0)} ($${formatMoney(pendingRewardTokens*rewardTokenPrice)})`;
-  buttonlocation.appendChild(x);
+  x.setAttribute('class', 'alignleft');
+  x.innerHTML = `Claim yumchas:`;
+  y.appendChild(x);
+
+  var x = document.createElement("P");
+  x.setAttribute('class', 'alignright');
+  x.innerHTML = `${pendingRewardTokens.toFixed(0)} ($${formatMoney(pendingRewardTokens*rewardTokenPrice)}`;
+  y.appendChild(x);
 
   var x = document.createElement("BUTTON");
   var t = document.createTextNode(`Claim`);
   x.appendChild(t);
   x.onclick = claim;
+  x.setAttribute('text-align','center');
   buttonlocation.appendChild(x);
 
   // **********************************************************

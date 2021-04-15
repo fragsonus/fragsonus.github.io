@@ -36,7 +36,7 @@ p {
 }
 
 .grid {
-  max-width: 800px;
+  max-width: 1100px;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
