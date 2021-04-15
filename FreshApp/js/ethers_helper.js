@@ -1355,6 +1355,11 @@ function getUniPrices(tokens, prices, pool)
         buttonlocation.appendChild(y);
 
         var x = document.createElement("P");
+        x.setAttribute('class', 'alignleft3');
+        x.innerHTML = `<a href='${helperUrls[2]}' target='_blank'>Buy</a>`;
+        y.appendChild(x);
+
+        var x = document.createElement("P");
         x.setAttribute('class', 'aligncenter3');
         x.innerHTML = `<a href='${helperUrls[0]}' target='_blank'>Add </a>`;
         y.appendChild(x);
@@ -1362,12 +1367,7 @@ function getUniPrices(tokens, prices, pool)
         var x = document.createElement("P");
         x.setAttribute('class', 'alignright3');
         x.innerHTML = `<a href='${helperUrls[1]}' target='_blank'>Rmv </a>`;
-        y.appendChild(x);
-
-        var x = document.createElement("P");
-        x.setAttribute('class', 'alignleft3');
-        x.innerHTML = `<a href='${helperUrls[2]}' target='_blank'>Buy</a>`;
-        y.appendChild(x);
+        y.appendChild(x);     
 
         var y = document.createElement("Div");
         y.setAttribute('class', 'textbox')
