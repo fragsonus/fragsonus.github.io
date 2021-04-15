@@ -1758,7 +1758,7 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   var t = document.createTextNode(`50%`);
   x.appendChild(t);
   x.onclick = approveAndStake;
-  x.setAttribute('class', 'alignmidrightt4');
+  x.setAttribute('class', 'alignmidright4');
   y.appendChild(x);
 
   var x = document.createElement("BUTTON");
@@ -1803,7 +1803,7 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   var t = document.createTextNode(`50%`);
   x.appendChild(t);
   x.onclick = unstake;
-  x.setAttribute('class', 'alignmidrightt4');
+  x.setAttribute('class', 'alignmidright4');
   y.appendChild(x);
 
   var x = document.createElement("BUTTON");
@@ -1830,12 +1830,15 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   x.innerHTML = `${pendingRewardTokens.toFixed(0)} ($${formatMoney(pendingRewardTokens*rewardTokenPrice)}`;
   y.appendChild(x);
 
+  var y = document.createElement("Div");
+  y.setAttribute('class', 'center')
+  buttonlocation.appendChild(y);
+
   var x = document.createElement("BUTTON");
   var t = document.createTextNode(`Claim`);
   x.appendChild(t);
   x.onclick = claim;
-  x.setAttribute('class','center');
-  buttonlocation.appendChild(x);
+  y.appendChild(x);
 
   // **********************************************************
  
