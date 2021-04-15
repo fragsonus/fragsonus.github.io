@@ -39,14 +39,13 @@ button {
   display: block;
   font-size: 1rem;
   background: #026670;
-  border: 1px solid #026670;
+  border: 1px solid #FEF9C7;
   border-radius: 5px;
   padding: 5px 15px;
   color: white;
   text-decoration: none;
   font-weight: 700;
   text-align: center;
-  margin: 5px;
    }
   .button:hover, .button:focus {
     background: #026670;
