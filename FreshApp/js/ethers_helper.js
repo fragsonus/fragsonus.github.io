@@ -1658,7 +1658,7 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   
   // EXTRA BUTTONS ********************************************
 
-  buttonlocation = document.getElementById(poolIndex);
+  buttonlocation = document.getElementById(poolIndex + 'back');
 
   var x = document.createElement("BUTTON");
   var t = document.createTextNode(`Stake ${unstaked.toFixed(fixedDecimals)}`);
