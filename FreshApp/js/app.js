@@ -61,7 +61,7 @@ grid.addEventListener('click', function (event) {
 
   var clicked = event.target;
 
-  if (clicked.nodeName === 'SECTION') {
+  if (clicked.nodeName === 'section') {
     return;
   }
 
