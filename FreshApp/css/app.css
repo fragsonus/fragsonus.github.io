@@ -20,7 +20,7 @@ a {
 
 body {
   margin: 20px 0;
-  background: #6589F9;
+  background: #e0e7fe;
 }
 
 .grid {
@@ -64,13 +64,13 @@ body {
 }
 
 .front {
-  background: #ffd85f;
+  background: #ffebac;
 }
 
 .back {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
-  background-color: #ffebac;
+  background-color: #fff7df;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
