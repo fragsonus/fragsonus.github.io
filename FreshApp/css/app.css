@@ -235,5 +235,6 @@ text-align:center;
 .internal {
   margin-left: auto;
   margin-right: auto;
-  width: 400px;
+  width: 800px;
+  text-align: center;
 }

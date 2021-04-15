@@ -1710,6 +1710,66 @@ function getErc20Prices(prices, pool, chain="eth") {
     print_price() {
       _print(`${name} Price: $${formatMoney(price)} Market Cap: $${formatMoney(tvl)}`);
       _print(`Staked: ${pool.staked.toFixed(4)} ${pool.symbol} ($${formatMoney(staked_tvl)})`);
+
+      buttonlocation = document.getElementById(globalIndex);
+      buttonlocationBack = document.getElementById(globalIndex + 'back');
+
+      var x = document.createElement("H1");
+      x.innerHTML = `${name}`;
+      buttonlocation.appendChild(x);
+
+      var x = document.createElement("H1");
+      x.innerHTML = `${name}`;
+      buttonlocationBack.appendChild(x);
+
+      var x = document.createElement("BR");
+      buttonlocation.appendChild(x);
+
+      var x = document.createElement("BR");
+      buttonlocation.appendChild(x);
+
+      var y = document.createElement("Div");
+      y.setAttribute('class', 'textbox')
+      buttonlocation.appendChild(y);
+
+      var x = document.createElement("P");
+      x.setAttribute('class', 'alignleft');
+      x.innerHTML = `${name} Price:`;
+      y.appendChild(x);
+
+      var x = document.createElement("P");
+      x.setAttribute('class', 'alignright');
+      x.innerHTML = `$${formatMoney(price)}`;
+      y.appendChild(x);
+
+      var y = document.createElement("Div");
+      y.setAttribute('class', 'textbox')
+      buttonlocation.appendChild(y);
+
+      var x = document.createElement("P");
+      x.setAttribute('class', 'alignleft');
+      x.innerHTML = `Market Cap:`;
+      y.appendChild(x);
+
+      var x = document.createElement("P");
+      x.setAttribute('class', 'alignright');
+      x.innerHTML = `$${formatMoney(tvl)}`;
+      y.appendChild(x);
+
+      var y = document.createElement("Div");
+      y.setAttribute('class', 'textbox')
+      buttonlocation.appendChild(y);
+
+      var x = document.createElement("P");
+      x.setAttribute('class', 'alignleft');
+      x.innerHTML = `TVL:`;
+      y.appendChild(x);
+
+      var x = document.createElement("P");
+      x.setAttribute('class', 'alignright');
+      x.innerHTML = `$${formatMoney(staked_tvl)}`;
+      y.appendChild(x);
+
     },
     print_contained_price() {
     }
@@ -1860,28 +1920,28 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
     claimFunction, rewardTokenPrice) {
   fixedDecimals = fixedDecimals ?? 2;
   const approveAndStake = async function() {
-    return chefContract_stake100(chefAbi, chefAddr, poolIndex, poolAddress, App)
+    return chefContract_stake(chefAbi, chefAddr, poolIndex, poolAddress, App)
   }
   const approveAndStake75 = async function() {
-    return chefContract_stake100(chefAbi, chefAddr, poolIndex, poolAddress, App)
+    return chefContract_stake75(chefAbi, chefAddr, poolIndex, poolAddress, App)
   }
   const approveAndStake50 = async function() {
-    return chefContract_stake100(chefAbi, chefAddr, poolIndex, poolAddress, App)
+    return chefContract_stake50(chefAbi, chefAddr, poolIndex, poolAddress, App)
   }
   const approveAndStake25 = async function() {
-    return chefContract_stake100(chefAbi, chefAddr, poolIndex, poolAddress, App)
+    return chefContract_stake25(chefAbi, chefAddr, poolIndex, poolAddress, App)
   }     
   const unstake = async function() {
-    return chefContract_unstake100(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction)
+    return chefContract_unstake(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction)
   }
   const unstake75 = async function() {
-    return chefContract_unstake100(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction)
+    return chefContract_unstake75(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction)
   }
   const unstake50 = async function() {
-    return chefContract_unstake100(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction)
+    return chefContract_unstake50(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction)
   }
   const unstake25 = async function() {
-    return chefContract_unstake100(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction)
+    return chefContract_unstake25(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction)
   }     
   const claim = async function() {
     return chefContract_claim(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction, claimFunction)
