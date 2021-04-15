@@ -44,7 +44,10 @@ a {
   box-shadow: 2px 6px 25px rgba(0, 0, 0, 0.1);
   -webkit-transition: all .3s ease;
   transition: all .3s ease;
-  position: relative; }
+  position: relative; 
+  padding: 30px 30px 30px;
+  text-align: center;
+}
   .card:hover {
     -webkit-box-shadow: 2px 6px 30px rgba(0, 0, 0, 0.2);
     box-shadow: 2px 6px 30px rgba(0, 0, 0, 0.2); }
@@ -68,8 +71,7 @@ a {
   .card .card-content {
     padding: 30px 30px 110px; }
   .card .farmcard {
-    padding: 30px 30px 30px;
-    text-align: center;
+
   }
   .card .card-details {
     position: absolute;
