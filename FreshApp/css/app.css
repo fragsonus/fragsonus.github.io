@@ -23,6 +23,7 @@ font-weight: bold;
 
 h1 {
   font-size: 1.75rem;
+  text-align:center;
 }
 
 body {
@@ -106,6 +107,18 @@ margin: 0px;
 width:50%;
 text-align:right;
 margin: 0px;
+}
+.alignleft3 {
+width:33.33333%;
+text-align:left;
+}
+.aligncenter3 {
+width:33.33333%;
+text-align:center;
+}
+.alignright3 {
+width:33.33333%;
+text-align:right;
 }
 
 /*navigation*/
