@@ -110,7 +110,7 @@ p {
 .grid_nav {
   padding: 5px;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
 }
 .grid_nav > div{
   color: white;
