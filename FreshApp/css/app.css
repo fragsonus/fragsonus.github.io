@@ -55,7 +55,7 @@ p {
   transition: all .4s linear;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
-  margin: 20px;
+  margin-bottom: 20px;
 }
 
 .card,
