@@ -1715,7 +1715,7 @@ function getErc20Prices(prices, pool, chain="eth") {
       buttonlocationBack = document.getElementById(globalIndex + 'back');
 
       var x = document.createElement("H1");
-      x.innerHTML = `${name}`;
+      x.innerHTML = `${pool.symbol}`;
       buttonlocation.appendChild(x);
 
       var x = document.createElement("H1");
@@ -1734,7 +1734,7 @@ function getErc20Prices(prices, pool, chain="eth") {
 
       var x = document.createElement("P");
       x.setAttribute('class', 'alignleft');
-      x.innerHTML = `${name} Price:`;
+      x.innerHTML = `${pool.symbol} Price:`;
       y.appendChild(x);
 
       var x = document.createElement("P");
