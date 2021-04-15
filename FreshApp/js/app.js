@@ -2,31 +2,31 @@
 
 var cardsArray = [{
   'name': '0',
-  'img': 'img/blueshell.png'
+  'peg': 0,
 }, {
   'name': '1',
-  'img': 'img/star.png'
+  'peg': 100,
 }, {
   'name': '2',
-  'img': 'img/bobomb.png'
+  'peg': 0,
 }, {
   'name': '3',
-  'img': 'img/mario.png'
+  'peg': 0,
 }, {
   'name': '4',
-  'img': 'img/luigi.png'
+  'peg': 2.28,
 }, {
   'name': '5',
-  'img': 'img/peach.png'
+  'peg': 340,
 }, {
   'name': '6',
-  'img': 'img/1up.png'
+  'peg': 100,
 }, {
   'name': '7',
-  'img': 'img/mushroom.png'
+  'peg': 2.28,
 },{
   'name': '8',
-  'img': 'img/mushroom.png'
+  'peg': 184.82,
 }];
 
 var gameGrid = cardsArray;
@@ -57,6 +57,12 @@ gameGrid.forEach(function (item) {
   grid.appendChild(card);
   card.appendChild(front);
   card.appendChild(back);
+
+  var x = document.createElement("P");
+  x.setAttribute('class', 'alignright');
+  x.innerHTML = item.peg;
+  front.appendChild(x);
+
 });
 
 grid.addEventListener('click', function (event) {
