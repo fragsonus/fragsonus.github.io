@@ -12,11 +12,11 @@ html {
   font-family: 'Nunito', sans-serif;
   line-height: 1.6; }
 
-  a {
-  color: #ff5f86;
-  text-decoration: none;
-  -webkit-transition: all .3s ease;
-  transition: all .3s ease; }
+a {
+color: #ff5f86;
+text-decoration: none;
+-webkit-transition: all .3s ease;
+transition: all .3s ease; }
 
 body {
   margin: 20px 0;
@@ -53,7 +53,7 @@ body {
   width: 300px;
   border-radius: 5px;
   align-items: center;
-  padding: 10px;
+  padding: 20px;
 }
 
 .back,
@@ -79,4 +79,50 @@ body {
 .selected {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
+}
+
+/*navigation*/
+.d_top_padding {
+  padding:2em;
+}
+.nav_background {
+  background-color: #282923;
+  position: fixed;
+  top: 0;
+  width:100%;
+  z-index: 1;
+}
+.d_nav { 
+}
+.grid_nav {
+  padding: 5px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+.grid_nav > div{
+  color: white;
+  text-align: center;
+  margin: auto;
+}
+.nav_logo{
+  margin: auto;
+  height: 30px;
+  vertical-align: middle;
+}
+#d_logo {
+  grid-row: 1 / span 2;
+}
+#d_logo a {
+  color: white;
+}
+.nav_titles {
+  font-size:0.7em;
+}
+.nav_titles a {
+  color: #FFFAFA;
+}
+.splash_logo{
+  margin: auto;
+  height: 120px;
+  vertical-align: middle;
 }
