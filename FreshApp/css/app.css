@@ -13,7 +13,7 @@ html {
   line-height: 1.6; }
 
 a {
-color: #026670;
+color: #3A4E5B;
 text-decoration: none;
 -webkit-transition: all .3s ease;
 transition: all .3s ease; 
@@ -84,7 +84,7 @@ p {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
   background-color: #FEF9C7;
-  border: 5px solid #026670;
+  border: 5px solid #3A4E5B;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
@@ -193,7 +193,7 @@ text-align:center;
   font-size:0.7em;
 }
 .nav_titles a {
-  color: #FFFAFA;
+  color: #3A4E5B;
 }
 .splash_logo{
   margin: auto;
