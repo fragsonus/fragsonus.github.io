@@ -1671,10 +1671,10 @@ function printAPR(rewardTokenTicker, rewardPrice, poolRewardsPerWeek,
   // _print(`Day: ${dailyAPR.toFixed(1)}% || Year: ${yearlyAPR.toFixed(0)}%`);
   // _print(`${yearlyAPR.toFixed(0)}%`);
 
-  var x = document.createElement("BUTTON");
-  var t = document.createTextNode(`APR: ${yearlyAPR.toFixed(0)}%`);
-  x.appendChild(t);
-  logger.appendChild(x);
+  // var x = document.createElement("BUTTON");
+  // var t = document.createTextNode(`APR: ${yearlyAPR.toFixed(0)}%`);
+  // x.appendChild(t);
+  // logger.appendChild(x);
 
   _print(``);
   var userStakedUsd = userStaked * poolTokenPrice;
