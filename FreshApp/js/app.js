@@ -61,7 +61,7 @@ grid.addEventListener('click', function (event) {
 
   var clicked = event.target;
 
-  if (clicked.nodeName === 'section' || clicked.id === 'game') {
+  if (clicked.classList !== 'front' && clicked.classList !== 'back') {
     return;
   }
 
