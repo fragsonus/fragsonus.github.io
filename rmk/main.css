@@ -32,7 +32,11 @@ a {
   .flex-container {
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex; } }
+    display: flex; 
+    flex-flow: row wrap;
+    justify-content: space-around;
+    /*flex-wrap: wrap;*/
+    } }
 
 .card {
   -webkit-box-flex: 1;
@@ -47,6 +51,7 @@ a {
   position: relative; 
   padding: 30px 30px 30px;
   text-align: center;
+  margin: auto;
 }
   .card:hover {
     -webkit-box-shadow: 2px 6px 30px rgba(0, 0, 0, 0.2);

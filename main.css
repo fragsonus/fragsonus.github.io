@@ -44,7 +44,9 @@ a {
   box-shadow: 2px 6px 25px rgba(0, 0, 0, 0.1);
   -webkit-transition: all .3s ease;
   transition: all .3s ease;
-  position: relative; }
+  position: relative; 
+  width: 50%;
+  }
   .card:hover {
     -webkit-box-shadow: 2px 6px 30px rgba(0, 0, 0, 0.2);
     box-shadow: 2px 6px 30px rgba(0, 0, 0, 0.2); }
@@ -73,7 +75,8 @@ a {
     background-position: center center;
     background-repeat: no-repeat; }
   .card .card-content {
-    padding: 30px 30px 40px; }
+    padding: 30px 30px 40px; 
+    }
   .card .card-content-foot {
     padding: 30px 30px 30px; }
   .card .card-details {
