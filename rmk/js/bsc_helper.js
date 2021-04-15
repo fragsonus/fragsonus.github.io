@@ -414,7 +414,7 @@ async function getBscPoolInfo(App, chefContract, chefAddress, poolIndex, pending
   };
 }
 
-const globalPoolIndex;
+const globalPoolIndex = 0;
 
 async function loadBscChefContract(App, tokens, prices, chef, chefAddress, chefAbi, rewardTokenTicker,
   rewardTokenFunction, rewardsPerBlockFunction, rewardsPerWeekFixed, pendingRewardsFunction,
