@@ -1695,6 +1695,17 @@ function printAPR(rewardTokenTicker, rewardPrice, poolRewardsPerWeek,
   x.innerHTML = `$${formatMoney0(userStakedUsd)}`;
   y.appendChild(x);
 
+  var x = document.createElement("BR");
+  buttonlocation.appendChild(x);
+
+  var x = document.createElement("BR");
+  buttonlocation.appendChild(x);
+
+  var x = document.createElement("P");
+  x.setAttribute('class', 'alignright');
+  x.innerHTML = `Flip over to stake`;
+  buttonlocation.appendChild(x);
+
   var userWeeklyRewards = userStakedPct * poolRewardsPerWeek / 100;
   var userDailyRewards = userWeeklyRewards / 7;
   var userYearlyRewards = userWeeklyRewards * 52;
