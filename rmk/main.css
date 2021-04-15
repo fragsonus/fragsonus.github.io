@@ -67,6 +67,9 @@ a {
     background-repeat: no-repeat; }
   .card .card-content {
     padding: 30px 30px 110px; }
+  .card .farmcard {
+    padding: 30px 30px 30px
+  }
   .card .card-details {
     position: absolute;
     width: 100%;
