@@ -28,7 +28,7 @@ h1 {
 
 body {
   margin: 20px 0;
-  background: #303C6C;
+  background: #EDEAE5;
 }
 
 p {
@@ -97,16 +97,16 @@ button {
 }
 
 .front {
-  background: #B4DFE5;
-  border: 5px solid #D2FDFF;
+  background: #FEF9C7;
+  border: 5px solid #9FEDD7;
   padding: 20px;
 }
 
 .back {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
-  background-color: #B4DFE5;
-  border: 5px solid #B4DFE5;
+  background-color: #FEF9C7;
+  border: 5px solid #FEF9C7;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
@@ -176,7 +176,7 @@ text-align:center;
   padding:2em;
 }
 .nav_background {
-  background-color: #F4976C;
+  background-color: #FCE181;
   position: fixed;
   top: 0;
   width:100%;
