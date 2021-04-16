@@ -58,11 +58,6 @@ gameGrid.forEach(function (item) {
   card.appendChild(front);
   card.appendChild(back);
 
-  var x = document.createElement("P");
-  x.setAttribute('class', 'alignright');
-  x.innerHTML = 'Peg: '+item.peg;
-  front.appendChild(x);
-
 });
 
 grid.addEventListener('click', function (event) {
