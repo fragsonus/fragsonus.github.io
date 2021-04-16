@@ -13,7 +13,7 @@ html {
   line-height: 1.6; }
 
 a {
-color: #66fcf1;
+color: #45a29e;
 text-decoration: none;
 -webkit-transition: all .3s ease;
 transition: all .3s ease; 
@@ -24,6 +24,7 @@ font-weight: bold;
 h1 {
   font-size: 1.75rem;
   text-align:center;
+  color: #66fcf1;
 }
 
 body {
@@ -38,7 +39,7 @@ p {
 button {
   display: block;
   font-size: 1rem;
-  background: #FBE8A6;
+  background: #66fcf1;
   border: 2px solid #B4DFE5;
   border-radius: 5px;
   padding: 5px 5px;
@@ -49,7 +50,7 @@ button {
    }
   .button:hover, .button:focus {
     background: #FBE8A6;
-    border: 1px solid #FBE8A6; }
+    border: 1px solid #1f2833; }
 
 .grid {
   max-width: 960px;
