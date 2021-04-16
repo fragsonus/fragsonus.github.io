@@ -67,6 +67,7 @@ button {
 #log {
   max-width: 960px;
   padding:1em;
+  display: none;
 }
 
 .card {
