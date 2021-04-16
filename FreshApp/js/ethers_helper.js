@@ -1753,7 +1753,7 @@ function getErc20Prices(prices, pool, chain="eth") {
 
       var x = document.createElement("P");
       x.setAttribute('class', 'alignright');
-      x.innerHTML = `$${cardsArray[1][globalIndex]}`;
+      x.innerHTML = `$${formatMoney(cardsArray[1][globalIndex])}`;
       y.appendChild(x);
 
       var y = document.createElement("Div");
