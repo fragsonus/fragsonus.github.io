@@ -60,7 +60,7 @@ gameGrid.forEach(function (item) {
 
   var x = document.createElement("P");
   x.setAttribute('class', 'alignright');
-  x.innerHTML = item.peg;
+  x.innerHTML = 'Peg: '+item.peg;
   front.appendChild(x);
 
 });
