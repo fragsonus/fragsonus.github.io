@@ -414,6 +414,8 @@ async function getBscPoolInfo(App, chefContract, chefAddress, poolIndex, pending
   };
 }
 
+var globalIndex = 0;
+
 async function loadBscChefContract(App, tokens, prices, chef, chefAddress, chefAbi, rewardTokenTicker,
   rewardTokenFunction, rewardsPerBlockFunction, rewardsPerWeekFixed, pendingRewardsFunction,
   deathPoolIndices) {
@@ -458,28 +460,13 @@ async function loadBscChefContract(App, tokens, prices, chef, chefAddress, chefA
   let aprs = []
   for (i = 0; i < poolCount; i++) {
     if (poolPrices[i]) {
+      globalIndex = i;
       const apr = printChefPool(App, chefAbi, chefAddress, prices, tokens, poolInfos[i], i, poolPrices[i],
         totalAllocPoints, rewardsPerWeek, rewardTokenTicker, rewardTokenAddress,
         pendingRewardsFunction, null, null, "bsc")
       aprs.push(apr);
     }
   }
-
-  // let aprs = []
-  // for (i = 0; i < poolCount; i++) {
-  // 	if (i = 2) {
-  // 		j = 1;
-  // 	} else {
-  // 		j = i;
-  // 	}
-  //   if (poolPrices[j]) {
-  //     const apr = printChefPool(App, chefAbi, chefAddress, prices, tokens, poolInfos[j], j, poolPrices[j],
-  //       totalAllocPoints, rewardsPerWeek, rewardTokenTicker, rewardTokenAddress,
-  //       pendingRewardsFunction, null, null, "bsc")
-  //     aprs.push(apr);
-  //   }
-  // }
-
   let totalUserStaked=0, totalStaked=0, averageApr=0;
   for (const a of aprs) {
     if (!isNaN(a.totalStakedUsd)) {
@@ -491,16 +478,13 @@ async function loadBscChefContract(App, tokens, prices, chef, chefAddress, chefA
     }
   }
   averageApr = averageApr / totalUserStaked;
-  _print_bold(`Yumcha Farms: $${formatMoney0(totalStaked)}`);
-   totalLocked = totalStaked + 474000 + 55000 + 47000 + 20000;
-  _print_bold(`Yumcha TVL: $${formatMoney0(totalLocked)} (including UniCrypt)\n`);
-  _print(``);
+  _print_bold(`Total Staked: $${formatMoney(totalStaked)}`);
   if (totalUserStaked > 0) {
-    _print_bold(`\nYou are staking a total of $${formatMoney0(totalUserStaked)} at an average APR of ${(averageApr * 100).toFixed(0)}%`)
+    _print_bold(`\nYou are staking a total of $${formatMoney(totalUserStaked)} at an average APR of ${(averageApr * 100).toFixed(2)}%`)
     _print(`Estimated earnings:`
-        + ` Day $${formatMoney0(totalUserStaked*averageApr/365)}`
-        // + ` Week $${formatMoney0(totalUserStaked*averageApr/52)}`
-        + ` Year $${formatMoney0(totalUserStaked*averageApr)}\n`);
+        + ` Day $${formatMoney(totalUserStaked*averageApr/365)}`
+        + ` Week $${formatMoney(totalUserStaked*averageApr/52)}`
+        + ` Year $${formatMoney(totalUserStaked*averageApr)}\n`);
   }
   return { prices, totalUserStaked, totalStaked, averageApr }
 

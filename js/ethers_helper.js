@@ -684,6 +684,147 @@ const chefContract_stake = async function(chefAbi, chefAddress, poolIndex, stake
   }
 }
 
+const chefContract_stake75 = async function(chefAbi, chefAddress, poolIndex, stakeTokenAddr, App) {
+  const signer = App.provider.getSigner()
+
+  const STAKING_TOKEN = new ethers.Contract(stakeTokenAddr, ERC20_ABI, signer)
+  const CHEF_CONTRACT = new ethers.Contract(chefAddress, chefAbi, signer)
+
+  const currentTokens = await STAKING_TOKEN.balanceOf(App.YOUR_ADDRESS)
+  const allowedTokens = await STAKING_TOKEN.allowance(App.YOUR_ADDRESS, chefAddress)
+
+  let allow = Promise.resolve()
+
+  if (allowedTokens / 1e18 < currentTokens / 1e18) {
+    showLoading()
+    allow = STAKING_TOKEN.approve(chefAddress, ethers.constants.MaxUint256)
+      .then(function(t) {
+        return App.provider.waitForTransaction(t.hash)
+      })
+      .catch(function() {
+        hideLoading()
+        alert('Try resetting your approval to 0 first')
+      })
+  }
+
+  if (currentTokens / 1e18 > 0) {
+    showLoading()
+    allow
+      .then(async function() {
+          CHEF_CONTRACT.deposit(poolIndex, currentTokens*75/100, {gasLimit: 200000})
+          .then(function(t) {
+            App.provider.waitForTransaction(t.hash).then(function() {
+              hideLoading()
+            })
+          })
+          .catch(function() {
+            hideLoading()
+            _print('Something went wrong.')
+          })
+      })
+      .catch(function() {
+        hideLoading()
+        _print('Something went wrong.')
+      })
+  } else {
+    alert('You have no tokens to stake!!')
+  }
+}
+
+const chefContract_stake50 = async function(chefAbi, chefAddress, poolIndex, stakeTokenAddr, App) {
+  const signer = App.provider.getSigner()
+
+  const STAKING_TOKEN = new ethers.Contract(stakeTokenAddr, ERC20_ABI, signer)
+  const CHEF_CONTRACT = new ethers.Contract(chefAddress, chefAbi, signer)
+
+  const currentTokens = await STAKING_TOKEN.balanceOf(App.YOUR_ADDRESS)
+  const allowedTokens = await STAKING_TOKEN.allowance(App.YOUR_ADDRESS, chefAddress)
+
+  let allow = Promise.resolve()
+
+  if (allowedTokens / 1e18 < currentTokens / 1e18) {
+    showLoading()
+    allow = STAKING_TOKEN.approve(chefAddress, ethers.constants.MaxUint256)
+      .then(function(t) {
+        return App.provider.waitForTransaction(t.hash)
+      })
+      .catch(function() {
+        hideLoading()
+        alert('Try resetting your approval to 0 first')
+      })
+  }
+
+  if (currentTokens / 1e18 > 0) {
+    showLoading()
+    allow
+      .then(async function() {
+          CHEF_CONTRACT.deposit(poolIndex, currentTokens/2, {gasLimit: 200000})
+          .then(function(t) {
+            App.provider.waitForTransaction(t.hash).then(function() {
+              hideLoading()
+            })
+          })
+          .catch(function() {
+            hideLoading()
+            _print('Something went wrong.')
+          })
+      })
+      .catch(function() {
+        hideLoading()
+        _print('Something went wrong.')
+      })
+  } else {
+    alert('You have no tokens to stake!!')
+  }
+}
+
+const chefContract_stake25 = async function(chefAbi, chefAddress, poolIndex, stakeTokenAddr, App) {
+  const signer = App.provider.getSigner()
+
+  const STAKING_TOKEN = new ethers.Contract(stakeTokenAddr, ERC20_ABI, signer)
+  const CHEF_CONTRACT = new ethers.Contract(chefAddress, chefAbi, signer)
+
+  const currentTokens = await STAKING_TOKEN.balanceOf(App.YOUR_ADDRESS)
+  const allowedTokens = await STAKING_TOKEN.allowance(App.YOUR_ADDRESS, chefAddress)
+
+  let allow = Promise.resolve()
+
+  if (allowedTokens / 1e18 < currentTokens / 1e18) {
+    showLoading()
+    allow = STAKING_TOKEN.approve(chefAddress, ethers.constants.MaxUint256)
+      .then(function(t) {
+        return App.provider.waitForTransaction(t.hash)
+      })
+      .catch(function() {
+        hideLoading()
+        alert('Try resetting your approval to 0 first')
+      })
+  }
+
+  if (currentTokens / 1e18 > 0) {
+    showLoading()
+    allow
+      .then(async function() {
+          CHEF_CONTRACT.deposit(poolIndex, currentTokens*25/100, {gasLimit: 200000})
+          .then(function(t) {
+            App.provider.waitForTransaction(t.hash).then(function() {
+              hideLoading()
+            })
+          })
+          .catch(function() {
+            hideLoading()
+            _print('Something went wrong.')
+          })
+      })
+      .catch(function() {
+        hideLoading()
+        _print('Something went wrong.')
+      })
+  } else {
+    alert('You have no tokens to stake!!')
+  }
+}
+
 const chefContract_unstake = async function(chefAbi, chefAddress, poolIndex, App, pendingRewardsFunction) {
   const signer = App.provider.getSigner()
   const CHEF_CONTRACT = new ethers.Contract(chefAddress, chefAbi, signer)
@@ -694,6 +835,62 @@ const chefContract_unstake = async function(chefAbi, chefAddress, poolIndex, App
   if (earnedTokenAmount > 0) {
     showLoading()
     CHEF_CONTRACT.withdraw(poolIndex, currentStakedAmount, {gasLimit: 200000})
+      .then(function(t) {
+        return App.provider.waitForTransaction(t.hash)
+      })
+      .catch(function() {
+        hideLoading()
+      })
+  }
+}
+
+const chefContract_unstake75 = async function(chefAbi, chefAddress, poolIndex, App, pendingRewardsFunction) {
+  const signer = App.provider.getSigner()
+  const CHEF_CONTRACT = new ethers.Contract(chefAddress, chefAbi, signer)
+
+  const currentStakedAmount = (await CHEF_CONTRACT.userInfo(poolIndex, App.YOUR_ADDRESS)).amount
+  const earnedTokenAmount = await CHEF_CONTRACT.callStatic[pendingRewardsFunction](poolIndex, App.YOUR_ADDRESS) / 1e18
+
+  if (earnedTokenAmount > 0) {
+    showLoading()
+    CHEF_CONTRACT.withdraw(poolIndex, currentStakedAmount*75/100, {gasLimit: 200000})
+      .then(function(t) {
+        return App.provider.waitForTransaction(t.hash)
+      })
+      .catch(function() {
+        hideLoading()
+      })
+  }
+}
+
+const chefContract_unstake50 = async function(chefAbi, chefAddress, poolIndex, App, pendingRewardsFunction) {
+  const signer = App.provider.getSigner()
+  const CHEF_CONTRACT = new ethers.Contract(chefAddress, chefAbi, signer)
+
+  const currentStakedAmount = (await CHEF_CONTRACT.userInfo(poolIndex, App.YOUR_ADDRESS)).amount/2
+  const earnedTokenAmount = await CHEF_CONTRACT.callStatic[pendingRewardsFunction](poolIndex, App.YOUR_ADDRESS) / 1e18
+
+  if (earnedTokenAmount > 0) {
+    showLoading()
+    CHEF_CONTRACT.withdraw(poolIndex, currentStakedAmount, {gasLimit: 200000})
+      .then(function(t) {
+        return App.provider.waitForTransaction(t.hash)
+      })
+      .catch(function() {
+        hideLoading()
+      })
+  }
+}
+const chefContract_unstake25 = async function(chefAbi, chefAddress, poolIndex, App, pendingRewardsFunction) {
+  const signer = App.provider.getSigner()
+  const CHEF_CONTRACT = new ethers.Contract(chefAddress, chefAbi, signer)
+
+  const currentStakedAmount = (await CHEF_CONTRACT.userInfo(poolIndex, App.YOUR_ADDRESS)).amount
+  const earnedTokenAmount = await CHEF_CONTRACT.callStatic[pendingRewardsFunction](poolIndex, App.YOUR_ADDRESS) / 1e18
+
+  if (earnedTokenAmount > 0) {
+    showLoading()
+    CHEF_CONTRACT.withdraw(poolIndex, currentStakedAmount*25/100, {gasLimit: 200000})
       .then(function(t) {
         return App.provider.waitForTransaction(t.hash)
       })
@@ -1178,7 +1375,7 @@ function formatMoney(amount, decimalCount = 2, decimal = ".", thousands = ",") {
 function formatMoney0(amount, decimalCount = 0, decimal = ".", thousands = ",") {
   try {
     decimalCount = Math.abs(decimalCount);
-    decimalCount = isNaN(decimalCount) ? 0 : decimalCount;
+    decimalCount = isNaN(decimalCount) ? 2 : decimalCount;
 
     const negativeSign = amount < 0 ? "-" : "";
 
@@ -1220,7 +1417,7 @@ function getUniPrices(tokens, prices, pool)
   if (pool.is1inch) stakeTokenTicker += " 1INCH LP";
   else if (pool.symbol.includes("LSLP")) stakeTokenTicker += " LSLP";
   else if (pool.symbol.includes("SLP")) stakeTokenTicker += " SLP";
-  else if (pool.symbol.includes("Cake")) stakeTokenTicker += " Cake LP";
+  else if (pool.symbol.includes("Cake")) stakeTokenTicker +=  "";
   else if (pool.name.includes("Value LP")) stakeTokenTicker += " Value LP";
   else if (pool.symbol.includes("PGL")) stakeTokenTicker += " PGL"
   else stakeTokenTicker += " Uni LP";
@@ -1276,99 +1473,102 @@ function getUniPrices(tokens, prices, pool)
           `https://app.uniswap.org/#/remove/${t0address}/${t1address}`,
           `https://app.uniswap.org/#/swap?inputCurrency=${t0address}&outputCurrency=${t1address}` ]
         const helperHrefs = helperUrls.length == 0 ? "" :
-          ` <a href='${helperUrls[0]}' target='_blank'>[Add LP]</a> <a href='${helperUrls[1]}' target='_blank'>[Rmv LP]</a> <a href='${helperUrls[2]}' target='_blank'>[Buy]</a>`
-        // _print(`<a href='${poolUrl}' target='_blank'>${stakeTokenTicker}</a>`);
-        _print(`<h2>${stakeTokenTicker}</h2>`);
-        _print(`${helperHrefs}`);
-        _print(``);
-        // _print(`TVL: $${formatMoney0(tvl)}`);
-        // _print(`LP Price: $${formatMoney(price)}`);
-        // if(p0 < 0.01){
-        //   _print(`${t0.symbol} Price: $${p0.toFixed(5)}`)
-        // }else{
-        //   _print(`${t0.symbol} Price: $${formatMoney(p0)}`)
-        // }
-        // _print(`${t1.symbol} Price: $${formatMoney(p1)}`)
-        _print(`<u>Price</u>`); 
-        _print(`${t0.symbol}: $${formatMoney(p0)} || LP: $${formatMoney(price)}`) 
-        // _print(`${t0.symbol}: $${formatMoney(p0)} || ${t1.symbol}: $${formatMoney(p1)} || LP: $${formatMoney(price)}`)
-        // _print(`Total Staked LP: ${formatMoney0(pool.staked)}`);
-        // _print(`Total Staked USD: ${formatMoney0(staked_tvl)}`);
-        _print(`<u>Total Staked</u>`); 
-        _print(`USD: $${formatMoney0(staked_tvl)} || LP: ${formatMoney0(pool.staked)}`);
-      },
-      print_contained_price(userStaked) {
-        var userPct = userStaked / pool.totalSupply;
-        var q0user = userPct * q0;
-        var q1user = userPct * q1;
-        _print(`Your LP tokens comprise of ${q0user.toFixed(0)} ${t0.symbol} + ${q1user.toFixed(0)} ${t1.symbol}`);
-      }
-  }
-}
+          ` <a href='${helperUrls[0]}' target='_blank'>Add </a> <a href='${helperUrls[1]}' target='_blank'>Rmv </a> <a href='${helperUrls[2]}' target='_blank'>Buy</a>`
+        _print(`<a href='${poolUrl}' target='_blank'>${stakeTokenTicker}</a>${helperHrefs} Price: $${formatMoney(price)} TVL: $${formatMoney(tvl)}`);
+          
+        if(p0 < 0.01){
+          _print(`${t0.symbol} Price: $${p0.toFixed(5)}`)
+        }else{
+          _print(`${t0.symbol} Price: $${formatMoney(p0)}`)
+        }
+        _print(`${t1.symbol} Price: $${formatMoney(p1)}`)
+        _print(`Staked: ${pool.staked.toFixed(4)} ${pool.symbol} ($${formatMoney(staked_tvl)})`);
 
-function getValuePrices(tokens, prices, pool)
-{
-  var t0 = getParameterCaseInsensitive(tokens,pool.token0);
-  var p0 = getParameterCaseInsensitive(prices,pool.token0)?.usd;
-  var t1 = getParameterCaseInsensitive(tokens,pool.token1);
-  var p1 = getParameterCaseInsensitive(prices,pool.token1)?.usd;
-  if (p0 == null && p1 == null) {
-      return undefined;
-  }
-  var q0 = pool.q0 / 10 ** t0.decimals;
-  var q1 = pool.q1 / 10 ** t1.decimals;
-  if (p0 == null)
-  {
-      p0 = q1 * p1 / pool.w1 / q0 * pool.w0;
-      prices[pool.token0] = { usd : p0 };
-  }
-  if (p1 == null)
-  {
-      p1 = q0 * p0 / pool.w0 / q1 * pool.w1;
-      prices[pool.token1] = { usd : p1 };
-  }
-  var tvl = q0 * p0 + q1 * p1;
-  var price = tvl / pool.totalSupply;
-  prices[pool.address] = { usd : price };
-  var staked_tvl = pool.staked * price;
-  let stakeTokenTicker = `${t0.symbol} ${pool.w0}%-${t1.symbol} ${pool.w1}% Value-LP`;
-  return {
-      t0, p0, q0, w0 : pool.w0,
-      t1, p1, q1, w1 : pool.w1,
-      price: price,
-      tvl : tvl,
-      staked_tvl : staked_tvl,
-      stakeTokenTicker : stakeTokenTicker,
-      print_price() {
-        const poolUrl = `https://info.vswap.fi/pool/${pool.address}` 
-        const t0address = t0.address;
-        const t1address =  t1.address;
-        const helperUrls = [
-          `https://bsc.valuedefi.io/#/add/${pool.address}`, 
-          `https://bsc.valuedefi.io/#/remove/${pool.address}`, 
-          `https://bsc.valuedefi.io/#/vswap?inputCurrency=${t0address}&outputCurrency=${t1address}` 
-        ]
-        const helperHrefs = helperUrls.length == 0 ? "" :
-          ` <a href='${helperUrls[0]}' target='_blank'>[Add LP]</a> <a href='${helperUrls[1]}' target='_blank'>[Rmv LP]</a> <a href='${helperUrls[2]}' target='_blank'>[Buy]</a>`
-        // _print(`<a href='${poolUrl}' target='_blank'>${stakeTokenTicker}</a>`);
-        _print(`<h2>${stakeTokenTicker}</h2>`);
-        _print(`${helperHrefs}`);
-        _print(``);
-        // _print(`TVL: $${formatMoney0(tvl)}`);
-        // _print(`LP Price: $${formatMoney(price)}`);
-        // _print(`${t0.symbol} Price: $${formatMoney(p0)}`)
-        // _print(`${t1.symbol} Price: $${formatMoney(p1)}`)
-        _print(`Prices - LP: $${formatMoney(price)} ${t0.symbol}: $${formatMoney(p0)} ${t1.symbol}: $${formatMoney(p1)}`);
-        // _print(`Total Staked LP: ${pool.staked.toFixed(0)} ${pool.symbol}`);
-        // _print(`Total Staked LP: ${formatMoney0(pool.staked)}`);
-        // _print(`Total Staked USD: ${formatMoney0(staked_tvl)}`);
-        _print(`Staked - LP: ${formatMoney0(pool.staked)} USD: ${formatMoney0(staked_tvl)}`);
+        // **********************************************************
+
+        buttonlocation = document.getElementById(globalIndex);
+        buttonlocationBack = document.getElementById(globalIndex + 'back');
+
+        var x = document.createElement("H1");
+        x.innerHTML = `${stakeTokenTicker}`;
+        buttonlocation.appendChild(x);
+
+        var x = document.createElement("H1");
+        x.innerHTML = `${stakeTokenTicker}`;
+        buttonlocationBack.appendChild(x);
+
+        var y = document.createElement("Div");
+        y.setAttribute('class', 'textbox')
+        buttonlocation.appendChild(y);
+
+        var x = document.createElement("P");
+        x.setAttribute('class', 'alignleft3');
+        x.innerHTML = `<a href='${helperUrls[2]}' target='_blank'>Buy</a>`;
+        y.appendChild(x);
+
+        var x = document.createElement("P");
+        x.setAttribute('class', 'aligncenter3');
+        x.innerHTML = `<a href='${helperUrls[0]}' target='_blank'>Add </a>`;
+        y.appendChild(x);
+
+        var x = document.createElement("P");
+        x.setAttribute('class', 'alignright3');
+        x.innerHTML = `<a href='${helperUrls[1]}' target='_blank'>Rmv </a>`;
+        y.appendChild(x);
+
+        var x = document.createElement("BR");
+        buttonlocation.appendChild(x);
+
+        var y = document.createElement("Div");
+        y.setAttribute('class', 'textbox')
+        buttonlocation.appendChild(y);
+
+        var x = document.createElement("P");
+        x.setAttribute('class', 'alignleft');
+        x.innerHTML = `${t0.symbol} Price:`;
+        y.appendChild(x);
+
+        var x = document.createElement("P");
+        x.setAttribute('class', 'alignright');
+        x.innerHTML = `$${formatMoney(p0)}`;
+        y.appendChild(x);
+
+        var y = document.createElement("Div");
+        y.setAttribute('class', 'textbox')
+        buttonlocation.appendChild(y);
+
+        var x = document.createElement("P");
+        x.setAttribute('class', 'alignleft');
+        x.innerHTML = `LP Value:`;
+        y.appendChild(x);
+
+        var x = document.createElement("P");
+        x.setAttribute('class', 'alignright');
+        x.innerHTML = `$${formatMoney(price)}`;
+        y.appendChild(x);
+
+        var y = document.createElement("Div");
+        y.setAttribute('class', 'textbox')
+        buttonlocation.appendChild(y);
+
+        var x = document.createElement("P");
+        x.setAttribute('class', 'alignleft');
+        x.innerHTML = `TVL:`;
+        y.appendChild(x);
+
+        var x = document.createElement("P");
+        x.setAttribute('class', 'alignright');
+        x.innerHTML = `$${formatMoney0(staked_tvl)}`;
+        y.appendChild(x);
+
+       // **********************************************************
+
       },
       print_contained_price(userStaked) {
         var userPct = userStaked / pool.totalSupply;
         var q0user = userPct * q0;
         var q1user = userPct * q1;
-        _print(`Your LP tokens comprise of ${q0user.toFixed(0)} ${t0.symbol} + ${q1user.toFixed(0)} ${t1.symbol}`);
+        _print(`Your LP tokens comprise of ${q0user.toFixed(4)} ${t0.symbol} + ${q1user.toFixed(4)} ${t1.symbol}`);
       }
   }
 }
@@ -1408,16 +1608,15 @@ function getBalancerPrices(tokens, prices, pool)
       stakeTokenTicker : stakeTokenTicker,
       print_price() {
         const poolUrl = `http://pools.balancer.exchange/#/pool/${pool.address}`;
-        _print(`<a href='${poolUrl}' target='_blank'>${stakeTokenTicker}</a> BPT`);
-        _print(`LP Price: $${formatMoney(price)} TVL: $${formatMoney(tvl)}`);
+        _print(`<a href='${poolUrl}' target='_blank'>${stakeTokenTicker}</a> BPT Price: $${formatMoney(price)} TVL: $${formatMoney(tvl)}`);
         poolPrices.forEach((p, i) => 
           _print(`${poolTokens[i].symbol} Price: $${formatMoney(p)}`)
         );
-        _print(`Total Staked: ${pool.staked.toFixed(0)} ${stakeTokenTicker} ($${formatMoney0(staked_tvl)})`);
+        _print(`Staked: ${pool.staked.toFixed(4)} ${stakeTokenTicker} ($${formatMoney(staked_tvl)})`);
       },
       print_contained_price(userStaked) {
         var userPct = userStaked / pool.totalSupply;
-        var userQs = quantities.map((q, i) => `${(q * userPct).toFixed(0)} ${poolTokens[i].symbol}`);
+        var userQs = quantities.map((q, i) => `${(q * userPct).toFixed(4)} ${poolTokens[i].symbol}`);
         _print(`Your LP tokens comprise of ${userQs.join(' + ')}`);
       }
   }
@@ -1445,9 +1644,8 @@ function getWrapPrices(tokens, prices, pool)
       price : price,
       stakeTokenTicker : pool.symbol,
       print_price() {
-        _print(`${name}`);
-        _print(`LP Price: $${formatMoney(price)} TVL: $${formatMoney0(tvl)}`);
-        _print(`Total Staked: ${pool.staked.toFixed(0)} ${pool.symbol} ($${formatMoney0(staked_tvl)})`);
+        _print(`${name} Price: $${formatMoney(price)} TVL: $${formatMoney(tvl)}`);
+        _print(`Staked: ${pool.staked.toFixed(4)} ${pool.symbol} ($${formatMoney(staked_tvl)})`);
       },
       print_contained_price(_) {
       }
@@ -1473,9 +1671,8 @@ function getWrapPrices(tokens, prices, pool)
       price : price,
       stakeTokenTicker : pool.symbol,
       print_price() {
-        _print(`${pool.symbol}`);
-        _print(`LP Price: $${formatMoney(price)} TVL: $${formatMoney0(tvl)}`);
-        _print(`Total Staked: ${pool.staked.toFixed(0)} ${pool.symbol} ($${formatMoney0(staked_tvl)})`);
+        _print(`${pool.symbol} Price: $${formatMoney(price)} TVL: $${formatMoney(tvl)}`);
+        _print(`Staked: ${pool.staked.toFixed(4)} ${pool.symbol} ($${formatMoney(staked_tvl)})`);
       },
       print_contained_price(_) {
       }
@@ -1505,21 +1702,74 @@ function getErc20Prices(prices, pool, chain="eth") {
       poolUrl=`https://cchain.explorer.avax.network/address/${pool.address}`;
       break;
   }
-  // const name = `<a href='${poolUrl}' target='_blank'>${pool.symbol}</a>`;
-  const name = `<h2>${pool.symbol}</h2>`;
+  const name = `<a href='${poolUrl}' target='_blank'>${pool.symbol}</a>`;
   return {
     staked_tvl : staked_tvl,
     price : price,
     stakeTokenTicker : pool.symbol,
     print_price() {
-      _print(`${name}`);
-      _print(`<u>Price</u>`);
-      _print(`$${formatMoney(price)}`);
-      _print(`<u>Market Cap</u>`);
-      _print(`$${formatMoney0(tvl)}`);
-      // _print(`Total Staked: ${pool.staked.toFixed(0)} ${pool.symbol} ($${formatMoney0(staked_tvl)})`);
-      _print(`<u>Total Staked</u>`); 
-      _print(`USD: $${formatMoney0(staked_tvl)} || LP: ${formatMoney0(pool.staked)}`);
+      _print(`${name} Price: $${formatMoney(price)} Market Cap: $${formatMoney(tvl)}`);
+      _print(`Staked: ${pool.staked.toFixed(4)} ${pool.symbol} ($${formatMoney(staked_tvl)})`);
+
+      buttonlocation = document.getElementById(globalIndex);
+      buttonlocationBack = document.getElementById(globalIndex + 'back');
+
+      var x = document.createElement("H1");
+      x.innerHTML = `${pool.symbol}`;
+      buttonlocation.appendChild(x);
+
+      var x = document.createElement("H1");
+      x.innerHTML = `${pool.symbol}`;
+      buttonlocationBack.appendChild(x);
+
+      var x = document.createElement("BR");
+      buttonlocation.appendChild(x);
+
+      var x = document.createElement("BR");
+      buttonlocation.appendChild(x);
+
+      var y = document.createElement("Div");
+      y.setAttribute('class', 'textbox')
+      buttonlocation.appendChild(y);
+
+      var x = document.createElement("P");
+      x.setAttribute('class', 'alignleft');
+      x.innerHTML = `${pool.symbol} Price:`;
+      y.appendChild(x);
+
+      var x = document.createElement("P");
+      x.setAttribute('class', 'alignright');
+      x.innerHTML = `$${formatMoney(price)}`;
+      y.appendChild(x);
+
+      var y = document.createElement("Div");
+      y.setAttribute('class', 'textbox')
+      buttonlocation.appendChild(y);
+
+      var x = document.createElement("P");
+      x.setAttribute('class', 'alignleft');
+      x.innerHTML = `Market Cap:`;
+      y.appendChild(x);
+
+      var x = document.createElement("P");
+      x.setAttribute('class', 'alignright');
+      x.innerHTML = `$${formatMoney0(tvl)}`;
+      y.appendChild(x);
+
+      var y = document.createElement("Div");
+      y.setAttribute('class', 'textbox')
+      buttonlocation.appendChild(y);
+
+      var x = document.createElement("P");
+      x.setAttribute('class', 'alignleft');
+      x.innerHTML = `TVL:`;
+      y.appendChild(x);
+
+      var x = document.createElement("P");
+      x.setAttribute('class', 'alignright');
+      x.innerHTML = `$${formatMoney0(staked_tvl)}`;
+      y.appendChild(x);
+
     },
     print_contained_price() {
     }
@@ -1537,9 +1787,8 @@ function getCurvePrices(prices, pool) {
     price : price,
     stakeTokenTicker : pool.symbol,
     print_price() {
-      _print(`${name}`);
-      _print(`Price: $${formatMoney(price)} Market Cap: $${formatMoney0(tvl)}`);
-      _print(`Total Staked: ${pool.staked.toFixed(0)} ${pool.symbol} ($${formatMoney0(staked_tvl)})`);
+      _print(`${name} Price: $${formatMoney(price)} Market Cap: $${formatMoney(tvl)}`);
+      _print(`Staked: ${pool.staked.toFixed(4)} ${pool.symbol} ($${formatMoney(staked_tvl)})`);
     },
     print_contained_price() {
     }
@@ -1597,27 +1846,64 @@ function printAPR(rewardTokenTicker, rewardPrice, poolRewardsPerWeek,
                   fixedDecimals) {
   var usdPerWeek = poolRewardsPerWeek * rewardPrice;
   fixedDecimals = fixedDecimals ?? 2;
-  // _print(`${rewardTokenTicker} Per Week: ${poolRewardsPerWeek.toFixed(0)} ($${formatMoney0(usdPerWeek)})`);
+  _print(`${rewardTokenTicker} Per Week: ${poolRewardsPerWeek.toFixed(fixedDecimals)} ($${formatMoney(usdPerWeek)})`);
   var weeklyAPR = usdPerWeek / staked_tvl * 100;
   var dailyAPR = weeklyAPR / 7;
   var yearlyAPR = weeklyAPR * 52;
-  _print(`<u>APR</u>`); 
-  _print(`Day: ${dailyAPR.toFixed(1)}% || Year: ${yearlyAPR.toFixed(0)}%`);
-  _print(``);
+  _print(`APR: Day ${dailyAPR.toFixed(2)}% Week ${weeklyAPR.toFixed(2)}% Year ${yearlyAPR.toFixed(2)}%`);
+
+  buttonlocation = document.getElementById(globalIndex);
+
+  var y = document.createElement("Div");
+  y.setAttribute('class', 'textbox')
+  buttonlocation.appendChild(y);
+
+  var x = document.createElement("P");
+  x.setAttribute('class', 'alignleft');
+  x.innerHTML = `APR:`;
+  y.appendChild(x);
+
+  var x = document.createElement("P");
+  x.setAttribute('class', 'alignright');
+  x.innerHTML = `${yearlyAPR.toFixed(0)}%`;
+  y.appendChild(x);
+
   var userStakedUsd = userStaked * poolTokenPrice;
   var userStakedPct = userStakedUsd / staked_tvl * 100;
-  // _print(`You are staking ${userStaked.toFixed(fixedDecimals)} ${stakeTokenTicker} ($${formatMoney0(userStakedUsd)}), ${userStakedPct.toFixed(2)}% of the pool.`);
-  _print(`You are staking $${formatMoney0(userStakedUsd)} || ${userStakedPct.toFixed(2)}% of the pool.`);
-  // _print(`You are staking ${userStakedPct.toFixed(2)}% of the pool.`);
+  _print(`You are staking ${userStaked.toFixed(fixedDecimals)} ${stakeTokenTicker} ($${formatMoney(userStakedUsd)}), ${userStakedPct.toFixed(2)}% of the pool.`);
+  
+  var y = document.createElement("Div");
+  y.setAttribute('class', 'textbox')
+  buttonlocation.appendChild(y);
+
+  var x = document.createElement("P");
+  x.setAttribute('class', 'alignleft');
+  x.innerHTML = `User Stake:`;
+  y.appendChild(x);
+
+  var x = document.createElement("P");
+  x.setAttribute('class', 'alignright');
+  x.innerHTML = `$${formatMoney0(userStakedUsd)}`;
+  y.appendChild(x);
+
+  var x = document.createElement("BR");
+  buttonlocation.appendChild(x);
+
+  var x = document.createElement("BR");
+  buttonlocation.appendChild(x);
+
+  var x = document.createElement("i");
+  x.innerHTML = `Flip to stake`;
+  buttonlocation.appendChild(x);
+
   var userWeeklyRewards = userStakedPct * poolRewardsPerWeek / 100;
   var userDailyRewards = userWeeklyRewards / 7;
   var userYearlyRewards = userWeeklyRewards * 52;
   if (userStaked > 0) {
-    _print(`Estimated ${rewardTokenTicker} earnings per`
-        + ` day: ${userDailyRewards.toFixed(0)} ($${formatMoney0(userDailyRewards*rewardPrice)})`
-        // + ` Week ${userWeeklyRewards.toFixed(0)} ($${formatMoney0(userWeeklyRewards*rewardPrice)})`
-        // + ` Year ${userYearlyRewards.toFixed(0)} ($${formatMoney0(userYearlyRewards*rewardPrice)})`
-        );
+    _print(`Estimated ${rewardTokenTicker} earnings:`
+        + ` Day ${userDailyRewards.toFixed(fixedDecimals)} ($${formatMoney(userDailyRewards*rewardPrice)})`
+        + ` Week ${userWeeklyRewards.toFixed(fixedDecimals)} ($${formatMoney(userWeeklyRewards*rewardPrice)})`
+        + ` Year ${userYearlyRewards.toFixed(fixedDecimals)} ($${formatMoney(userYearlyRewards*rewardPrice)})`);
   }
   return { 
     userStakedUsd, 
@@ -1634,19 +1920,112 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   fixedDecimals = fixedDecimals ?? 2;
   const approveAndStake = async function() {
     return chefContract_stake(chefAbi, chefAddr, poolIndex, poolAddress, App)
-  }      
+  }
+  const approveAndStake75 = async function() {
+    return chefContract_stake75(chefAbi, chefAddr, poolIndex, poolAddress, App)
+  }
+  const approveAndStake50 = async function() {
+    return chefContract_stake50(chefAbi, chefAddr, poolIndex, poolAddress, App)
+  }
+  const approveAndStake25 = async function() {
+    return chefContract_stake25(chefAbi, chefAddr, poolIndex, poolAddress, App)
+  }     
   const unstake = async function() {
     return chefContract_unstake(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction)
-  }      
+  }
+  const unstake75 = async function() {
+    return chefContract_unstake75(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction)
+  }
+  const unstake50 = async function() {
+    return chefContract_unstake50(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction)
+  }
+  const unstake25 = async function() {
+    return chefContract_unstake25(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction)
+  }     
   const claim = async function() {
     return chefContract_claim(chefAbi, chefAddr, poolIndex, App, pendingRewardsFunction, claimFunction)
   }
   _print_link(`Stake ${unstaked.toFixed(fixedDecimals)} ${stakeTokenTicker}`, approveAndStake)
   _print_link(`Unstake ${userStaked.toFixed(fixedDecimals)} ${stakeTokenTicker}`, unstake)
   _print_link(`Claim ${pendingRewardTokens.toFixed(fixedDecimals)} ${rewardTokenTicker} ($${formatMoney(pendingRewardTokens*rewardTokenPrice)})`, claim)
-  // _print(`Staking or unstaking also claims rewards.`)
-  _print(``)
-  _print(`*************************************`)
+  _print(`Staking or unstaking also claims rewards.`)
+  
+  // EXTRA BUTTONS ********************************************
+
+  buttonlocation = document.getElementById(poolIndex + 'back');
+
+  var y = document.createElement("Div");
+  y.setAttribute('class', 'textbox')
+  buttonlocation.appendChild(y);
+
+  var x = document.createElement("P");
+  x.setAttribute('class', 'alignleft');
+  x.innerHTML = `LPs to stake:`;
+  y.appendChild(x);
+
+  var x = document.createElement("P");
+  x.setAttribute('class', 'alignright');
+  x.innerHTML = `${unstaked.toFixed(2)}`;
+  y.appendChild(x);
+
+  var y = document.createElement("Div");
+  y.setAttribute('class', 'textbox')
+  buttonlocation.appendChild(y);
+
+  var x = document.createElement("P");
+  x.setAttribute('class', 'alignleft');
+  x.innerHTML = `LPs to unstake:`;
+  y.appendChild(x);
+
+  var x = document.createElement("P");
+  x.setAttribute('class', 'alignright');
+  x.innerHTML = `${userStaked.toFixed(2)}`;
+  y.appendChild(x);
+
+  var y = document.createElement("Div");
+  y.setAttribute('class', 'textbox')
+  buttonlocation.appendChild(y);
+
+  var x = document.createElement("P");
+  x.setAttribute('class', 'alignleft');
+  x.innerHTML = `Claim yumchas:`;
+  y.appendChild(x);
+
+  var x = document.createElement("P");
+  x.setAttribute('class', 'alignright');
+  x.innerHTML = `${pendingRewardTokens.toFixed(2)}`;
+  y.appendChild(x);
+
+  var x = document.createElement("BR");
+  buttonlocation.appendChild(x);
+
+  var y = document.createElement("Div");
+  y.setAttribute('class', 'textbox')
+  buttonlocation.appendChild(y);
+
+  var x = document.createElement("BUTTON");
+  var t = document.createTextNode(`Stake`);
+  x.setAttribute('class', 'alignleft3');
+  x.appendChild(t);
+  x.onclick = approveAndStake;
+  y.appendChild(x);
+
+  var x = document.createElement("BUTTON");
+  var t = document.createTextNode(`Unstake`);
+  x.setAttribute('class', 'aligncenter3');
+  x.appendChild(t);
+  x.onclick = unstake;
+  y.appendChild(x);
+
+  var x = document.createElement("BUTTON");
+  var t = document.createTextNode(`Claim`);
+  x.setAttribute('class', 'alignright3');
+  x.appendChild(t);
+  x.onclick = claim;
+  y.appendChild(x);
+
+  // **********************************************************
+ 
   if  (chefAddr == "0x0De845955E2bF089012F682fE9bC81dD5f11B372") {
     const emergencyWithdraw = async function() {
       return chefContract_emergencyWithdraw(chefAbi, chefAddr, poolIndex, App)
@@ -1672,7 +2051,7 @@ function printChefPool(App, chefAbi, chefAddr, prices, tokens, poolInfo, poolInd
   poolPrices.print_price();
   sp?.print_price();
   const apr = printAPR(rewardTokenTicker, rewardPrice, poolRewardsPerWeek, poolPrices.stakeTokenTicker, 
-    staked_tvl, userStaked, poolPrices.price, fixedDecimals);
+  staked_tvl, userStaked, poolPrices.price, fixedDecimals);
   if (poolInfo.userLPStaked > 0) sp?.print_contained_price(userStaked);
   if (poolInfo.userStaked > 0) poolPrices.print_contained_price(userStaked);
   printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolInfo.address, pendingRewardsFunction,
@@ -1743,15 +2122,13 @@ async function loadChefContract(App, chef, chefAddress, chefAbi, rewardTokenTick
     }
   }
   averageApr = averageApr / totalUserStaked;
-  _print_bold(`Total Staked: $${formatMoney0(totalStaked)}`);
-  totalLocked = totalStaked + 474000 + 55000 + 47000 + 20000;
-  _print_bold(`Total Value Locked: $${formatMoney0(totalLocked)} (including UNCX)`);
-    if (totalUserStaked > 0) {
+  _print_bold(`Total Staked: $${formatMoney(totalStaked)}`);
+  if (totalUserStaked > 0) {
     _print_bold(`\nYou are staking a total of $${formatMoney(totalUserStaked)} at an average APR of ${(averageApr * 100).toFixed(2)}%`)
     _print(`Estimated earnings:`
-        + ` Day $${formatMoney0(totalUserStaked*averageApr/365)}`
-        // + ` Week $${formatMoney0(totalUserStaked*averageApr/52)}`
-        + ` Year $${formatMoney0(totalUserStaked*averageApr)}\n`);
+        + ` Day $${formatMoney(totalUserStaked*averageApr/365)}`
+        + ` Week $${formatMoney(totalUserStaked*averageApr/52)}`
+        + ` Year $${formatMoney(totalUserStaked*averageApr)}\n`);
   }
   return { prices, totalUserStaked, totalStaked, averageApr }
 }
@@ -2039,7 +2416,7 @@ async function loadBasisFork(data) {
       }
     } 
 
-    _print_bold(`Total staked: $${formatMoney0(totalStaked)}`)
+    _print_bold(`Total staked: $${formatMoney(totalStaked)}`)
 
     hideLoading();
 }
