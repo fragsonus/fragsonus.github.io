@@ -8,12 +8,12 @@
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #3A4E5B;
+  color: #c5c6c7;
   font-family: 'Roboto', sans-serif;
   line-height: 1.6; }
 
 a {
-color: #F4976C;
+color: #66fcf1;
 text-decoration: none;
 -webkit-transition: all .3s ease;
 transition: all .3s ease; 
@@ -28,7 +28,7 @@ h1 {
 
 body {
   margin: 20px 0;
-  background: #303C6C;
+  background: #0b0c10;
 }
 
 p {
@@ -97,16 +97,16 @@ button {
 }
 
 .front {
-  background: #B4DFE5;
-  border: 5px solid #D2FDFF;
+  background: #1f2833;
+  border: 5px solid #1f2833;
   padding: 20px;
 }
 
 .back {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
-  background-color: #B4DFE5;
-  border: 5px solid #B4DFE5;
+  background-color: #1f2833;
+  border: 5px solid #1f2833;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
@@ -176,7 +176,7 @@ text-align:center;
   padding:2em;
 }
 .nav_background {
-  background-color: #F4976C;
+  background-color: #1f2833;
   position: fixed;
   top: 0;
   width:100%;
@@ -216,7 +216,7 @@ text-align:center;
   font-size:0.7em;
 }
 .nav_titles a {
-  color: #3A4E5B;
+  color: #c5c6c7;
 }
 .splash_logo{
   margin: auto;
