@@ -1533,19 +1533,19 @@ function getUniPrices(tokens, prices, pool)
         x.innerHTML = `$${formatMoney(p0)}`;
         y.appendChild(x);
 
-        // var y = document.createElement("Div");
-        // y.setAttribute('class', 'textbox')
-        // buttonlocation.appendChild(y);
+        var y = document.createElement("Div");
+        y.setAttribute('class', 'textbox')
+        buttonlocation.appendChild(y);
 
-        // var x = document.createElement("P");
-        // x.setAttribute('class', 'alignleft');
-        // x.innerHTML = `Peg Price:`;
-        // y.appendChild(x);
+        var x = document.createElement("P");
+        x.setAttribute('class', 'alignleft');
+        x.innerHTML = `Peg Price:`;
+        y.appendChild(x);
 
-        // var x = document.createElement("P");
-        // x.setAttribute('class', 'alignright');
-        // x.innerHTML = `${pegArray[globalIndex]}`;
-        // y.appendChild(x);
+        var x = document.createElement("P");
+        x.setAttribute('class', 'alignright');
+        x.innerHTML = `${pegArray[globalIndex]}`;
+        y.appendChild(x);
 
         var y = document.createElement("Div");
         y.setAttribute('class', 'textbox')
@@ -1756,19 +1756,19 @@ function getErc20Prices(prices, pool, chain="eth") {
       x.innerHTML = `$${formatMoney(price)}`;
       y.appendChild(x);
 
-      var y = document.createElement("Div");
-      y.setAttribute('class', 'textbox')
-      buttonlocation.appendChild(y);
+      // var y = document.createElement("Div");
+      // y.setAttribute('class', 'textbox')
+      // buttonlocation.appendChild(y);
 
-      var x = document.createElement("P");
-      x.setAttribute('class', 'alignleft');
-      x.innerHTML = `Peg Price:`;
-      y.appendChild(x);
+      // var x = document.createElement("P");
+      // x.setAttribute('class', 'alignleft');
+      // x.innerHTML = `Peg Price:`;
+      // y.appendChild(x);
 
-      var x = document.createElement("P");
-      x.setAttribute('class', 'alignright');
-      x.innerHTML = `$${formatMoney(pegArray[globalIndex])}`;
-      y.appendChild(x);
+      // var x = document.createElement("P");
+      // x.setAttribute('class', 'alignright');
+      // x.innerHTML = `$${formatMoney(pegArray[globalIndex])}`;
+      // y.appendChild(x);
 
       var y = document.createElement("Div");
       y.setAttribute('class', 'textbox')
