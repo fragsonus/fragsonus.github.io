@@ -29,6 +29,8 @@ var cardsArray = [{
   'peg': 184.82,
 }];
 
+var PegArray = [0,100,0,0,2.28,340,100,2.28,184.82];
+
 var gameGrid = cardsArray;
 
 var game = document.getElementById('game');

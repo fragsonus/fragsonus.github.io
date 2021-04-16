@@ -1544,7 +1544,7 @@ function getUniPrices(tokens, prices, pool)
 
         var x = document.createElement("P");
         x.setAttribute('class', 'alignright');
-        x.innerHTML = `$${formatMoney(cardsArray[1][globalIndex])}`;
+        x.innerHTML = `$${formatMoney(pegArray[globalIndex])}`;
         y.appendChild(x);
 
         var y = document.createElement("Div");
@@ -1767,7 +1767,7 @@ function getErc20Prices(prices, pool, chain="eth") {
 
       var x = document.createElement("P");
       x.setAttribute('class', 'alignright');
-      x.innerHTML = `$${formatMoney(cardsArray[1][globalIndex])}`;
+      x.innerHTML = `$${formatMoney(pegArray[globalIndex])}`;
       y.appendChild(x);
 
       var y = document.createElement("Div");
