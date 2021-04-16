@@ -1544,7 +1544,7 @@ function getUniPrices(tokens, prices, pool)
 
         var x = document.createElement("P");
         x.setAttribute('class', 'alignright');
-        x.innerHTML = pegArray[globalIndex];
+        x.innerHTML = `{$pegArray[globalIndex]}`;
         y.appendChild(x);
 
         var y = document.createElement("Div");
