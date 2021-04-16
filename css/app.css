@@ -27,6 +27,10 @@ h1 {
   color: #66fcf1;
 }
 
+b {
+  color: #66fcf1;
+}
+
 body {
   margin: 20px 0;
   background: #0b0c10;
@@ -40,7 +44,7 @@ button {
   display: block;
   font-size: 1rem;
   background: #66fcf1;
-  border: 2px solid #B4DFE5;
+  border: 2px solid #1f2833;
   border-radius: 5px;
   padding: 5px 5px;
   color: #303C6C;
@@ -234,7 +238,6 @@ text-align:center;
   left: 0;
   height: 100%;
   width: 100%;
-  color: #66fcf1;
 }
 .middle {
   display: table-cell;
