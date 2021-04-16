@@ -1539,20 +1539,6 @@ function getUniPrices(tokens, prices, pool)
 
         var x = document.createElement("P");
         x.setAttribute('class', 'alignleft');
-        x.innerHTML = `Peg Price:`;
-        y.appendChild(x);
-
-        var x = document.createElement("P");
-        x.setAttribute('class', 'alignright');
-        x.innerHTML = `${pegArray[globalIndex]}`;
-        y.appendChild(x);
-
-        var y = document.createElement("Div");
-        y.setAttribute('class', 'textbox')
-        buttonlocation.appendChild(y);
-
-        var x = document.createElement("P");
-        x.setAttribute('class', 'alignleft');
         x.innerHTML = `LP Value:`;
         y.appendChild(x);
 
@@ -1756,20 +1742,6 @@ function getErc20Prices(prices, pool, chain="eth") {
       x.innerHTML = `$${formatMoney(price)}`;
       y.appendChild(x);
 
-      // var y = document.createElement("Div");
-      // y.setAttribute('class', 'textbox')
-      // buttonlocation.appendChild(y);
-
-      // var x = document.createElement("P");
-      // x.setAttribute('class', 'alignleft');
-      // x.innerHTML = `Peg Price:`;
-      // y.appendChild(x);
-
-      // var x = document.createElement("P");
-      // x.setAttribute('class', 'alignright');
-      // x.innerHTML = `$${formatMoney(pegArray[globalIndex])}`;
-      // y.appendChild(x);
-
       var y = document.createElement("Div");
       y.setAttribute('class', 'textbox')
       buttonlocation.appendChild(y);
@@ -1913,6 +1885,9 @@ function printAPR(rewardTokenTicker, rewardPrice, poolRewardsPerWeek,
   x.setAttribute('class', 'alignright');
   x.innerHTML = `$${formatMoney0(userStakedUsd)}`;
   y.appendChild(x);
+
+  var x = document.createElement("BR");
+  buttonlocation.appendChild(x);
 
   var x = document.createElement("BR");
   buttonlocation.appendChild(x);

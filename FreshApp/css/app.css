@@ -64,8 +64,9 @@ button {
           justify-content: space-evenly;
 }
 
-#div {
+#log {
   max-width: 960px;
+  padding:1em;
 }
 
 .card {
