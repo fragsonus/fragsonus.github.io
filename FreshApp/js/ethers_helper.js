@@ -1539,6 +1539,20 @@ function getUniPrices(tokens, prices, pool)
 
         var x = document.createElement("P");
         x.setAttribute('class', 'alignleft');
+        x.innerHTML = `Peg Price:`;
+        y.appendChild(x);
+
+        var x = document.createElement("P");
+        x.setAttribute('class', 'alignright');
+        x.innerHTML = `$${formatMoney(cardsArray[1][globalIndex])}`;
+        y.appendChild(x);
+
+        var y = document.createElement("Div");
+        y.setAttribute('class', 'textbox')
+        buttonlocation.appendChild(y);
+
+        var x = document.createElement("P");
+        x.setAttribute('class', 'alignleft');
         x.innerHTML = `LP Value:`;
         y.appendChild(x);
 
