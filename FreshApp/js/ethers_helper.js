@@ -1544,7 +1544,7 @@ function getUniPrices(tokens, prices, pool)
 
         var x = document.createElement("P");
         x.setAttribute('class', 'alignright');
-        x.innerHTML = `$${formatMoney(pegArray[globalIndex])}`;
+        x.innerHTML = pegArray[globalIndex];
         y.appendChild(x);
 
         var y = document.createElement("Div");
@@ -1913,9 +1913,6 @@ function printAPR(rewardTokenTicker, rewardPrice, poolRewardsPerWeek,
   x.setAttribute('class', 'alignright');
   x.innerHTML = `$${formatMoney0(userStakedUsd)}`;
   y.appendChild(x);
-
-  var x = document.createElement("BR");
-  buttonlocation.appendChild(x);
 
   var x = document.createElement("BR");
   buttonlocation.appendChild(x);
