@@ -68,9 +68,7 @@ button {
           justify-content: space-evenly;
 }
 
-#log {
-  max-width: 960px;
-  padding:1em;
+.hidden {
   display: none;
 }
 
