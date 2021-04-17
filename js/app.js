@@ -45,7 +45,6 @@ card.id = 'log';
 
 var front = document.createElement('div');
 front.classList.add('front');
-front.id = item.name;
 
 grid.appendChild(card);
 card.appendChild(front);
