@@ -41,10 +41,10 @@ game.appendChild(grid);
 
 var card = document.createElement('div');
 card.classList.add('card');
-card.id = 'log';
 
 var front = document.createElement('div');
 front.classList.add('front');
+front.id = 'log';
 
 grid.appendChild(card);
 card.appendChild(front);
