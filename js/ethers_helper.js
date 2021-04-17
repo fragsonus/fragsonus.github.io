@@ -1571,20 +1571,13 @@ function getUniPrices(tokens, prices, pool)
         _print(`Your LP tokens comprise of ${q0user.toFixed(4)} ${t0.symbol} + ${q1user.toFixed(4)} ${t1.symbol}`);
 
         buttonlocationBack = document.getElementById(globalIndex + 'back');
-
-        var y = document.createElement("Div");
-        y.setAttribute('class', 'textbox')
-        buttonlocationBack.appendChild(y);
-
         var x = document.createElement("P");
-        x.setAttribute('class', 'alignleft');
-        x.innerHTML = `LP:`;
-        y.appendChild(x);
+        x.innerHTML = `LP: ${q0user.toFixed(4)} ${t0.symbol} + ${q1user.toFixed(4)} ${t1.symbol}`;
+        buttonlocationBack.appendChild(x);
 
-        var x = document.createElement("P");
-        x.setAttribute('class', 'alignright');
-        x.innerHTML = `${q0user.toFixed(4)} ${t0.symbol} + ${q1user.toFixed(4)} ${t1.symbol}`;
-        y.appendChild(x);
+        var x = document.createElement("BR");
+        buttonlocationBack.appendChild(x);
+
       }
   }
 }
