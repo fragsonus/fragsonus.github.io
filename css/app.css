@@ -68,6 +68,10 @@ button {
   display: none;
 }
 
+.hidden {
+  font-size: 0.5em;
+}
+
 .card {
   position: relative;
   -webkit-transition: all .4s linear;
