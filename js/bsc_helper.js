@@ -458,6 +458,8 @@ async function loadBscChefContract(App, tokens, prices, chef, chefAddress, chefA
   // _print("Finished reading smart contracts.\n");
 
   x = document.getElementById('logcard');
+  x.setAttribute('class','hidden');
+  x = document.getElementById('log');
   x.setAttribute('class','hidden');    
 
   let aprs = []
