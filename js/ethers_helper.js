@@ -1572,7 +1572,7 @@ function getUniPrices(tokens, prices, pool)
 
         buttonlocationBack = document.getElementById(globalIndex + 'back');
         var x = document.createElement("P");
-        x.innerHTML = `LP: ${q0user.toFixed(4)} ${t0.symbol} + ${q1user.toFixed(4)} ${t1.symbol}`;
+        x.innerHTML = `LP: ${q0user.toFixed(1)} ${t0.symbol} + ${q1user.toFixed(1)} ${t1.symbol}`;
         buttonlocationBack.appendChild(x);
 
         var x = document.createElement("BR");
