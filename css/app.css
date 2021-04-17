@@ -36,10 +36,6 @@ body {
   background: #0b0c10;
 }
 
-p {
-  font-size: 0.4em;
-}
-
 button {
   display: block;
   font-size: 1rem;
@@ -71,10 +67,6 @@ button {
 .hidden {
   display: none;
 }
-
-/*.log {
-  font-size: 0.2em;
-}*/
 
 .card {
   position: relative;
