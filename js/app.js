@@ -41,6 +41,7 @@ game.appendChild(grid);
 
 var card = document.createElement('div');
 card.classList.add('card');
+card.id = 'logcard';
 
 var front = document.createElement('div');
 front.classList.add('front');

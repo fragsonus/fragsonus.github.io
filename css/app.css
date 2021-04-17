@@ -37,7 +37,7 @@ body {
 }
 
 p {
-  font-size: ;
+  font-size: 0.4em;
 }
 
 button {
@@ -70,6 +70,10 @@ button {
 
 .hidden {
   display: none;
+}
+
+.log {
+  font-size: 0.2em;
 }
 
 .card {
