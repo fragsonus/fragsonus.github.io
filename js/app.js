@@ -39,6 +39,11 @@ var grid = document.createElement('section');
 grid.setAttribute('class', 'grid');
 game.appendChild(grid);
 
+var card = document.createElement('div');
+card.classList.add('card');
+card.id = 'log';
+grid.appendChild(card);
+
 gameGrid.forEach(function (item) {
   var name = item.name,
       img = item.img;
