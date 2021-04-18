@@ -2,37 +2,37 @@
 
 var cardsArray = [{
   'name': '0',
-  'peg': 0,
+  'title': 'BUSD-yumcha',
 },{
   'name': '10',
-  'peg': 184.82,
+  'title': 'WBNB-yumcha',
 }, {
   'name': '2',
-  'peg': 100,
+  'peg': 'yumcha',
 }, {
   'name': '3',
-  'peg': 0,
+  'peg': 'ycPEG-yumcha',
 }, {
   'name': '5',
-  'peg': 0,
+  'peg': 'mQQQ-yumcha',
 }, {
   'name': '1',
-  'peg': 2.28,
+  'peg': 'ycVT-BUSD',
 }, {
   'name': '6',
-  'peg': 340,
+  'peg': 'ycVT-yumcha',
 }, {
   'name': '4',
-  'peg': 100,
+  'peg': 'ycCMC-BUSD',
 }, {
   'name': '7',
-  'peg': 2.28,
+  'peg': 'ycCMC-yumcha',
 },{
   'name': '9',
-  'peg': 184.82,
+  'peg': 'ycBCOM-BUSD',
 },{
   'name': '8',
-  'peg': 184.82,
+  'peg': 'ycBCOM-yumcha',
 }];
 
 var PegArray = ['na','$100.00','na','na','$2.28','$340.00',
@@ -77,6 +77,14 @@ gameGrid.forEach(function (item) {
   grid.appendChild(card);
   card.appendChild(front);
   card.appendChild(back);
+
+  var x = document.createElement("H1");
+  x.innerHTML = item.title;
+  front.appendChild(x);
+
+  var x = document.createElement("H1");
+  x.innerHTML = item.title;
+  back.appendChild(x);
 
 });
 
