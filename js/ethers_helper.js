@@ -1738,7 +1738,8 @@ function getErc20Prices(prices, pool, chain="eth") {
 
       var x = document.createElement("BR");
       buttonlocation.appendChild(x);
-
+      var x = document.createElement("BR");
+      buttonlocation.appendChild(x);
       var x = document.createElement("BR");
       buttonlocation.appendChild(x);
 
