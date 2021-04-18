@@ -1929,7 +1929,7 @@ function printAPR(rewardTokenTicker, rewardPrice, poolRewardsPerWeek,
 
 function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, pendingRewardsFunction,
     rewardTokenTicker, stakeTokenTicker, unstaked, userStaked, pendingRewardTokens, fixedDecimals,
-    claimFunction, rewardTokenPrice) {
+    claimFunction, rewardTokenPrice, poolPrice) {
   fixedDecimals = fixedDecimals ?? 2;
   const approveAndStake = async function() {
     return chefContract_stake(chefAbi, chefAddr, poolIndex, poolAddress, App)
@@ -1978,7 +1978,7 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
 
   var x = document.createElement("P");
   x.setAttribute('class', 'alignright');
-  x.innerHTML = `${unstaked.toFixed(4)}`;
+  x.innerHTML = `${(unstaked*poolPrice).toFixed(2)}`;
   y.appendChild(x);
 
   var y = document.createElement("Div");
@@ -1992,7 +1992,7 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
 
   var x = document.createElement("P");
   x.setAttribute('class', 'alignright');
-  x.innerHTML = `${userStaked.toFixed(4)}`;
+  x.innerHTML = `${(userStaked*poolPrice).toFixed(2)}`;
   y.appendChild(x);
 
   var y = document.createElement("Div");
@@ -2069,7 +2069,7 @@ function printChefPool(App, chefAbi, chefAddr, prices, tokens, poolInfo, poolInd
   if (poolInfo.userStaked > 0) poolPrices.print_contained_price(userStaked);
   printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolInfo.address, pendingRewardsFunction,
     rewardTokenTicker, poolPrices.stakeTokenTicker, poolInfo.poolToken.unstaked, 
-    poolInfo.userStaked, poolInfo.pendingRewardTokens, fixedDecimals, claimFunction, rewardPrice, chain);
+    poolInfo.userStaked, poolInfo.pendingRewardTokens, fixedDecimals, claimFunction, rewardPrice, chain, poolPrices.price);
   return apr;
 }
 
