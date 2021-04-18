@@ -1506,6 +1506,7 @@ function getUniPrices(tokens, prices, pool)
         x.innerHTML = `<a href='${helperUrls[2]}' target='_blank'>Buy</a>`;
         y.appendChild(x);
 
+        var x = document.createElement("P");
         x.setAttribute('class', 'alignmidleft4');
         x.innerHTML = `<a href='https://dex.guru/token/${t0address}-bsc' target='_blank'>Chrt</a>`;
         y.appendChild(x);
