@@ -1415,7 +1415,7 @@ function getUniPrices(tokens, prices, pool)
   var staked_tvl = pool.staked * price;
 
   if (globalIndex = 10){
-      let stakeTokenTicker = `${t1.symbol}-${t0.symbol}`;
+    let stakeTokenTicker = `${t1.symbol}-${t0.symbol}`;
   }
   else {
     let stakeTokenTicker = `${t0.symbol}-${t1.symbol}`;
