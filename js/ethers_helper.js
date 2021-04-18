@@ -1973,12 +1973,12 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
 
   var x = document.createElement("P");
   x.setAttribute('class', 'alignleft');
-  x.innerHTML = `LPs to stake:`;
+  x.innerHTML = `Staked:`;
   y.appendChild(x);
 
   var x = document.createElement("P");
   x.setAttribute('class', 'alignright');
-  x.innerHTML = `$${formatMoney0(unstaked * poolPrice)}`;
+  x.innerHTML = `$${formatMoney(unstaked * poolPrice)}`;
   y.appendChild(x);
 
   var y = document.createElement("Div");
@@ -1987,12 +1987,12 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
 
   var x = document.createElement("P");
   x.setAttribute('class', 'alignleft');
-  x.innerHTML = `LPs to unstake:`;
+  x.innerHTML = `Unstake:`;
   y.appendChild(x);
 
   var x = document.createElement("P");
   x.setAttribute('class', 'alignright');
-  x.innerHTML = `${(userStaked).toFixed(2)}`;
+  x.innerHTML = `$${formatMoney(userStaked * poolPrice)}`;
   y.appendChild(x);
 
   var y = document.createElement("Div");
@@ -2001,12 +2001,12 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
 
   var x = document.createElement("P");
   x.setAttribute('class', 'alignleft');
-  x.innerHTML = `Claim yumchas:`;
+  x.innerHTML = `Claim:`;
   y.appendChild(x);
 
   var x = document.createElement("P");
   x.setAttribute('class', 'alignright');
-  x.innerHTML = `${pendingRewardTokens.toFixed(2)}`;
+  x.innerHTML = `$${formatMoney(pendingRewardTokens*rewardTokenPrice)}`;
   y.appendChild(x);
 
   var x = document.createElement("BR");
