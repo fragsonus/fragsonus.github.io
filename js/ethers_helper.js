@@ -1724,8 +1724,20 @@ function getErc20Prices(prices, pool, chain="eth") {
       buttonlocation = document.getElementById(globalIndex);
       buttonlocationBack = document.getElementById(globalIndex + 'back');
 
-      var x = document.createElement("BR");
-      buttonlocation.appendChild(x);
+      var y = document.createElement("Div");
+      y.setAttribute('class', 'textbox')
+      buttonlocation.appendChild(y);
+
+      var x = document.createElement("P");
+      x.setAttribute('class', 'alignleft4');
+      x.innerHTML = `<a href='https://exchange.pancakeswap.finance/#/swap?inputCurrency=0xC7d0CE2961396d02059f06e8DF7Dd37E6809d478&outputCurrency=0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56' target='_blank'>Buy</a>`;
+      y.appendChild(x);
+
+      var x = document.createElement("P");
+      x.setAttribute('class', 'alignmidleft4');
+      x.innerHTML = `<a href='https://dex.guru/token/${pool.address}-bsc' target='_blank'>Chart</a>`;
+      y.appendChild(x);
+
       var x = document.createElement("BR");
       buttonlocation.appendChild(x);
 
