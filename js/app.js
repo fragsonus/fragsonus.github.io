@@ -3,6 +3,9 @@
 var cardsArray = [{
   'name': '0',
   'peg': 0,
+},{
+  'name': '10',
+  'peg': 184.82,
 }, {
   'name': '2',
   'peg': 100,
