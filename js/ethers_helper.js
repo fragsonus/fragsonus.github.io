@@ -1978,7 +1978,11 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
 
   var x = document.createElement("P");
   x.setAttribute('class', 'alignright');
-  x.innerHTML = `${unstaked.toFixed(2)}`;
+  if (poolindex === 10) {
+    x.innerHTML = `${unstaked.toFixed(6)}`;    
+  }else{
+    x.innerHTML = `${unstaked.toFixed(2)}`;    
+  }
   y.appendChild(x);
 
   var y = document.createElement("Div");
@@ -1992,7 +1996,11 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
 
   var x = document.createElement("P");
   x.setAttribute('class', 'alignright');
-  x.innerHTML = `${userStaked.toFixed(2)}`;
+  if (poolindex === 10) {
+    x.innerHTML = `${userStaked.toFixed(6)}`  
+  }else{
+    x.innerHTML = `${userStaked.toFixed(2)}` 
+  }
   y.appendChild(x);
 
   var y = document.createElement("Div");
