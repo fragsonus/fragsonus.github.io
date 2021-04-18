@@ -6,8 +6,8 @@ strong { font-weight: 600; }
 a { color: #60FCF1; border-bottom: text-decoration: none; transition: all .3s; }
 a:hover, a:focus { color: #60FCF1; border: 0; text-decoration: none; }
 
-h1, h2 { margin-top: 10px; font-size: 38px; font-weight: 300; color: #60FCF1; line-height: 50px; font-style: italic; }
-h3 { font-size: 22px; font-weight: 300; color: #60FCF1; line-height: 30px; font-style: italic; }
+h1, h2 { margin-top: 10px; font-size: 38px; font-weight: 500; color: #60FCF1; line-height: 50px; }
+h3 { font-size: 22px; font-weight: 500; color: #60FCF1; line-height: 30px; }
 
 img { max-width: 100%; }
 
