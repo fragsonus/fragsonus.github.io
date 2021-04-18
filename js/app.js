@@ -8,35 +8,32 @@ var cardsArray = [{
   'title': 'WBNB-yumcha',
 }, {
   'name': '2',
-  'peg': 'yumcha',
+  'title': 'yumcha',
 }, {
   'name': '3',
-  'peg': 'ycPEG-yumcha',
+  'title': 'ycPEG-yumcha',
 }, {
   'name': '5',
-  'peg': 'mQQQ-yumcha',
+  'title': 'mQQQ-yumcha',
 }, {
   'name': '1',
-  'peg': 'ycVT-BUSD',
+  'title': 'ycVT-BUSD',
 }, {
   'name': '6',
-  'peg': 'ycVT-yumcha',
+  'title': 'ycVT-yumcha',
 }, {
   'name': '4',
-  'peg': 'ycCMC-BUSD',
+  'title': 'ycCMC-BUSD',
 }, {
   'name': '7',
-  'peg': 'ycCMC-yumcha',
+  'title': 'ycCMC-yumcha',
 },{
   'name': '9',
-  'peg': 'ycBCOM-BUSD',
+  'title': 'ycBCOM-BUSD',
 },{
   'name': '8',
-  'peg': 'ycBCOM-yumcha',
+  'title': 'ycBCOM-yumcha',
 }];
-
-var PegArray = ['na','$100.00','na','na','$2.28','$340.00',
-                  '$100.00','$2.28','$184.82'];
 
 var gameGrid = cardsArray;
 
