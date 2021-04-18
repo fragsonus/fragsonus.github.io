@@ -1978,7 +1978,7 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
 
   var x = document.createElement("P");
   x.setAttribute('class', 'alignright');
-  x.innerHTML = `${(unstaked * poolPrice)}`;
+  x.innerHTML = `$${formatMoney0(unstaked * poolPrice)}`;
   y.appendChild(x);
 
   var y = document.createElement("Div");
