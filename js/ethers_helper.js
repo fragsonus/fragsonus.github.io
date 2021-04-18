@@ -1500,7 +1500,7 @@ function getUniPrices(tokens, prices, pool)
 
         var x = document.createElement("P");
         x.setAttribute('class', 'alignmidleft4');
-        if(globalIndex = 10){
+        if(globalIndex === 10){
           x.innerHTML = `<a href='https://dex.guru/token/${t1address}-bsc' target='_blank'>Chart</a>`;
         };
         else {
