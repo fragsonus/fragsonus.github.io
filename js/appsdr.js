@@ -2,7 +2,37 @@
 
 var cardsArray = [{
   'name': '0',
-  'title': 'ycPeg-yumcha',
+  'title': 'BUSD-yumcha',
+},{
+  'name': '10',
+  'title': 'WBNB-yumcha',
+}, {
+  'name': '2',
+  'title': 'yumcha',
+}, {
+  'name': '3',
+  'title': 'ycPEG-yumcha',
+}, {
+  'name': '5',
+  'title': 'mQQQ-yumcha',
+}, {
+  'name': '1',
+  'title': 'ycVT-BUSD',
+}, {
+  'name': '6',
+  'title': 'ycVT-yumcha',
+}, {
+  'name': '4',
+  'title': 'ycCMC-BUSD',
+}, {
+  'name': '7',
+  'title': 'ycCMC-yumcha',
+},{
+  'name': '9',
+  'title': 'ycBCOM-BUSD',
+},{
+  'name': '8',
+  'title': 'ycBCOM-yumcha',
 }];
 
 var gameGrid = cardsArray;
