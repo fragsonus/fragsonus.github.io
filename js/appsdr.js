@@ -37,21 +37,21 @@ var cardsArray = [{
 
 var gameGrid = cardsArray;
 
-var game = document.getElementById('game');
-var grid = document.createElement('section');
-grid.setAttribute('class', 'grid');
-game.appendChild(grid);
+// var game = document.getElementById('game');
+// var grid = document.createElement('section');
+// grid.setAttribute('class', 'grid');
+// game.appendChild(grid);
 
-var card = document.createElement('div');
-card.classList.add('card');
-card.id = 'logcard';
+// var card = document.createElement('div');
+// card.classList.add('card');
+// card.id = 'logcard';
 
-var front = document.createElement('div');
-front.classList.add('front');
-front.id = 'log';
+// var front = document.createElement('div');
+// front.classList.add('front');
+// front.id = 'log';
 
-grid.appendChild(card);
-card.appendChild(front);
+// grid.appendChild(card);
+// card.appendChild(front);
 
 gameGrid.forEach(function (item) {
   var name = item.name,
