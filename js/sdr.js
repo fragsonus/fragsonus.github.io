@@ -22,7 +22,7 @@ async function main() {
     // _print(`\n`);
     // // _print("Reading smart contracts...\n");
 
-   const yumcha_CHEF_ADDR = "0xe004aCcaEABCD51b477ad18aAe3D0AB6CB550A66";
+   const yumcha_CHEF_ADDR = "0xe3641C835d9e441f2F36D96c89E19BEDB5E991e7";
    const rewardTokenTicker = "yumcha";
    const yumcha_CHEF = new ethers.Contract(yumcha_CHEF_ADDR, yumcha_CHEF_ABI, App.provider);
 
