@@ -37,10 +37,10 @@ var cardsArray = [{
 
 var gameGrid = cardsArray;
 
-// var game = document.getElementById('game');
-// var grid = document.createElement('section');
-// grid.setAttribute('class', 'grid');
-// game.appendChild(grid);
+var game = document.getElementById('game');
+var grid = document.createElement('section');
+grid.setAttribute('class', 'grid');
+game.appendChild(grid);
 
 // var card = document.createElement('div');
 // card.classList.add('card');
