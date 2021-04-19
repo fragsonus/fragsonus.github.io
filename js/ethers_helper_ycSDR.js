@@ -928,24 +928,24 @@ const chefContract_claim = async function(chefAbi, chefAddress, poolIndex, App,
   }
 }
 
-const chefContract_emergencyWithdraw = async function(chefAbi, chefAddress, poolIndex, App) {
-  const signer = App.provider.getSigner()
+// const chefContract_emergencyWithdraw = async function(chefAbi, chefAddress, poolIndex, App) {
+//   const signer = App.provider.getSigner()
 
-  const CHEF_CONTRACT = new ethers.Contract(chefAddress, chefAbi, signer)
+//   const CHEF_CONTRACT = new ethers.Contract(chefAddress, chefAbi, signer)
 
-  const currentStakedAmount = (await CHEF_CONTRACT.userInfo(poolIndex, App.YOUR_ADDRESS)).amount
+//   const currentStakedAmount = (await CHEF_CONTRACT.userInfo(poolIndex, App.YOUR_ADDRESS)).amount
 
-  if (currentStakedAmount > 0) {
-    showLoading()
-    CHEF_CONTRACT.emergencyWithdraw(poolIndex, {gasLimit: 200000})
-      .then(function(t) {
-        return App.provider.waitForTransaction(t.hash)
-      })
-      .catch(function() {
-        hideLoading()
-      })
-  }
-}
+//   if (currentStakedAmount > 0) {
+//     showLoading()
+//     CHEF_CONTRACT.emergencyWithdraw(poolIndex, {gasLimit: 200000})
+//       .then(function(t) {
+//         return App.provider.waitForTransaction(t.hash)
+//       })
+//       .catch(function() {
+//         hideLoading()
+//       })
+//   }
+// }
 
 async function getUniPool(app, pool, poolAddress, stakingAddress) {
   const calls = [
@@ -2039,15 +2039,15 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
 
   // **********************************************************
  
-  if  (chefAddr == "0x0De845955E2bF089012F682fE9bC81dD5f11B372") {
-    const emergencyWithdraw = async function() {
-      return chefContract_emergencyWithdraw(chefAbi, chefAddr, poolIndex, App)
-    }      
-    _print('***')
-    _print_link(`EMERGENCY WITHDRAW ${userStaked.toFixed(fixedDecimals)} ${stakeTokenTicker}`, emergencyWithdraw)  
-    _print('This will forfeit your rewards but retrieve your capital')
-    _print('***')
-  }
+  // if  (chefAddr == "0x0De845955E2bF089012F682fE9bC81dD5f11B372") {
+  //   const emergencyWithdraw = async function() {
+  //     return chefContract_emergencyWithdraw(chefAbi, chefAddr, poolIndex, App)
+  //   }      
+  //   _print('***')
+  //   _print_link(`EMERGENCY WITHDRAW ${userStaked.toFixed(fixedDecimals)} ${stakeTokenTicker}`, emergencyWithdraw)  
+  //   _print('This will forfeit your rewards but retrieve your capital')
+  //   _print('***')
+  // }
   _print("");
 }
 
