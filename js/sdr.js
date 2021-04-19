@@ -37,8 +37,3 @@ async function main() {
 
     hideLoading();  
   }
-
-x = document.getElementById('logcard');
-x.removeAttribute('class','hidden');
-x = document.getElementById('log');
-x.removeAttribute('class','hidden');   
