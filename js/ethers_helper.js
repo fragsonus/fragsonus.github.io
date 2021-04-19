@@ -1540,7 +1540,7 @@ function getUniPrices(tokens, prices, pool)
 
         var x = document.createElement("P");
         x.setAttribute('class', 'alignleft');
-        x.innerHTML = `LP Value:`;
+        x.innerHTML = `LP Price:`;
         y.appendChild(x);
 
         var x = document.createElement("P");
