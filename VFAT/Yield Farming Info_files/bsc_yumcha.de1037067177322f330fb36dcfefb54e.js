@@ -20,7 +20,7 @@ async function main() {
     _print(`Initialized ${App.YOUR_ADDRESS}\n`);
     _print("Reading smart contracts...\n");
 
-   const YUMCHA_CHEF_ADDR = "0xe3641C835d9e441f2F36D96c89E19BEDB5E991e7";
+   const YUMCHA_CHEF_ADDR = "0xe004aCcaEABCD51b477ad18aAe3D0AB6CB550A66";
    const rewardTokenTicker = "YUMCHA";
    const YUMCHA_CHEF = new ethers.Contract(YUMCHA_CHEF_ADDR, YUMCHA_CHEF_ABI, App.provider);
 
