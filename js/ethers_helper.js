@@ -2001,7 +2001,7 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
 
   var x = document.createElement("P");
   x.setAttribute('class', 'alignleft');
-  x.innerHTML = `Claim yumchas:`;
+  x.innerHTML = `Claim:`;
   y.appendChild(x);
 
   var x = document.createElement("P");
