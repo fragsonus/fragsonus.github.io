@@ -446,11 +446,11 @@ async function loadBscChefContract(App, tokens, prices, chef, chefAddress, chefA
       tokens[address] = await getBscToken(App, address, chefAddress);
   }));
 
-  if (deathPoolIndices) {   //load prices for the deathpool assets
-    deathPoolIndices.map(i => poolInfos[i])
-                     .map(poolInfo => 
-      poolInfo.poolToken ? getPoolPrices(tokens, prices, poolInfo.poolToken, "bsc") : undefined);
-  }
+  // if (deathPoolIndices) {   //load prices for the deathpool assets
+  //   deathPoolIndices.map(i => poolInfos[i])
+  //                    .map(poolInfo => 
+  //     poolInfo.poolToken ? getPoolPrices(tokens, prices, poolInfo.poolToken, "bsc") : undefined);
+  // }
 
   const poolPrices = poolInfos.map(poolInfo => poolInfo.poolToken ? getPoolPrices(tokens, prices, poolInfo.poolToken, "bsc") : undefined);
 
