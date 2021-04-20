@@ -2,19 +2,19 @@
 
 var cardsArray = [{
   'name': '0',
-  'title': 'BUSD-yumcha',
+  'title': 'yumcha-BUSD',
 }, {
   'name': '11',
-  'title': 'ycSDR-yumcha',
+  'title': 'yumcha-ycSDR',
 }, {
   'name': '10',
-  'title': 'BNB-yumcha',
+  'title': 'yumcha-BNB',
 }, {
   'name': '2',
   'title': 'yumcha',
 }, {
   'name': '3',
-  'title': 'ycPEG-yumcha',
+  'title': 'yumcha-ycPEG',
 }, {
   'name': '1',
   'title': 'ycVT-BUSD',
