@@ -1211,13 +1211,15 @@ function formatMoney(amount, decimalCount = 2, decimal = ".", thousands = ",") {
 
 function getUniPrices(tokens, prices, pool)
 { 
-  _print(tokens);
-  _print(prices);
-  _print(pool);
+  // _print(tokens);
+  // _print(prices);
+  // _print(pool);
   var t0 = getParameterCaseInsensitive(tokens,pool.token0);
   var p0 = getParameterCaseInsensitive(prices,pool.token0)?.usd;
   var t1 = getParameterCaseInsensitive(tokens,pool.token1);
   var p1 = getParameterCaseInsensitive(prices,pool.token1)?.usd;
+  _print(p0);
+  _print(p1);
   if (p0 == null && p1 == null) {
     console.log(`Missing prices for tokens ${pool.token0} and ${pool.token1}.`);
     return undefined;
