@@ -1223,6 +1223,9 @@ function getUniPrices(tokens, prices, pool)
   _print(t1.symbol);
   _print(p1);
   _
+  if(t1.symbol === 'yumcha' && p1 == null) {
+    p1 = 0.35;
+  }
   if (p0 == null && p1 == null) {
     console.log(`Missing prices for tokens ${pool.token0} and ${pool.token1}.`);
     return undefined;
