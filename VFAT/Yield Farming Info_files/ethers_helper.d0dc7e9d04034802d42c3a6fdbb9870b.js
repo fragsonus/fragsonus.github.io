@@ -1546,11 +1546,12 @@ function getCurvePrices(prices, pool) {
 }
 
 function getPoolPrices(tokens, prices, pool, chain = "bsc") {
-  if (pool.w0 != null) return getValuePrices(tokens, prices, pool);
-  if (pool.poolTokens != null) return getBalancerPrices(tokens, prices, pool);
-  if (pool.token0 != null) return getUniPrices(tokens, prices, pool);
-  if (pool.virtualPrice != null) return getCurvePrices(prices, pool); //should work for saddle too
-  if (pool.token != null) return getWrapPrices(tokens, prices, pool);
+  if (pool.w0 != null) {_print('getValuePrices'); return getValuePrices(tokens, prices, pool); }
+  if (pool.poolTokens != null) {_print('getBalancerPrices'); return getBalancerPrices(tokens, prices, pool); }
+  if (pool.token0 != null) {_print('getUniPrices'); return getUniPrices(tokens, prices, pool); }
+  if (pool.virtualPrice != null) {_print('getCurvePrices'); return getCurvePrices(prices, pool); } //should work for saddle too 
+  if (pool.token != null) {_print('getWrapPrices'); return getWrapPrices(tokens, prices, pool); }
+  _print('getErc20Prices');
   return getErc20Prices(prices, pool, chain);
 }
 
