@@ -438,18 +438,19 @@ async function loadBscChefContract(App, tokens, prices, chef, chefAddress, chefA
   const poolInfos = await Promise.all([...Array(poolCount).keys()].map(async (x) =>
     await getBscPoolInfo(App, chefContract, chefAddress, x, pendingRewardsFunction)));
 
-  _print(poolInfos);
+  // _print(poolInfos);
 
   var tokenAddresses = [].concat.apply([], poolInfos.filter(x => x.poolToken).map(x => x.poolToken.tokens));
 
-  _print(tokenAddresses);
+  // _print(tokenAddresses);
 
   await Promise.all(tokenAddresses.map(async (address) => {
       tokens[address] = await getBscToken(App, address, chefAddress);
-       _print(tokens[address]);
+       // _print(tokens[address]);
   }));
 
   if (deathPoolIndices) {   //load prices for the deathpool assets
+  	_print('deathPoolIndices');
     deathPoolIndices.map(i => poolInfos[i])
                      .map(poolInfo => 
       poolInfo.poolToken ? getPoolPrices(tokens, prices, poolInfo.poolToken, "bsc") : undefined);
