@@ -8,16 +8,13 @@ var cardsArray = [{
   'title': 'ycSDR-yumcha',
 }, {
   'name': '10',
-  'title': 'WBNB-yumcha',
+  'title': 'BNB-yumcha',
 }, {
   'name': '2',
   'title': 'yumcha',
 }, {
   'name': '3',
   'title': 'ycPEG-yumcha',
-}, {
-  'name': '5',
-  'title': 'mQQQ-yumcha',
 }, {
   'name': '1',
   'title': 'ycVT-BUSD',
@@ -36,6 +33,9 @@ var cardsArray = [{
 },{
   'name': '8',
   'title': 'ycBCOM-yumcha',
+}, {
+  'name': '5',
+  'title': 'mQQQ-yumcha',
 }];
 
 var gameGrid = cardsArray;
