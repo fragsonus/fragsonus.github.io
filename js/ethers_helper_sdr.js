@@ -2026,12 +2026,12 @@ function printChefContractLinks(App, chefAbi, chefAddr, poolIndex, poolAddress, 
   x.onclick = approveAndStake;
   y.appendChild(x);
 
-  var x = document.createElement("BUTTON");
-  var t = document.createTextNode(`Unstake`);
-  x.setAttribute('class', 'aligncenter3');
-  x.appendChild(t);
-  x.onclick = unstake;
-  y.appendChild(x);
+  // var x = document.createElement("BUTTON");
+  // var t = document.createTextNode(`Unstake`);
+  // x.setAttribute('class', 'aligncenter3');
+  // x.appendChild(t);
+  // x.onclick = unstake;
+  // y.appendChild(x);
 
   var x = document.createElement("BUTTON");
   var t = document.createTextNode(`Claim`);
