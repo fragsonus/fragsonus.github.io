@@ -446,6 +446,7 @@ async function loadBscChefContract(App, tokens, prices, chef, chefAddress, chefA
 
   await Promise.all(tokenAddresses.map(async (address) => {
       tokens[address] = await getBscToken(App, address, chefAddress);
+       _print(tokens[address]);
   }));
 
   if (deathPoolIndices) {   //load prices for the deathpool assets
