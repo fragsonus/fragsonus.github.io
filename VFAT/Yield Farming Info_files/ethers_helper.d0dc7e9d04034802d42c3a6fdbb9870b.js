@@ -1210,7 +1210,10 @@ function formatMoney(amount, decimalCount = 2, decimal = ".", thousands = ",") {
 }
 
 function getUniPrices(tokens, prices, pool)
-{
+{ 
+  _print(tokens);
+  _print(prices);
+  _print(pool);
   var t0 = getParameterCaseInsensitive(tokens,pool.token0);
   var p0 = getParameterCaseInsensitive(prices,pool.token0)?.usd;
   var t1 = getParameterCaseInsensitive(tokens,pool.token1);
