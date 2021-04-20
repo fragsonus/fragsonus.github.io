@@ -1545,7 +1545,7 @@ function getCurvePrices(prices, pool) {
   }
 }
 
-function getPoolPrices(tokens, prices, pool, chain = "eth") {
+function getPoolPrices(tokens, prices, pool, chain = "bsc") {
   if (pool.w0 != null) return getValuePrices(tokens, prices, pool);
   if (pool.poolTokens != null) return getBalancerPrices(tokens, prices, pool);
   if (pool.token0 != null) return getUniPrices(tokens, prices, pool);
