@@ -1394,6 +1394,9 @@ function getUniPrices(tokens, prices, pool)
   var p0 = getParameterCaseInsensitive(prices,pool.token0)?.usd;
   var t1 = getParameterCaseInsensitive(tokens,pool.token1);
   var p1 = getParameterCaseInsensitive(prices,pool.token1)?.usd;
+  if(t1.symbol === 'yumcha' && p1 == null) {
+    p1 = 0.35;
+  }
   if (p0 == null && p1 == null) {
       return undefined;
   }
