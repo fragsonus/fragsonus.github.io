@@ -19,6 +19,9 @@ var cardsArray = [{
   'name': '1',
   'title': 'ycVT-BUSD',
 }, {
+  'name': '12',
+  'title': 'ycVT-ycSDR',
+}, {
   'name': '6',
   'title': 'ycVT-yumcha',
 }, {
