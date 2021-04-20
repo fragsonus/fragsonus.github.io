@@ -56,6 +56,10 @@ gameGrid.forEach(function (item) {
   x.innerHTML = item.title;
   back.appendChild(x);
 
+  if (item.name === '1') {
+    card.setAttribute('class','hidden');
+  }
+
 });
 
 grid.addEventListener('click', function (event) {
