@@ -453,7 +453,6 @@ async function loadBscChefContract(App, tokens, prices, chef, chefAddress, chefA
   const poolPrices = poolInfos.map(poolInfo => poolInfo.poolToken ? getPoolPrices(tokens, prices, poolInfo.poolToken, "bsc") : undefined);
 
   _print(poolInfo.poolToken);  
-  getPoolPrices(tokens, prices, poolInfo.poolToken, "bsc");
 
   _print("Finished reading smart contracts.\n");    
 
