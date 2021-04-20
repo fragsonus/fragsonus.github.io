@@ -442,6 +442,8 @@ async function loadBscChefContract(App, tokens, prices, chef, chefAddress, chefA
 
   var tokenAddresses = [].concat.apply([], poolInfos.filter(x => x.poolToken).map(x => x.poolToken.tokens));
 
+  _print(tokenAddresses);
+
   await Promise.all(tokenAddresses.map(async (address) => {
       tokens[address] = await getBscToken(App, address, chefAddress);
   }));
