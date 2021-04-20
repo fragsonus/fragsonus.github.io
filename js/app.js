@@ -3,7 +3,10 @@
 var cardsArray = [{
   'name': '0',
   'title': 'BUSD-yumcha',
-},{
+}, {
+  'name': '11',
+  'title': 'ycSDR-yumcha',
+}, {
   'name': '10',
   'title': 'WBNB-yumcha',
 }, {
