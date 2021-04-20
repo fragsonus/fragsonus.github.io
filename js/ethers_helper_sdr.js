@@ -1523,19 +1523,22 @@ function getUniPrices(tokens, prices, pool)
         var x = document.createElement("BR");
         buttonlocation.appendChild(x);
 
-        var y = document.createElement("Div");
-        y.setAttribute('class', 'textbox')
-        buttonlocation.appendChild(y);
+        // var y = document.createElement("Div");
+        // y.setAttribute('class', 'textbox')
+        // buttonlocation.appendChild(y);
 
-        var x = document.createElement("P");
-        x.setAttribute('class', 'alignleft');
-        x.innerHTML = `${t0.symbol} Price:`;
-        y.appendChild(x);
+        // var x = document.createElement("P");
+        // x.setAttribute('class', 'alignleft');
+        // x.innerHTML = `${t0.symbol} Price:`;
+        // y.appendChild(x);
 
-        var x = document.createElement("P");
-        x.setAttribute('class', 'alignright');
-        x.innerHTML = `$${formatMoney(p0)}`;
-        y.appendChild(x);
+        // var x = document.createElement("P");
+        // x.setAttribute('class', 'alignright');
+        // x.innerHTML = `$${formatMoney(p0)}`;
+        // y.appendChild(x);
+
+        var x = document.createElement("BR");
+        buttonlocation.appendChild(x);
 
         var y = document.createElement("Div");
         y.setAttribute('class', 'textbox')
