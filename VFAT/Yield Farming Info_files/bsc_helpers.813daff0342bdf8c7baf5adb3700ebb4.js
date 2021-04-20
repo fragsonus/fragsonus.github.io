@@ -458,9 +458,9 @@ async function loadBscChefContract(App, tokens, prices, chef, chefAddress, chefA
 
   // _print(poolInfo.poolToken);
 
-  const poolPrices2 = poolInfos.map(poolInfo => poolInfo.poolToken ? poolInfo.poolToken : 'chicken');
+  // const poolPrices2 = poolInfos.map(poolInfo => poolInfo.poolToken ? poolInfo.poolToken : 'chicken');
 
-  _print(poolPrices2);
+  // _print(poolPrices2);
 
   const poolPrices = poolInfos.map(poolInfo => poolInfo.poolToken ? getPoolPrices(tokens, prices, poolInfo.poolToken, "bsc") : undefined);
 
