@@ -1493,6 +1493,7 @@ function getWrapPrices(tokens, prices, pool)
 }
 
 function getErc20Prices(prices, pool, chain="eth") {  
+  _print(pool.symbol);
   var price = getParameterCaseInsensitive(prices,pool.address)?.usd;
   var tvl = pool.totalSupply * price / 10 ** pool.decimals;
   var staked_tvl = pool.staked * price;
