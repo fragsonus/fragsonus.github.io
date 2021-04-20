@@ -5,7 +5,7 @@ var cardsArray = [{
   'title': 'ycPEG-yumcha',
 },{
   'name': '1',
-  'title': 'ycPEG-yumcha',
+  'title': 'ycSDR-BUSD',
 }];
 
 var gameGrid = cardsArray;
