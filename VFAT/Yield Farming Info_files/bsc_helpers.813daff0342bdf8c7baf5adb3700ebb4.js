@@ -458,10 +458,13 @@ async function loadBscChefContract(App, tokens, prices, chef, chefAddress, chefA
   let aprs = []
   for (i = 0; i < poolCount; i++) {
     if (poolPrices[i]) {
+      _print(i);   	
       const apr = printChefPool(App, chefAbi, chefAddress, prices, tokens, poolInfos[i], i, poolPrices[i],
         totalAllocPoints, rewardsPerWeek, rewardTokenTicker, rewardTokenAddress,
         pendingRewardsFunction, null, null, "bsc")
+      _print(i);
       aprs.push(apr);
+      _print(i);
     }
   }
   let totalUserStaked=0, totalStaked=0, averageApr=0;
