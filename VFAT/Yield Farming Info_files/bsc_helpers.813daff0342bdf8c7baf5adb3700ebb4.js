@@ -458,7 +458,9 @@ async function loadBscChefContract(App, tokens, prices, chef, chefAddress, chefA
   let aprs = []
   for (i = 0; i < poolCount; i++) {
     // if (poolPrices[i]) {
-      _print(i);   	
+      _print(i);
+      _print(poolPrices[1];
+      _print(poolPrices[0]);   	
       const apr = printChefPool(App, chefAbi, chefAddress, prices, tokens, poolInfos[i], i, poolPrices[i],
         totalAllocPoints, rewardsPerWeek, rewardTokenTicker, rewardTokenAddress,
         pendingRewardsFunction, null, null, "bsc")
