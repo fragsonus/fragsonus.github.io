@@ -89,7 +89,7 @@ gameGrid.forEach(function (item) {
   x.innerHTML = item.title;
   back.appendChild(x);
 
-  if (item.name === '11' || item.name === '12'|| item.name === '9') {
+  if (item.name === '11' || item.name === '12'|| item.name === '9'|| item.name === '7') {
     card.setAttribute('class','hidden');
   }
 
