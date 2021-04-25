@@ -1,44 +1,53 @@
 'use strict';
 
 var cardsArray = [{
-  'name': '0',
+  'name': '13',
   'title': 'yumcha-BUSD',
 }, {
-  'name': '11',
-  'title': 'yumcha-ycSDR',
-}, {
-  'name': '10',
-  'title': 'yumcha-BNB',
-}, {
-  'name': '2',
-  'title': 'yumcha',
-}, {
-  'name': '3',
-  'title': 'yumcha-ycPEG',
-}, {
-  'name': '1',
-  'title': 'ycVT-BUSD',
-}, {
-  'name': '12',
-  'title': 'ycVT-ycSDR',
-}, {
-  'name': '6',
-  'title': 'ycVT-yumcha',
-}, {
-  'name': '4',
+  'name': '14',
   'title': 'ycCMC-BUSD',
 }, {
+  'name': '15',
+  'title': 'ycVT-BUSD',
+}, {
+  'name': '0',
+  'title': 'yumcha-BUSDv1',
+}, {
+  'name': '11',
+  'title': 'yumcha-ycSDRv1',
+}, {
+  'name': '10',
+  'title': 'yumcha-BNBv1',
+}, {
+  'name': '2',
+  'title': 'yumcha-BNBv1',
+}, {
+  'name': '3',
+  'title': 'yumcha-ycPEGv1',
+}, {
+  'name': '1',
+  'title': 'ycVT-BUSDv1',
+}, {
+  'name': '12',
+  'title': 'ycVT-ycSDRv1',
+}, {
+  'name': '6',
+  'title': 'ycVT-yumchav1',
+}, {
+  'name': '4',
+  'title': 'ycCMC-BUSDv1',
+}, {
   'name': '7',
-  'title': 'ycCMC-yumcha',
+  'title': 'ycCMC-yumchav1',
 },{
   'name': '9',
-  'title': 'ycBCOM-BUSD',
+  'title': 'ycBCOM-BUSDv1',
 },{
   'name': '8',
-  'title': 'ycBCOM-yumcha',
+  'title': 'ycBCOM-yumchav1',
 }, {
   'name': '5',
-  'title': 'mQQQ-yumcha',
+  'title': 'mQQQ-yumchav1',
 }];
 
 var gameGrid = cardsArray;
