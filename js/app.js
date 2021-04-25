@@ -68,7 +68,10 @@ front.id = 'log';
 grid.appendChild(card);
 card.appendChild(front);
 
+var v1 = 0;
+
 gameGrid.forEach(function (item) {
+
   var name = item.name,
       img = item.img;
 
@@ -90,13 +93,26 @@ gameGrid.forEach(function (item) {
   card.appendChild(front);
   card.appendChild(back);
 
-  var x = document.createElement("H1");
-  x.innerHTML = item.title;
-  front.appendChild(x);
+  if (v1 < 4) {
+    var x = document.createElement("H1");
+    x.innerHTML = item.title;
+    front.appendChild(x);
 
-  var x = document.createElement("H1");
-  x.innerHTML = item.title;
-  back.appendChild(x);
+    var x = document.createElement("H1");
+    x.innerHTML = item.title;
+    back.appendChild(x);
+  } else {
+    var x = document.createElement("H1");
+    x.innerHTML = item.title;
+    x.setAttribute('class','faded');
+    front.appendChild(x);
+
+    var x = document.createElement("H1");
+    x.innerHTML = item.title;
+    x.setAttribute('class','faded');
+    back.appendChild(x);
+  }
+  v1++;
 
   if (item.name === '11' || item.name === '12'|| item.name === '9'|| item.name === '7') {
     card.setAttribute('class','hidden');
