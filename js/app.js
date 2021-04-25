@@ -44,7 +44,7 @@ var cardsArray = [{
   'title': 'ycBCOM-BUSDv1',
 },{
   'name': '8',
-  'title': 'ycBCOM-yumchav1',
+  'title': 'ycBCOM-ymchv1',
 }, {
   'name': '5',
   'title': 'mQQQ-yumchav1',
