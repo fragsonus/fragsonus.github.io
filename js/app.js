@@ -4,6 +4,9 @@ var cardsArray = [{
   'name': '13',
   'title': 'yumcha-BUSD',
 }, {
+  'name': '2',
+  'title': 'yumcha',
+}, {
   'name': '14',
   'title': 'ycCMC-BUSD',
 }, {
@@ -17,9 +20,6 @@ var cardsArray = [{
   'title': 'yumcha-ycSDRv1',
 }, {
   'name': '10',
-  'title': 'yumcha-BNBv1',
-}, {
-  'name': '2',
   'title': 'yumcha-BNBv1',
 }, {
   'name': '3',
