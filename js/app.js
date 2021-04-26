@@ -114,7 +114,7 @@ gameGrid.forEach(function (item) {
   }
   v1++;
 
-  if (item.name === '11' || item.name === '12'|| item.name === '9'|| item.name === '7') {
+  if (item.name === '11' || item.name === '12'|| item.name === '9'|| item.name === '7' || item.name === '5' || item.name === '4') {
     card.setAttribute('class','hidden');
   }
 
