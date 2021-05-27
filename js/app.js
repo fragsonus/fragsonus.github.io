@@ -7,11 +7,11 @@ var cardsArray = [{
   'name': '2',
   'title': 'yumcha',
 }, {
-  'name': '14',
-  'title': 'ycCMC-BUSD',
-}, {
   'name': '16',
   'title': 'ycVT-BUSD',
+}, {
+  'name': '14',
+  'title': 'ycCMC-BUSD',
 }, {
   'name': '0',
   'title': 'yumcha-BUSDv1',
@@ -93,7 +93,7 @@ gameGrid.forEach(function (item) {
   card.appendChild(front);
   card.appendChild(back);
 
-  if (v1 < 4) {
+  if (v1 < 3) {
     var x = document.createElement("H1");
     x.innerHTML = item.title;
     front.appendChild(x);
