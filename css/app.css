@@ -11,6 +11,12 @@ html {
   color: #e9e6e2;
   font-family: "Roboto", sans-serif;
   line-height: 1.6;
+  background: #ffffff url(https://images.unsplash.com/photo-1449168013943-3a15804bb41c?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=1958d4bfb59a246c6092ff0daabd284b); no-repeat center bottom fixed;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 a {
@@ -43,7 +49,7 @@ b {
 
 body {
   margin: 20px 0;
-  background: #0b0b0d;
+  /* background: #0b0b0d; */
 }
 
 button {
