@@ -111,12 +111,15 @@ gameGrid.forEach(function (item) {
     x.innerHTML = item.title;
     x.setAttribute('class','faded');
     back.appendChild(x);
+    card.setAttribute('class','hidden');
   }
   v1++;
                 
-  if (item.name === '11' || item.name === '12'|| item.name === '9'|| item.name === '7' || item.name === '5' || item.name === '4' || item.name === '8'|| item.name === '3' || item.name === '10') {
-    card.setAttribute('class','hidden');
-  }
+  // if (item.name === '11' || item.name === '12'|| item.name === '9'|| 
+  //     item.name === '7' || item.name === '5' || item.name === '4' || 
+  //     item.name === '8'|| item.name === '3' || item.name === '10') {
+  //   card.setAttribute('class','hidden');
+  // }
 
 });
 
